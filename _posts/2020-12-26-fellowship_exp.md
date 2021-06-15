@@ -23,12 +23,13 @@ choice. Most of the projects during my term was either done in partnership with 
 projects ( you will be the first to contribute to it ). Each project has about 5-6 fellows working on it. There are no mentors as such.
 
 ## Rolling with my crew
-
+```
 I was initially working on an <b><i> 'Emotion Detection' </i></b> project - where based on the video frames you have to classify if the person
 in the zoom meeting is engaged, non-engaged, animated or distracted. For the first month, we spent collecting the dataset from
 various internet scrapes. We were also provided with screenshot of internal zoom meeting. But the manual labelling has to be done
 on our own - which was indeed very boring task. If you are interested in such kind of project, you can start with some of the good
 dataset provided by kaggle - <a href="https://www.kaggle.com/c/mp18-eye-gaze-estimation/data"><b>Eye Gaze Estimation</b></a>, <a href="https://www.kaggle.com/kmader/biwi-kinect-head-pose-database"><b>BIWI Kinect head pose</b></a>.
+```
 
 <div align="center" class="img-container">
     <img src="/img/fellow_exp/emotion_classes.png" width="512" height="512" border="1px" alt="emotion_classes" class="center">

@@ -4,8 +4,13 @@ subtitle: "Dual Reverse Attention Network for Person Re-IDentification"
 comments_id: 1
 categories:
   - Reverse Attention
+
+reference: "https://ieeexplore.ieee.org/document/8804419"
+authors: "Shuangwei Liu; Lin Qi; Yunzhou Zhang; Weidong Shi"
+comments: "2019 IEEE International Conference on Image Processing (ICIP)"
 # featured_image: '/images/demo/demo-square.jpg'
 ---
+
 ## What ?
 
 Person Re-ID using a dual reverse attention based module. Creates hard examples by transforming features using channel and spatial reverse attention process.

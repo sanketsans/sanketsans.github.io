@@ -11,6 +11,10 @@ layout: default
 
 <section class="single">
 	<div class="wrap">
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  {{ page.authors}}</div><div style="float:left; ">URL:   {{ page.reference}}</div>
+				 <div style="float:left; ">Comments:  {{ page.comments}}</div>
+				 <div style="float:left; ">Categories:  {{ page.categories}}</div>
+		</code></div></div>
 		{{ page.content }}
 		{% if page.comments_id %}
 			{% include comments.html %}

@@ -5,8 +5,8 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 15 Jun 2021 19:52:53 +0200</pubDate>
-    <lastBuildDate>Tue, 15 Jun 2021 19:52:53 +0200</lastBuildDate>
+    <pubDate>Tue, 15 Jun 2021 20:19:31 +0200</pubDate>
+    <lastBuildDate>Tue, 15 Jun 2021 20:19:31 +0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
         
@@ -27,12 +27,12 @@ choice. Most of the projects during my term was either done in partnership with 
 projects ( you will be the first to contribute to it ). Each project has about 5-6 fellows working on it. There are no mentors as such.&lt;/p&gt;
 
 &lt;h2 id=&quot;rolling-with-my-crew&quot;&gt;Rolling with my crew&lt;/h2&gt;
-
-&lt;p&gt;I was initially working on an &lt;b&gt;&lt;i&gt; ‘Emotion Detection’ &lt;/i&gt;&lt;/b&gt; project - where based on the video frames you have to classify if the person
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I was initially working on an &amp;lt;b&amp;gt;&amp;lt;i&amp;gt; 'Emotion Detection' &amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt; project - where based on the video frames you have to classify if the person
 in the zoom meeting is engaged, non-engaged, animated or distracted. For the first month, we spent collecting the dataset from
 various internet scrapes. We were also provided with screenshot of internal zoom meeting. But the manual labelling has to be done
 on our own - which was indeed very boring task. If you are interested in such kind of project, you can start with some of the good
-dataset provided by kaggle - &lt;a href=&quot;https://www.kaggle.com/c/mp18-eye-gaze-estimation/data&quot;&gt;&lt;b&gt;Eye Gaze Estimation&lt;/b&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.kaggle.com/kmader/biwi-kinect-head-pose-database&quot;&gt;&lt;b&gt;BIWI Kinect head pose&lt;/b&gt;&lt;/a&gt;.&lt;/p&gt;
+dataset provided by kaggle - &amp;lt;a href=&quot;https://www.kaggle.com/c/mp18-eye-gaze-estimation/data&quot;&amp;gt;&amp;lt;b&amp;gt;Eye Gaze Estimation&amp;lt;/b&amp;gt;&amp;lt;/a&amp;gt;, &amp;lt;a href=&quot;https://www.kaggle.com/kmader/biwi-kinect-head-pose-database&quot;&amp;gt;&amp;lt;b&amp;gt;BIWI Kinect head pose&amp;lt;/b&amp;gt;&amp;lt;/a&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
     &lt;img src=&quot;/img/fellow_exp/emotion_classes.png&quot; width=&quot;512&quot; height=&quot;512&quot; border=&quot;1px&quot; alt=&quot;emotion_classes&quot; class=&quot;center&quot; /&gt;
