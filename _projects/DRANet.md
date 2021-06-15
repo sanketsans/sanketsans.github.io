@@ -1,7 +1,7 @@
 ---
 title: "DRANet"
 subtitle: "Dual Reverse Attention Network for Person Re-IDentification"
-comments_id: 2
+comments_id: 1
 categories:
   - Reverse Attention
 # featured_image: '/images/demo/demo-square.jpg'

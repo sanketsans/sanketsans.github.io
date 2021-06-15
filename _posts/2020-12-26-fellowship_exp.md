@@ -2,7 +2,7 @@
 title: "My experience as a ML fellow for fellowship.ai"
 published: true
 tags: internship blog GAN deep-learning
-comments_id: 3
+comments_id: 2
 categories:
   - GAN
   - Internship
