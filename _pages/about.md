@@ -31,9 +31,9 @@ You can find me on [Twitter](https://twitter.com/sanketsans97).
 If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
 
 **PS: I am still updating this site, few commits a day.**
-
+ <!-- width="2%" height="2%" -->
 <div style="margin-top:2%">
-    <div style="float:left;"><img src="/img/claim_sign.png" alt="claim_sign" width="35" height="35" ></div>
+    <div style="float:left; width:4%; height:4%"><img src="/img/claim_sign.png" alt="claim_sign"></div>
     <div style="float:left; margin-left:2%">This claim is disputed.</div>
     <div style="clear: left;"/>
 </div>
