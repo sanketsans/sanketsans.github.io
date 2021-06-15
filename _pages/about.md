@@ -1,0 +1,39 @@
+---
+title: Ciao
+subtitle: /tʃaʊ/
+description: PhD candidate, Computer Vision. Gamer.
+featured_image: /img/sanket.jpg
+---
+
+I'm Sanket, an aspiring researcher working in the domain of Deep Learning, Computer Vision and Machine Learning with a focus on Multi Modal
+Deep learning. I am currently a PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue.
+
+Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research department. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
+
+
+**Passionate about Gaze tracking, Egocentric vision & Multi modal learning.**
+
+## News [Updates]:
+
+##### Papers:
+
+***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data***
+<p>June 2nd '21 [Under Review]</p>
+
+##### Summer School:
+
+***Accepted into CIFAR Summer School '21***
+<p>May 20th '21</p>
+
+---------
+
+You can find me on [Twitter](https://twitter.com/sanketsans97).  
+If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
+
+**PS: I am still updating this site, few commits a day.**
+
+<div style="margin-top:2%">
+    <div style="float:left;"><img src="/img/claim_sign.png" alt="claim_sign" width="35" height="35" ></div>
+    <div style="float:left; margin-left:2%">This claim is disputed.</div>
+    <div style="clear: left;"/>
+</div>

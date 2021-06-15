@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/about</loc>
+<lastmod>2021-06-15T19:32:11+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/donate</loc>
+<lastmod>2021-06-15T19:32:11+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/blog/fellowship-exp</loc>
+<lastmod>2020-12-26T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/project/dranet</loc>
+<lastmod>2021-06-15T19:32:11+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/projects/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/json/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+</urlset>
