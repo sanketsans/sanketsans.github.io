@@ -1,6 +1,6 @@
 <script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
 <script>
-const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.com/issues/{{ page.comments_id }}/comments?per_page=100'; // ?client_id={{ site.data.settings.gh_api.ci }}&client_secret={{ site.data.settings.gh_api.cs }}
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/{{ page.comments_id }}/comments?per_page=100;' //'?client_id={{ site.data.settings.gh_api.cid }}&client_secret={{ site.data.settings.gh_api.cst }}'
 
 let request = new XMLHttpRequest();
 request.open( 'GET', GH_API_URL, true );
@@ -54,6 +54,7 @@ function createCommentEl( response ) {
 	comment.appendChild( commentContents );
 	comment.appendChild( commentLink );
 
+	console.log(comment)
 	return comment;
 }
 request.send();

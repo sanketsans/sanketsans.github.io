@@ -259,7 +259,7 @@ with current ML research.</li>
 		
 			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
 <script>
-const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.com/issues/2/comments?per_page=100'; // ?client_id=&client_secret=
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/2/comments?per_page=100;' //'?client_id=&client_secret='
 
 let request = new XMLHttpRequest();
 request.open( 'GET', GH_API_URL, true );
@@ -313,6 +313,7 @@ function createCommentEl( response ) {
 	comment.appendChild( commentContents );
 	comment.appendChild( commentLink );
 
+	console.log(comment)
 	return comment;
 }
 request.send();
