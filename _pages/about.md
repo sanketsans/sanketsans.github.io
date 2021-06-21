@@ -25,6 +25,11 @@ Previously, I have worked with <a href="https://www.bell-labs.com/our-research/f
 ***Accepted into CIFAR Summer School '21***
 <p>May 20th '21</p>
 
+##### [Other]:
+
+***Started PhD at [PAVIS/VGM](https://vgm.iit.it), IIT***
+<p>November '20</p>
+
 ---------
 
 You can find me on [Twitter](https://twitter.com/sanketsans97).  
