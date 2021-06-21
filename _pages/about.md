@@ -37,3 +37,7 @@ If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
     <div style="float:left; margin-left:2%">This claim is disputed.</div>
     <div style="clear: left;"/>
 </div>
+
+<div style="margin-top:2%">
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">PI: Congratulating me for submission. <br>Me : Who was still running models to get results in the last hour. <a href="https://twitter.com/hashtag/thoughtsofaphd?src=hash&amp;ref_src=twsrc%5Etfw">#thoughtsofaphd</a> <a href="https://twitter.com/hashtag/phdchat?src=hash&amp;ref_src=twsrc%5Etfw">#phdchat</a> <a href="https://t.co/jGh35e8eMA">pic.twitter.com/jGh35e8eMA</a></p>&mdash; Sanket Thakur (@sanketsans97) <a href="https://twitter.com/sanketsans97/status/1406652103880216577?ref_src=twsrc%5Etfw">June 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
