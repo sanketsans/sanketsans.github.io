@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title> – Sanket Thakur</title>
+	<title>TCN for action anticipation – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content=" – Sanket Thakur">
+	<meta name="twitter:title" content="TCN for action anticipation – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content=" – Sanket Thakur" />
+	<meta property="og:title" content="TCN for action anticipation – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -153,29 +153,145 @@
 		<div class="page__content">
 			<section class="intro">
 	<div class="wrap">
-		<h1></h1>
-		<p></p>
+		<h1>TCN for action anticipation</h1>
+		<p>Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos</p>
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		[
-	{% for post in site.posts %}
-		{% if post.doNotIndex != true %}
-			{
-			  "title"    : "{{ post.title | escape }}",
-			  "category" : "{{ post.category }}",
-			  "url"     : "{{ post.url }}",
-			  "date"     : "{{ post.date }}",
-	          "content"  : "{{ post.content | strip_html | strip_newlines }}"
-			} {% if forloop.last %}{% else %},{% endif %}
-		{% endif %}
-	{% endfor %}
-]
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Olga Zatsarynna, Yazan Abu Farha and Juergen Gall</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content/CVPR2021W/Precognition/html/Zatsarynna_Multi-Modal_Temporal_Convolutional_Network_for_Anticipating_Actions_in_Egocentric_Videos_CVPRW_2021_paper.html</div>
+				 <div style="float:left; ">Comments:  2021 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops</div>
+				 <div style="float:left; ">Categories:  Multi Modal;Action Anticipation;Fusion</div>
+		</code></div></div>
+		<h2 id="what-">What ?</h2>
 
+<p>Multi Modal based action anticipation approach using temporal convolutional networks.</p>
+
+<h2 id="why-">Why ?</h2>
+
+<p>Recurrent Network (LSTM) based network are not efficient with inference and causes latency.</p>
+
+<h2 id="how-">How ?</h2>
+
+<p>Each clip is divided into ‘observed video’ and ‘action anticipation’ segment. The ‘observed’ segment is further split into smaller splits with single frame(RGB, object) and 5 frame(optical flow: horizontal and vertical component) for each snippet.
+For each modality (RGB, Optical flow and Object recognition) a uni-modal network is pre-trained using a hierarchy of dilated temporal convolution nets with residual blocks.</p>
+
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/TCN_AA/uni_arch.png" width="512" height="512" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
+<p>Backbone networks :</p>
+<ul>
+  <li>RGB / Optical flow : TBN (Temporal Binding Network <a href="https://arxiv.org/pdf/1908.08498.pdf">Kazakos et. al ICCV’19</a>)</li>
+  <li>Object recognition : Fast-CNN</li>
+</ul>
+
+<p>Features from different modalities are fused together in a pair-wise and mutual embeddings.</p>
+
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/TCN_AA/arch.png" width="512" height="256" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+rgb = np.random.randn(1024)
+flow = np.random.randn(1024)
+obj = np.random.rand(1024)
+
+pair_rgb_obj = np.random.randn(rgb + obj)
+pair_rgb_flow = np.random.randn(rgb + flow)
+pair_obj_flow = np.random.randn(flow + obj)
+pair = np.random.randn(pair_rgb_obj + pair_rgb_flow + pair_obj_flow)
+
+mutual = np.random.randn(rgb + flow + obj)
+
+final = mutual + pair
+output = softmax(final)
+
+</code></pre></div></div>
+
+<h2 id="notes">Notes</h2>
+<p>Does not perform better than SOTA action anticipation methods. But has faster training and inference time <i>wrt</i> RNN based network.</p>
+
+		
+			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/3/comments?per_page=100;' //'?client_id=&client_secret='
+
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status >= 200 && this.status < 400 ) {
+		let response = JSON.parse( this.response );
+
+		for ( var i = 0; i < response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
+
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
+
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
+
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
+
+	user.appendChild( userAvatar );
+
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
+
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
+
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
+
+	console.log(comment)
+	return comment;
+}
+request.send();
+</script>
+
+<hr>
+
+<div class="github-comments">
+	<h2>Comments</h2>
+	<ul id="gh-comments-list"></ul>
+	<p id="no-comments-found">No comments found for this article. </p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/sanketsans/sanketsans.github.io/issues/3">this ticket</a>. Comments appear on this page instantly.</p>
+</div>
+
+		
 	</div>
 </section>
+
 		</div>
 	</div>
 

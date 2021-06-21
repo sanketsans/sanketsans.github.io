@@ -14,7 +14,7 @@ menu_settings:
     # - title: 'About'
     #   url: '/about'
     - title: 'Pap Series'
-      url: '/projects/index.html'
+      url: '/pap/index.html'
 
 social_settings:
   facebook_url: ''
