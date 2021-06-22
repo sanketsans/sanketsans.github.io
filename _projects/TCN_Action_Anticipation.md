@@ -1,7 +1,7 @@
 ---
 title: "TCN for action anticipation"
 subtitle: "Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos"
-comments_id: 3
+comments_id: 1
 categories:
   - Multi Modal;
   - Action Anticipation;

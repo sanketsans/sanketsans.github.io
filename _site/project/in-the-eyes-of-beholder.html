@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>Papers Breif – Sanket Thakur</title>
+	<title>In The Eyes of Beholder – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Papers Breif – Sanket Thakur">
+	<meta name="twitter:title" content="In The Eyes of Beholder – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="Papers Breif – Sanket Thakur" />
+	<meta property="og:title" content="In The Eyes of Beholder – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -152,91 +152,145 @@
 	<div class="page">
 		<div class="page__content">
 			<section class="intro">
-
 	<div class="wrap">
-
-		<h1>Papers Breif</h1>
-		<p>/tʃaʊ/</p>
-
+		<h1>In The Eyes of Beholder</h1>
+		<p>In the Eye of Beholder: Joint Learning of Gaze and Actions in First Person Video</p>
 	</div>
-
 </section>
 
-<section class="portfolio">
-
+<section class="single">
 	<div class="wrap">
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Yin Li, Miao Liu, James M. Rehg</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content_ECCV_2018/html/Yin_Li_In_the_Eye_ECCV_2018_paper.html</div>
+				 <div style="float:left; ">Comments:  2019 Proceedings of the European Conference on Computer Vision (ECCV)</div>
+				 <div style="float:left; ">Categories:  Attention;Action Recognition;Gaze prediction</div>
+		</code></div></div>
+		<h2 id="what-">What ?</h2>
+
+<p>Joint gaze estimation and action recognition using gaze distribution as attention. New dataset EGTEA (fine-grained actions) - 28hrs with 2D gaze labelling.</p>
+
+<h2 id="why-">Why ?</h2>
+
+<p>Gaze measurements are quite in-consistent and causes uncertainty in modelling deep networks .</p>
+
+<h2 id="how-">How ?</h2>
+
+<p>The authors use 2D gaze coordinates and transform it to a probabilistic distribution of gaze to create a saliency map for the image plane.</p>
+
+<p>The saliency acts as an attention grid for the input frame(s), which is used to extract visual features from the image. - weighted average pooling. The extracted features are then fed to a classifier which predicts the action.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>: empty_plane = np.zeros(m,n)
+: empty_plane[x][y] = 1 ## gaze position
+: q(m,n) = multivariate_normal(q(m,n))  ## probabilistic distribution , when no gaze is available, instead use a uniform distribution.
+: g'(m,n) &lt;- q(m,n) ## gaze attention map
+: p(g|x) = g'(m,n)
+
+: π = qψ(X) ## output from the neural network, distribution achieved by the network
+: q(g|x) = π(m,n)
+
+: p(y|g, x) = f (Σ(m,n) π(m,n) φ(x)(m,n) ) = SOFTMAX(W_t (Σ(m,n) π(m,n) φ(x)(m,n))
+</code></pre></div></div>
+
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/In_The_Eyes/arch.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
+
+<p>The sampling from <code class="highlighter-rouge">π(m,n)</code> is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.</p>
+
+<div align="center" class="img-container" style="margin-top:2%">
+    <img src="/img/In_The_Eyes/direct_samp.png" width="512" height="256" border="1px" alt="arch" class="center" />
+    <figcaption>Direct sampling</figcaption>
+
+    <img src="/img/In_The_Eyes/gumble_samp.png" width="512" height="256" border="1px" alt="arch" class="center" style="margin-top:2%" />
+    <figcaption>Gumbel sampling</figcaption>
+</div>
+
+<p>Since, the network has two main goals to achieve : Create accurate gaze distribution and predict correct action. Therefore, the loss function is the negative of empirical lower bound :</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
+</code></pre></div></div>
+
+<p><strong><em>TL;DR</em></strong> Actions and Hand Mask Annotations.</p>
+
+<h3 id="notes-">Notes :</h3>
+
+<p>The action classification accuracy is best when combined with gaze probability / attention and performs better than other current SOTA on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.</p>
 
 		
+			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/1/comments?per_page=100;' //'?client_id=&client_secret='
 
-		<div class="portfolio-item" style="margin-left:5%">
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status >= 200 && this.status < 400 ) {
+		let response = JSON.parse( this.response );
 
-			<a class="portfolio-item__link" href="/project/tcn-action-anticipation">
+		for ( var i = 0; i < response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
 
-				<div class="portfolio-item__image" style="background-image: url();"></div>
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
 
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">TCN for action anticipation</h2>
-						<p class="portfolio-item__subtitle">Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos</p>
-						<p class="portfolio-item__subtitle"># <i>Multi Modal;Action Anticipation;Fusion </i> </p>
-					</div>
-				</div>
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
 
-			</a>
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
 
-		</div>
+	user.appendChild( userAvatar );
+
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
+
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
+
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
+
+	console.log(comment)
+	return comment;
+}
+request.send();
+</script>
+
+<hr>
+
+<div class="github-comments">
+	<h2>Comments</h2>
+	<ul id="gh-comments-list"></ul>
+	<p id="no-comments-found">No comments found for this article. </p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/sanketsans/sanketsans.github.io/issues/1">this ticket</a>. Comments appear on this page instantly.</p>
+</div>
 
 		
-
-		<div class="portfolio-item" style="margin-left:5%">
-
-			<a class="portfolio-item__link" href="/project/in-the-eyes-of-beholder">
-
-				<div class="portfolio-item__image" style="background-image: url();"></div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">In The Eyes of Beholder</h2>
-						<p class="portfolio-item__subtitle">In the Eye of Beholder: Joint Learning of Gaze and Actions in First Person Video</p>
-						<p class="portfolio-item__subtitle"># <i>Attention;Action Recognition;Gaze prediction </i> </p>
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		
-
-		<div class="portfolio-item" style="margin-left:5%">
-
-			<a class="portfolio-item__link" href="/project/dranet">
-
-				<div class="portfolio-item__image" style="background-image: url();"></div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">DRANet</h2>
-						<p class="portfolio-item__subtitle">Dual Reverse Attention Network for Person Re-IDentification</p>
-						<p class="portfolio-item__subtitle"># <i>Reverse Attention </i> </p>
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		
-
 	</div>
-
-	<div style="margin-top:10%">
-			<p style="margin-top:5%; margin-left:5%" ><b>I will be adding more on a regular basis. </b></p>
-			<div style="float:left; margin-left:5%; width:3%; height:3%"><img src="/img/claim_sign.png" alt="claim_sign" ></div>
-			<div style="float:left; margin-left:1%">This claim is disputed.</div>
-			<div style="clear: left;"/>
-	</div>
-
 </section>
 
 		</div>
