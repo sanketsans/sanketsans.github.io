@@ -19,7 +19,7 @@ Joint gaze estimation and action recognition using gaze distribution as attentio
 
 ## Why ?
 
-Gaze measurements are quite in-consistent and causes uncertainty in modelling deep networks .
+Gaze is used for FPV action recognition since it naturally defined the ROI which can be used for attention based network. Gaze measurements are also quite in-consistent and causes uncertainty in modelling deep networks which is why instead of 2D gaze coordinates, a probabilistic distribution is preferred for modelling the deep network.
 
 ## How ?
 
@@ -66,4 +66,4 @@ Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
 
 ### Notes :
 
-The action classification accuracy is best when combined with gaze probability / attention and performs better than other current SOTA on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.  
+The action classification accuracy is best when combined with gaze probability / attention on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.  
