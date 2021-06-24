@@ -7,18 +7,18 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>Papers Breif – Sanket Thakur</title>
-	<meta name="description" content="PhD candidate, Computer Vision. Gamer.">
+	<title>Head for Gaze in the wild – Sanket Thakur</title>
+	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Papers Breif – Sanket Thakur">
-	<meta name="twitter:description" content="PhD candidate, Computer Vision. Gamer.">
+	<meta name="twitter:title" content="Head for Gaze in the wild – Sanket Thakur">
+	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="Papers Breif – Sanket Thakur" />
-	<meta property="og:description" content="PhD candidate, Computer Vision. Gamer." />
+	<meta property="og:title" content="Head for Gaze in the wild – Sanket Thakur" />
+	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
 	<!-- Styles -->
@@ -152,216 +152,135 @@
 	<div class="page">
 		<div class="page__content">
 			<section class="intro">
-
 	<div class="wrap">
-
-		<h1>Papers Breif</h1>
-		<p>/pap/</p>
-
+		<h1>Head for Gaze in the wild</h1>
+		<p>Learning to Detect Head Movement in Unconstrained Remote Gaze Estimation in the Wild</p>
+		<p style="float:right">24 June 2021</p>
 	</div>
-
 </section>
 
-<section class="portfolio">
-
+<section class="single">
 	<div class="wrap">
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Zhecan Wang, Jian Zhao, Cheng Lu, Fan Yang, Han Huang, lianji li, Yandong Guo</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content_WACV_2020/html/Wang_Learning_to_Detect_Head_Movement_in_Unconstrained_Remote_Gaze_Estimation_WACV_2020_paper.html</div>
+				 <div style="float:left; ">Comments:  2020 Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)</div>
+				 <div style="float:left; ">Categories: gaze_prediction, head_pose_estimation</div>
+		</code></div></div>
+		<h2 id="what-">What ?</h2>
+
+<p>Gaze direction estimation by learning head pose information from facial images.</p>
+
+<h2 id="why-">Why ?</h2>
+
+<p>Appearance based method are considered an efficient method to learn facial information for gaze prediction. Other existing method have worked on similar problem for a controlled scenario(s) or using head pose information as brute-force to learn the mapping.</p>
+
+<h2 id="how-">How ?</h2>
+
+<p>The authors proposes two different method to learn mapping when head pose / facial image is present (HPGD), and when not available (HGD-noHP). The main intention is to find a relationship between eye deformation and head transformation.</p>
+
+<p>Input images are fed to a facial key-point detector which is fed to two separate module responsible for learning head poses and gaze. The hidden ‘learned’ features from both the modules are then concatenated to feed to a regressor.</p>
+
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/head_gaze_wild/HPGD.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
+    <figcaption>HPGD</figcaption>
+</div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if facial_image.is_available():
+    ## HPGD
+    Two different training methods are evaluated :
+      1. Implicit training : Joint Learning.
+      2. Explicit training: freezing the head pose estimator network after its indivisual training and use its inference to train gaze estimator.
+
+else:
+    ## HGD-noHP
+    Joint learning
+</code></pre></div></div>
+
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/head_gaze_wild/HGD-noHP.png" width="70%" height="60%" border="1px" alt="arch" class="center" />
+    <figcaption>HGD-noHP</figcaption>
+</div>
+
+<p>The network outputs a 3D head-pose angle (pitch, yaw).</p>
+
+<h3 id="notes">Notes:</h3>
+<p>The ablation study was evaluated on three main dataset (for facial image) and two for eyes image learning and the network works best for all of them. Authors also suggest using BEC (Both Eyes concatenated on Channel) method for pre-processing of eye images, instead of handling them individually (CA - Component Analysis).</p>
 
 		
+			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/1/comments?per_page=100;' //'?client_id=&client_secret='
 
-		<div class="portfolio-item" style="margin-left:5%">
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status >= 200 && this.status < 400 ) {
+		let response = JSON.parse( this.response );
 
-			<a class="portfolio-item__link" href="/blog/head-gaze-in-the-wild">
+		for ( var i = 0; i < response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
 
-				<div class="portfolio-item__image" style="background-image: url();"></div>
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
 
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">Head for Gaze in the wild</h2>
-						<p class="portfolio-item__subtitle">Learning to Detect Head Movement in Unconstrained Remote Gaze Estimation in the Wild</p>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/gaze_prediction/
-						    rel="category tag" style="margin-left:2%">
-						    #gaze_prediction
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/head_pose_estimation/
-						    rel="category tag" style="margin-left:2%">
-						    #head_pose_estimation
-						  </a>
-						
-					</div>
-				</div>
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
 
-			</a>
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
 
-		</div>
+	user.appendChild( userAvatar );
 
-		
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
 
-		<div class="portfolio-item" style="margin-left:5%">
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
 
-			<a class="portfolio-item__link" href="/blog/integrate-gaze-attention">
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
 
-				<div class="portfolio-item__image" style="background-image: url();"></div>
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
 
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">Integrate Gaze Attention</h2>
-						<p class="portfolio-item__subtitle">Integrating Human Gaze into Attention for Egocentric Activity Recognition</p>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/attention/
-						    rel="category tag" style="margin-left:2%">
-						    #attention
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/action_recognition/
-						    rel="category tag" style="margin-left:2%">
-						    #action_recognition
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/sampling/
-						    rel="category tag" style="margin-left:2%">
-						    #sampling
-						  </a>
-						
-					</div>
-				</div>
+	console.log(comment)
+	return comment;
+}
+request.send();
+</script>
 
-			</a>
+<hr>
 
-		</div>
+<div class="github-comments">
+	<h2>Comments</h2>
+	<ul id="gh-comments-list"></ul>
+	<p id="no-comments-found">No comments found for this article. </p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/sanketsans/sanketsans.github.io/issues/1">this ticket</a>. Comments appear on this page instantly.</p>
+</div>
 
 		
-
-		<div class="portfolio-item" style="margin-left:5%">
-
-			<a class="portfolio-item__link" href="/blog/tcn-action-anticipation">
-
-				<div class="portfolio-item__image" style="background-image: url();"></div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">TCN for action anticipation</h2>
-						<p class="portfolio-item__subtitle">Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos</p>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/multi_modal/
-						    rel="category tag" style="margin-left:2%">
-						    #multi_modal
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/action_anticipation/
-						    rel="category tag" style="margin-left:2%">
-						    #action_anticipation
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/fusion/
-						    rel="category tag" style="margin-left:2%">
-						    #fusion
-						  </a>
-						
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		
-
-		<div class="portfolio-item" style="margin-left:5%">
-
-			<a class="portfolio-item__link" href="/blog/in-the-eyes-of-beholder">
-
-				<div class="portfolio-item__image" style="background-image: url();"></div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">In The Eyes of Beholder</h2>
-						<p class="portfolio-item__subtitle">In the Eye of Beholder: Joint Learning of Gaze and Actions in First Person Video</p>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/attention/
-						    rel="category tag" style="margin-left:2%">
-						    #attention
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/action_recognition/
-						    rel="category tag" style="margin-left:2%">
-						    #action_recognition
-						  </a>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/gaze_prediction/
-						    rel="category tag" style="margin-left:2%">
-						    #gaze_prediction
-						  </a>
-						
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		
-
-		<div class="portfolio-item" style="margin-left:5%">
-
-			<a class="portfolio-item__link" href="/blog/dranet">
-
-				<div class="portfolio-item__image" style="background-image: url();"></div>
-
-				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
-						<h2 class="portfolio-item__title">DRANet</h2>
-						<p class="portfolio-item__subtitle">Dual Reverse Attention Network for Person Re-IDentification</p>
-						
-						  
-						  <a class="tag-link"
-						    href=/tags/reverse_attention/
-						    rel="category tag" style="margin-left:2%">
-						    #reverse_attention
-						  </a>
-						
-					</div>
-				</div>
-
-			</a>
-
-		</div>
-
-		
-
-
 	</div>
-
-	<div style="margin-top:10%">
-			<p style="margin-top:5%; margin-left:5%" ><b>I will be adding more on a regular basis. </b></p>
-			<div style="float:left; margin-left:5%; width:3%; height:3%"><img src="/img/claim_sign.png" alt="claim_sign" ></div>
-			<div style="float:left; margin-left:1%">This claim is disputed.</div>
-			<div style="clear: left;"/>
-	</div>
-
 </section>
 
 		</div>

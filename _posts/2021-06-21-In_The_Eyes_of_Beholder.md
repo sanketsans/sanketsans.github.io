@@ -10,7 +10,7 @@ tags: [attention,  action_recognition, gaze_prediction]
 
 reference: "https://openaccess.thecvf.com/content_ECCV_2018/html/Yin_Li_In_the_Eye_ECCV_2018_paper.html"
 authors: "Yin Li, Miao Liu, James M. Rehg"
-comments: "2019 Proceedings of the European Conference on Computer Vision (ECCV)"
+comments: "2018 Proceedings of the European Conference on Computer Vision (ECCV)"
 # featured_image: '/images/demo/demo-square.jpg'
 ---
 
@@ -43,17 +43,17 @@ The saliency acts as an attention grid for the input frame(s), which is used to 
 
 <div align="center" class="img-container" style="margin-top:2%">
 
-    <img src="/img/In_The_Eyes/arch.png" width="684" height="684" border="1px" alt="arch" class="center">
+    <img src="/img/In_The_Eyes/arch.png" width="70%" height="60%" border="1px" alt="arch" class="center">
     <!-- <figcaption>DRANet architecture</figcaption> -->
 </div>
 
 The sampling from `π(m,n)` is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.
 
 <div align="center" class="img-container" style="margin-top:2%">
-    <img src="/img/In_The_Eyes/direct_samp.png" width="512" height="256" border="1px" alt="arch" class="center">
+    <img src="/img/In_The_Eyes/direct_samp.png" width="70%" height="50%" border="1px" alt="arch" class="center">
     <figcaption>Direct sampling</figcaption>
 
-    <img src="/img/In_The_Eyes/gumble_samp.png" width="512" height="256" border="1px" alt="arch" class="center" style="margin-top:2%">
+    <img src="/img/In_The_Eyes/gumble_samp.png" width="70%" height="50%" border="1px" alt="arch" class="center" style="margin-top:2%">
     <figcaption>Gumbel sampling</figcaption>
 </div>
 

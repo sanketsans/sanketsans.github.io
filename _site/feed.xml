@@ -5,9 +5,70 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 24 Jun 2021 16:55:54 +0200</pubDate>
-    <lastBuildDate>Thu, 24 Jun 2021 16:55:54 +0200</lastBuildDate>
+    <pubDate>Thu, 24 Jun 2021 18:55:41 +0200</pubDate>
+    <lastBuildDate>Thu, 24 Jun 2021 18:55:41 +0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
+    
+        
+          <item>
+            <title>Head for Gaze in the wild</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Gaze direction estimation by learning head pose information from facial images.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Appearance based method are considered an efficient method to learn facial information for gaze prediction. Other existing method have worked on similar problem for a controlled scenario(s) or using head pose information as brute-force to learn the mapping.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+
+&lt;p&gt;The authors proposes two different method to learn mapping when head pose / facial image is present (HPGD), and when not available (HGD-noHP). The main intention is to find a relationship between eye deformation and head transformation.&lt;/p&gt;
+
+&lt;p&gt;Input images are fed to a facial key-point detector which is fed to two separate module responsible for learning head poses and gaze. The hidden ‘learned’ features from both the modules are then concatenated to feed to a regressor.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/head_gaze_wild/HPGD.png&quot; width=&quot;80%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;HPGD&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if facial_image.is_available():
+    ## HPGD
+    Two different training methods are evaluated :
+      1. Implicit training : Joint Learning.
+      2. Explicit training: freezing the head pose estimator network after its indivisual training and use its inference to train gaze estimator.
+
+else:
+    ## HGD-noHP
+    Joint learning
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/head_gaze_wild/HGD-noHP.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;HGD-noHP&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The network outputs a 3D head-pose angle (pitch, yaw).&lt;/p&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;Notes:&lt;/h3&gt;
+&lt;p&gt;The ablation study was evaluated on three main dataset (for facial image) and two for eyes image learning and the network works best for all of them. Authors also suggest using BEC (Both Eyes concatenated on Channel) method for pre-processing of eye images, instead of handling them individually (CA - Component Analysis).&lt;/p&gt;
+</description>
+            <pubDate>Thu, 24 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/head-gaze-in-the-wild</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/head-gaze-in-the-wild</guid>
+            
+            <category>gaze_prediction</category>
+            
+            <category>head_pose_estimation</category>
+            
+            
+            <category>gaze_prediction</category>
+            
+            <category>head_pose_estimation</category>
+            
+          </item>
+        
     
         
           <item>
@@ -37,7 +98,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-    &lt;img src=&quot;/img/integrate_gaze/log_prob.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/integrate_gaze/log_prob.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
@@ -45,7 +106,7 @@
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-    &lt;img src=&quot;/img/integrate_gaze/gradient.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/integrate_gaze/gradient.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
@@ -56,13 +117,13 @@
 &lt;p&gt;The unbiased parameter is introduced using a perturbation parameter, which is set to high initially and then progressively lowered.&lt;/p&gt;
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-    &lt;img src=&quot;/img/integrate_gaze/unbias_param.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/integrate_gaze/unbias_param.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:5%&quot;&gt;
 
-    &lt;img src=&quot;/img/integrate_gaze/arch.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/integrate_gaze/arch.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -197,17 +258,17 @@ output = softmax(final)
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-    &lt;img src=&quot;/img/In_The_Eyes/arch.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/In_The_Eyes/arch.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
 &lt;p&gt;The sampling from &lt;code class=&quot;highlighter-rouge&quot;&gt;π(m,n)&lt;/code&gt; is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
-    &lt;img src=&quot;/img/In_The_Eyes/direct_samp.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/In_The_Eyes/direct_samp.png&quot; width=&quot;70%&quot; height=&quot;50%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;figcaption&gt;Direct sampling&lt;/figcaption&gt;
 
-    &lt;img src=&quot;/img/In_The_Eyes/gumble_samp.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; style=&quot;margin-top:2%&quot; /&gt;
+    &lt;img src=&quot;/img/In_The_Eyes/gumble_samp.png&quot; width=&quot;70%&quot; height=&quot;50%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; style=&quot;margin-top:2%&quot; /&gt;
     &lt;figcaption&gt;Gumbel sampling&lt;/figcaption&gt;
 &lt;/div&gt;
 
@@ -259,7 +320,7 @@ output = softmax(final)
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
 
-    &lt;img src=&quot;/img/dranet/arch.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;img src=&quot;/img/dranet/arch.png&quot; width=&quot;70%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
@@ -268,10 +329,10 @@ output = softmax(final)
 &lt;h4 id=&quot;dual-reverse-attention&quot;&gt;Dual Reverse Attention&lt;/h4&gt;
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
-    &lt;img src=&quot;/img/dranet/rcam.png&quot; alt=&quot;rcam&quot; width=&quot;512&quot; height=&quot;256&quot; /&gt;
+    &lt;img src=&quot;/img/dranet/rcam.png&quot; alt=&quot;rcam&quot; width=&quot;60%&quot; height=&quot;45%&quot; /&gt;
     &lt;figcaption&gt;Channel based reverse Attention&lt;/figcaption&gt;
 
-    &lt;img src=&quot;/img/dranet/rsam.png&quot; alt=&quot;rsam&quot; width=&quot;512&quot; height=&quot;256&quot; /&gt;
+    &lt;img src=&quot;/img/dranet/rsam.png&quot; alt=&quot;rsam&quot; width=&quot;60%&quot; height=&quot;45%&quot; /&gt;
     &lt;figcaption&gt;Spatial based reverse Attention&lt;/figcaption&gt;
 &lt;/div&gt;
 
