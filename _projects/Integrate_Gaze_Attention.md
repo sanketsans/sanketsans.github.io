@@ -4,7 +4,7 @@ subtitle: "Integrating Human Gaze into Attention for Egocentric Activity Recogni
 comments_id: 1
 categories:
   - Attention;
-  - Action Recognition;
+  - Action_Recognition; 
   - Sampling
 
 reference: "https://openaccess.thecvf.com/content/WACV2021/html/Min_Integrating_Human_Gaze_Into_Attention_for_Egocentric_Activity_Recognition_WACV_2021_paper.html"

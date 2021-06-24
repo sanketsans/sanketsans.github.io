@@ -3,10 +3,10 @@ title: "TCN for action anticipation"
 subtitle: "Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos"
 comments_id: 1
 categories:
-  - Multi Modal;
-  - Action Anticipation;
+  - Multi_Modal;
+  - Action_Anticipation; 
   - Fusion
-
+tags: [Fusion]
 reference: "https://openaccess.thecvf.com/content/CVPR2021W/Precognition/html/Zatsarynna_Multi-Modal_Temporal_Convolutional_Network_for_Anticipating_Actions_in_Egocentric_Videos_CVPRW_2021_paper.html"
 authors: "Olga Zatsarynna, Yazan Abu Farha and Juergen Gall"
 comments: "2021 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops"
