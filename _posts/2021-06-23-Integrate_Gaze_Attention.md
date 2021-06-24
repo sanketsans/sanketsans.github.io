@@ -3,10 +3,10 @@ title: "Integrate Gaze Attention"
 subtitle: "Integrating Human Gaze into Attention for Egocentric Activity Recognition"
 comments_id: 1
 categories:
-  - Attention;
-  - Action_Recognition;
-  - Sampling
-tags: [Attention, Action_Recognition, Sampling]
+  - attention
+  - action_recognition
+  - sampling
+tags: [attention, action_recognition, sampling]
 
 reference: "https://openaccess.thecvf.com/content/WACV2021/html/Min_Integrating_Human_Gaze_Into_Attention_for_Egocentric_Activity_Recognition_WACV_2021_paper.html"
 authors: "Kyle Min, Jason J. Corso"

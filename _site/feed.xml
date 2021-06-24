@@ -5,125 +5,297 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 24 Jun 2021 15:57:06 +0200</pubDate>
-    <lastBuildDate>Thu, 24 Jun 2021 15:57:06 +0200</lastBuildDate>
+    <pubDate>Thu, 24 Jun 2021 16:55:54 +0200</pubDate>
+    <lastBuildDate>Thu, 24 Jun 2021 16:55:54 +0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
         
           <item>
-            <title>My experience as a ML fellow for fellowship.ai</title>
-            <description>&lt;p&gt;&lt;a href=&quot;https://fellowship.ai&quot;&gt;&lt;b&gt;Fellowship.Ai&lt;/b&gt;&lt;/a&gt; is a four months long &lt;b&gt;“unpaid”&lt;/b&gt; fellowship on various machine learning topics. The program is 100 % remote,
-and anyone can apply for it. (PS: Keep reading, if you should or not!). You can apply directly by submitting your resume, but if you complete one of the challenges mentioned on the website - you tend to increase your chances for getting to the interviews.
-The challenges are focused on different machine learning topics such as image segmentation, Natural Language Processing (NLP),
-One-Shot learning etc.&lt;/p&gt;
+            <title>Integrate Gaze Attention</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
 
-&lt;p&gt;I applied for the second cohort of 2020 (Sept - Dec ‘20). I worked on the challenge problem of Image segmentation using a U-net
-model. You can read more about the project here - &lt;a href=&quot;https://github.com/sanketsans/Image-Matting-U-Net&quot;&gt; &lt;b&gt; Image Matting with U-Net &lt;/b&gt;&lt;/a&gt;. On submitting the project, I got an interview call within next 2 days.
-The interview was fairly easily and mostly focused on basic of ML knowledge like F1 score, Confusion matrix, etc. and some
-intermediate python programming.&lt;/p&gt;
+&lt;p&gt;Direct optimisation and sampling technique for better integrating gaze for FPV action recognition on EGTEA dataset.&lt;/p&gt;
 
-&lt;p&gt;The program started with an orientation of all the accepted fellows for the cohort. You are free to choose a project based on your
-choice. Most of the projects during my term was either done in partnership with other companies such as Levis or GE or very new
-projects ( you will be the first to contribute to it ). Each project has about 5-6 fellows working on it. There are no mentors as such.&lt;/p&gt;
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
 
-&lt;h2 id=&quot;rolling-with-my-crew&quot;&gt;Rolling with my crew&lt;/h2&gt;
+&lt;p&gt;Improvement to the paper &lt;a href=&quot;https://sanketsans.github.io/project/in-the-eyes-of-beholder&quot;&gt;In The Eyes of Beholder&lt;/a&gt;. &lt;br /&gt;
+&lt;a href=&quot;https://www.youtube.com/watch?v=JFgXEbgcT7g&quot;&gt;Gumble-Softmax&lt;/a&gt; sampling used, introduces a significant bias to a gradient estimator, limiting its performance. Also a direct integration of sampled gaze map can cause confusion due to inaccurate gaze measurements.&lt;/p&gt;
 
-&lt;p&gt;I was initially working on an &lt;b&gt;&lt;i&gt; ‘Emotion Detection’ &lt;/i&gt;&lt;/b&gt; project - where based on the video frames you have to classify if the person
-in the zoom meeting is engaged, non-engaged, animated or distracted. For the first month, we spent collecting the dataset from
-various internet scrapes. We were also provided with screenshot of internal zoom meeting. But the manual labelling has to be done
-on our own - which was indeed very boring task. If you are interested in such kind of project, you can start with some of the good
-dataset provided by kaggle - &lt;a href=&quot;https://www.kaggle.com/c/mp18-eye-gaze-estimation/data&quot;&gt;&lt;b&gt;Eye Gaze Estimation&lt;/b&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.kaggle.com/kmader/biwi-kinect-head-pose-database&quot;&gt;&lt;b&gt;BIWI Kinect head pose&lt;/b&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
 
-&lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
-    &lt;img src=&quot;/img/fellow_exp/emotion_classes.png&quot; width=&quot;512&quot; height=&quot;512&quot; border=&quot;1px&quot; alt=&quot;emotion_classes&quot; class=&quot;center&quot; /&gt;
-    &lt;figcaption&gt;Emotion Classes&lt;/figcaption&gt;
+&lt;p&gt;The authors use the same loss function as that of their competitors. Instead of curating an attention grid, they sample the gaze points through &lt;a href=&quot;https://www.youtube.com/watch?v=JFgXEbgcT7g&quot;&gt;Gumble-Max&lt;/a&gt; trick.&lt;/p&gt;
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/integrate_gaze/gaze_sample.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
+&lt;p&gt;Gamma is the random samples from a Gumble distribution.&lt;/p&gt;
+
+&lt;p&gt;Now, they propose to formulate log-likelihood using the class-wise log-probabilities as a function of x, image features and z, gaze sampled.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: log(pθ)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/integrate_gaze/log_prob.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
-&lt;p&gt;I worked on creating a pipeline for the system. The input images were resized to 128x128 pixels.&lt;/p&gt;
+&lt;p&gt;The gradient will then be a sum of multiple expectation terms of the class- wise log-probabilities, each multiplied by an indicator function, where each class gradient estimator is computed using direct optimisation.&lt;/p&gt;
 
-&lt;h2 id=&quot;two-stage-pipeline-&quot;&gt;Two stage pipeline :&lt;/h2&gt;
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-&lt;li&gt;The input is passed through first stage of the pipeline – where it identifies external entities such as phone, dog etc in the frame. The selected identities helps to understand other objects in the frame. It uses transfer learning method with pre trained model ie. No Learning happens at this stage of the pipeline.&lt;/li&gt;
-
-&lt;li&gt;After the first stage, when the identities are identified. The input image is simplified down the pipeline by cropping the face in the frame.
-Then the cropped portion is sent to the classifier to be classified into 3 classes : Engaged, Non-engaged and Animated.&lt;/li&gt;
-
-&lt;p&gt;If other entities are found from the first stage of the pipeline and is classified as non-engaged by the classifier – then it is regarded as Distracted.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;- - - -&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;I was moved to an another project since most of team member expressed interest to work on other projects. Later, I was working
-on identifying &lt;b&gt;&lt;i&gt; ‘Fridge Food Type Detection’ &lt;/i&gt;&lt;/b&gt;. The project sounds easy but is very difficult to model.
-First, you don’t have a good pool of images to generate a high quality dataset. Second, identifying identifying individual food
-items is a daunting task, since objects are placed so close to each other in a fridge - it is hard to distinguish each of them.
-Here, our major work was to generate synthetic dataset using Generative Adversarial Networks(GANs).
-GANs have been pretty good lately is generating real-life like images of human faces. &amp;lt;show some of the results.&lt;/p&gt;
-
-&lt;p&gt;But, it turns out they are not so good at generating other objects. Before joining the group, other have already worked on using StyleGAN-2 by NVIDIA&lt;link /&gt; to generate synthetic in-domain images. The initial dataset was built using a member’s fridge’s
-in-built camera images and web scraping. Now, directly using GANs on the preliminary dataset was not successful since there were not many images. So, instead synthetic images were generated to transform them to in-domain images.
-To do so, a blender script was used to randomly place 3D-objects such as bottles, veggies etc. in a fridge 3D model(3D scene generation) and jpg images were produced form the front. Reference - &lt;a href=&quot;https://openaccess.thecvf.com/content_ICCVW_2019/papers/ACVR/Koporec_Deep_Learning_Performance_in_the_Presence_of_Significant_Occlusions_-_ICCVW_2019_paper.pdf&quot;&gt;&lt;b&gt;Gregor et. al ICCV ‘19 ()&lt;/b&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
-    &lt;img src=&quot;/img/fellow_exp/blender_image_0.jpg&quot; alt=&quot;synthetic&quot; width=&quot;256&quot; height=&quot;256&quot; /&gt;
-    &lt;figcaption&gt;synthetic images&lt;/figcaption&gt;
+    &lt;img src=&quot;/img/integrate_gaze/gradient.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
-&lt;p&gt;I implemented a Pix2Pix GAN method to create a mapping of synthetic images(from Blender) to generate in-domain images. Though Pix2Pix GAN&lt;link /&gt; is a paired GAN approach and we did not have pair of synthetic and in-domain fridge images. Instead, I created
-random pairs and fed it to a Pix2Pix GAN. After 200 epochs on about 1200 image pairs, results are still not convincing. You can
-check out the project here - &lt;a href=&quot;https://github.com/sanketsans/Pix-2-Pix-GAN&quot;&gt;&lt;b&gt;Pix2Pix GAN&lt;/b&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;where,
+: hφ(x, z) = log qφ(z|x)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;figure&gt;
-&lt;img src=&quot;/img/fellow_exp/my_pix2pix_result.png&quot; alt=&quot;results&quot; style=&quot;width:100%&quot; /&gt;
-&lt;figcaption align=&quot;centre&quot;&gt;My results with Pix2Pix&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;p&gt;The unbiased parameter is introduced using a perturbation parameter, which is set to high initially and then progressively lowered.&lt;/p&gt;
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
-&lt;p&gt;Meanwhile, I started my Phd in November ‘20, and due to hectic schedule I had to focus more time to my PhD from December.
-But, there are appreciable results using CycleGAN.
-why so ? -&lt;/p&gt;
-&lt;li&gt;cyclic loss of the images might lead to a better mapping.&lt;/li&gt;
-&lt;li&gt;unpaired approach &lt;/li&gt;
+    &lt;img src=&quot;/img/integrate_gaze/unbias_param.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
 
-&lt;p&gt;You can read the entire paper here: &lt;a href=&quot;https://www.launchpad.ai/blog/the-usage-of-cyclegan-for-image-translation-to-increase-the-size-of-fridge-food-types-dataset&quot;&gt;&lt;b&gt;The Usage of CycleGAN for Image Translation to Increase the Size of Fridge Food Types Dataset&lt;/b&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:5%&quot;&gt;
 
-&lt;h2 id=&quot;the-good-the-bad-and-neutral&quot;&gt;The Good, the Bad and Neutral:&lt;/h2&gt;
+    &lt;img src=&quot;/img/integrate_gaze/arch.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;Architecture&lt;/figcaption&gt;
+&lt;/div&gt;
 
-&lt;h3 id=&quot;the-good-&quot;&gt;The Good :&lt;/h3&gt;
+&lt;p&gt;The sampled gaze distribution is fed to a FC layer followed a sigmoid to act as a soft-attention map.&lt;/p&gt;
 
-&lt;li&gt;There are &quot;mostly&quot; regular reading session, where someone from the fellowship presents a paper which can help to stay updated
-with current ML research.&lt;/li&gt;
-&lt;li&gt; You will working on real-world projects with an inter-disciplinary team from around the world.&lt;/li&gt;
-&lt;li&gt; Also, the fellowship provide an opportunity to regular performers to join them full-time or get a job at one of the partner companies. Did I mention one of my team member got an internship at Nike ML group and few others at Levis.&lt;/li&gt;
-
-&lt;h3 id=&quot;the-bad-&quot;&gt;The Bad :&lt;/h3&gt;
-
-&lt;li&gt;There are too many meeting. Group meeting, meeting with the co-founder, demos, etc. etc.&lt;/li&gt;
-&lt;li&gt;The program is UNPAID - which is a bummer. I'd recommend it highly to those who are either looking for a switch in your career or a final year student(who is done with the internship) or like me who has time before starting you higher education to apply for it.&lt;/li&gt;
-&lt;li&gt;Time Differences: Meetings are at quite unusual time at night for someone in Asia/Pacific region.&lt;/li&gt;
-
-&lt;h3 id=&quot;neutral-bonus-&quot;&gt;Neutral (Bonus) :&lt;/h3&gt;
-
-&lt;p&gt;Job offers from partner companies are mostly confined to US residents. But there were externships available from the fellowship to fellows everywhere.&lt;/p&gt;
-
-&lt;h2 id=&quot;verdict-&quot;&gt;Verdict :&lt;/h2&gt;
-
-&lt;p&gt;Fellowship does provide a platform for those intermediate in their learning curve of Machine Learning. Since, the program is unpaid, all the fellows(I met), were not working elsewhere full-time. So, I think if you are looking to either switch your career in an ML field or final year student(not the internship) - this will be a great opportunity to learn from real-world projects and potentially get job offers.&lt;/p&gt;
+&lt;h2 id=&quot;notes-&quot;&gt;Notes :&lt;/h2&gt;
+&lt;p&gt;Structured gaze modelling with direct optimisation performs better than other reparameterization technique such as Gumble-Softmax.&lt;/p&gt;
 </description>
-            <pubDate>Sat, 26 Dec 2020 00:00:00 +0100</pubDate>
-            <link>http://localhost:4000/blog/fellowship-exp</link>
-            <guid isPermaLink="true">http://localhost:4000/blog/fellowship-exp</guid>
+            <pubDate>Wed, 23 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/integrate-gaze-attention</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/integrate-gaze-attention</guid>
             
-            <category>internship</category>
+            <category>attention</category>
             
-            <category>blog</category>
+            <category>action_recognition</category>
             
-            <category>GAN</category>
-            
-            <category>deep-learning</category>
+            <category>sampling</category>
             
             
-            <category>GAN</category>
+            <category>attention</category>
             
-            <category>Internship</category>
+            <category>action_recognition</category>
+            
+            <category>sampling</category>
+            
+          </item>
+        
+    
+        
+          <item>
+            <title>TCN for action anticipation</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Multi Modal based action anticipation approach using temporal convolutional networks.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Recurrent Network (LSTM) based network are not efficient with inference and causes latency.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+
+&lt;p&gt;Each clip is divided into ‘observed video’ and ‘action anticipation’ segment. The ‘observed’ segment is further split into smaller splits with single frame(RGB, object) and 5 frame(optical flow: horizontal and vertical component) for each snippet.
+For each modality (RGB, Optical flow and Object recognition) a uni-modal network is pre-trained using a hierarchy of dilated temporal convolution nets with residual blocks.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/TCN_AA/uni_arch.png&quot; width=&quot;512&quot; height=&quot;512&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
+&lt;p&gt;Backbone networks :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;RGB / Optical flow : TBN (Temporal Binding Network &lt;a href=&quot;https://arxiv.org/pdf/1908.08498.pdf&quot;&gt;Kazakos et. al ICCV’19&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Object recognition : Fast-CNN&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Features from different modalities are fused together in a pair-wise and mutual embeddings.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/TCN_AA/arch.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
+rgb = np.random.randn(1024)
+flow = np.random.randn(1024)
+obj = np.random.rand(1024)
+
+pair_rgb_obj = np.random.randn(rgb + obj)
+pair_rgb_flow = np.random.randn(rgb + flow)
+pair_obj_flow = np.random.randn(flow + obj)
+pair = np.random.randn(pair_rgb_obj + pair_rgb_flow + pair_obj_flow)
+
+mutual = np.random.randn(rgb + flow + obj)
+
+final = mutual + pair
+output = softmax(final)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+&lt;p&gt;Does not perform better than SOTA action anticipation methods. But has faster training and inference time &lt;i&gt;wrt&lt;/i&gt; RNN based network.&lt;/p&gt;
+</description>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/tcn-action-anticipation</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/tcn-action-anticipation</guid>
+            
+            <category>multi_modal</category>
+            
+            <category>action_anticipation</category>
+            
+            <category>fusion</category>
+            
+            
+            <category>multi_modal</category>
+            
+            <category>action_anticipation</category>
+            
+            <category>fusion</category>
+            
+          </item>
+        
+    
+        
+          <item>
+            <title>In The Eyes of Beholder</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Joint gaze estimation and action recognition using gaze distribution as attention. New dataset EGTEA (fine-grained actions) - 28hrs with 2D gaze labelling.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Gaze is used for FPV action recognition since it naturally defined the ROI which can be used for attention based network. Gaze measurements are also quite in-consistent and causes uncertainty in modelling deep networks which is why instead of 2D gaze coordinates, a probabilistic distribution is preferred for modelling the deep network.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+
+&lt;p&gt;The authors use 2D gaze coordinates and transform it to a probabilistic distribution of gaze to create a saliency map for the image plane.&lt;/p&gt;
+
+&lt;p&gt;The saliency acts as an attention grid for the input frame(s), which is used to extract visual features from the image. - weighted average pooling. The extracted features are then fed to a classifier which predicts the action.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: empty_plane = np.zeros(m,n)
+: empty_plane[x][y] = 1 ## gaze position
+: q(m,n) = multivariate_normal(q(m,n))  ## probabilistic distribution , when no gaze is available, instead use a uniform distribution.
+: g'(m,n) &amp;lt;- q(m,n) ## gaze attention map
+: p(g|x) = g'(m,n)
+
+: π = qψ(X) ## output from the neural network, distribution achieved by the network
+: q(g|x) = π(m,n)
+
+: p(y|g, x) = f (Σ(m,n) π(m,n) φ(x)(m,n) ) = SOFTMAX(W_t (Σ(m,n) π(m,n) φ(x)(m,n))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/In_The_Eyes/arch.png&quot; width=&quot;684&quot; height=&quot;684&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The sampling from &lt;code class=&quot;highlighter-rouge&quot;&gt;π(m,n)&lt;/code&gt; is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+    &lt;img src=&quot;/img/In_The_Eyes/direct_samp.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;Direct sampling&lt;/figcaption&gt;
+
+    &lt;img src=&quot;/img/In_The_Eyes/gumble_samp.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; style=&quot;margin-top:2%&quot; /&gt;
+    &lt;figcaption&gt;Gumbel sampling&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Since, the network has two main goals to achieve : Create accurate gaze distribution and predict correct action. Therefore, the loss function is the negative of empirical lower bound :&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt; Actions and Hand Mask Annotations.&lt;/p&gt;
+
+&lt;h3 id=&quot;notes-&quot;&gt;Notes :&lt;/h3&gt;
+
+&lt;p&gt;The action classification accuracy is best when combined with gaze probability / attention on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.&lt;/p&gt;
+</description>
+            <pubDate>Mon, 21 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/in-the-eyes-of-beholder</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/in-the-eyes-of-beholder</guid>
+            
+            <category>attention</category>
+            
+            <category>action_recognition</category>
+            
+            <category>gaze_prediction</category>
+            
+            
+            <category>attention</category>
+            
+            <category>action_recognition</category>
+            
+            <category>gaze_prediction</category>
+            
+          </item>
+        
+    
+        
+          <item>
+            <title>DRANet</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Person Re-ID using a dual reverse attention based module. Creates hard examples by transforming features using channel and spatial reverse attention process.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Inability to generalise on hard examples(occlusion, light variances etc.). Mining &lt;i&gt;/&lt;/i&gt; synthetic data generation is expensive and suffers on convergence problem.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+
+&lt;p&gt;The authors introduce &lt;b&gt;DRANet&lt;/b&gt; (Dual Reverse Attention Networks) to generate hard examples in convolutional feature space.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
+
+    &lt;img src=&quot;/img/dranet/arch.png&quot; width=&quot;512&quot; height=&quot;256&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The input image is fed to ResNet50 and features maps are divided into three parts (&lt;b&gt;Why ?&lt;/b&gt;). Each partial feature sequentially goes through CIC (Channel Information Capture) and SIC (Spatial Information Capture).&lt;/p&gt;
+
+&lt;h4 id=&quot;dual-reverse-attention&quot;&gt;Dual Reverse Attention&lt;/h4&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot;&gt;
+    &lt;img src=&quot;/img/dranet/rcam.png&quot; alt=&quot;rcam&quot; width=&quot;512&quot; height=&quot;256&quot; /&gt;
+    &lt;figcaption&gt;Channel based reverse Attention&lt;/figcaption&gt;
+
+    &lt;img src=&quot;/img/dranet/rsam.png&quot; alt=&quot;rsam&quot; width=&quot;512&quot; height=&quot;256&quot; /&gt;
+    &lt;figcaption&gt;Spatial based reverse Attention&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;CIC provides a mask ‘m’ to suppress informative features and generate channel based hard examples.
+&lt;!-- The authors use a squeeze function (FCL) to extract descriptive features for each channel and an excitation function to reflect relative importance of each channel (m) . Later they are combined using channel-wise multiplication for informative features.  &lt;b&gt; (B) &lt;/b&gt; --&gt;
+Similarly, SIC provides a mask, but &lt;b&gt;‘only for’&lt;/b&gt; corresponding person identity &lt;i&gt;‘n’&lt;/i&gt; (Only available during training).&lt;/p&gt;
+
+&lt;h3 id=&quot;implementation&quot;&gt;Implementation&lt;/h3&gt;
+
+&lt;p&gt;All &lt;b&gt;three&lt;/b&gt; softmax losses are combined during training process. During testing, only B and SIC is possible (since person identity is available during training only for spatial reverse attention). Encodings from both features maps after GAP are concatenated (2048 - 1024*2) for predictions.&lt;/p&gt;
+
+&lt;h3 id=&quot;notes-&quot;&gt;Notes :&lt;/h3&gt;
+
+&lt;p&gt;The model improves mAP on three dataset Market-150, DukeMTMC-reID, CUHK03 by 2, 3 &amp;amp; 5 %. But performs almost similar for rank 1, 5, and 10 accuracy.
+For details check out the original paper &lt;a href=&quot;https://ieeexplore.ieee.org/document/8804419&quot;&gt;DRANET&lt;/a&gt;.&lt;/p&gt;
+</description>
+            <pubDate>Tue, 15 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/dranet</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/dranet</guid>
+            
+            <category>reverse_attention</category>
+            
+            
+            <category>reverse_attention</category>
             
           </item>
         

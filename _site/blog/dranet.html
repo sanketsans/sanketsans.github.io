@@ -7,18 +7,18 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>Sanket Thakur – Sanket Thakur</title>
-	<meta name="description" content="PhD candidate, Computer Vision. Gamer.">
+	<title>DRANet – Sanket Thakur</title>
+	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Sanket Thakur – Sanket Thakur">
-	<meta name="twitter:description" content="PhD candidate, Computer Vision. Gamer.">
+	<meta name="twitter:title" content="DRANet – Sanket Thakur">
+	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="Sanket Thakur – Sanket Thakur" />
-	<meta property="og:description" content="PhD candidate, Computer Vision. Gamer." />
+	<meta property="og:title" content="DRANet – Sanket Thakur" />
+	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
 	<!-- Styles -->
@@ -151,41 +151,138 @@
 
 	<div class="page">
 		<div class="page__content">
-			<section class="blog single">
-
+			<section class="intro">
 	<div class="wrap">
-
-		
-			
-
-				<article class="blog-post">
-
-					<div class="blog-post__header">
-						<h2 class="blog-post__title"><a href="/project/fellowship-exp">My experience as a ML fellow for fellowship.ai</a></h2>
-						<p class="blog-post__subtitle">24 June 2021</p>
-					</div>
-
-					
-
-					<div class="blog-post__content">
-						<p><p><a href="https://fellowship.ai"><b>Fellowship.Ai</b></a> is a four months long <b>“unpaid”</b> fellowship on various machine learning topics. The program is 100 % remote,
-and anyone can apply for it. (PS: Keep reading, if you should or not!). You can apply directly by submitting your resume, but if you complete one of the challenges mentioned on the website - you tend to increase your chances for getting to the interviews.
-The challenges are focused on different machine learning topics such as image segmentation, Natural Language Processing (NLP),
-One-Shot learning etc.</p>
-
-</p>
-						<p><a href="/project/fellowship-exp" class="button">Read More</a>
-					</div>
-
-				</article>
-			
-		
-
+		<h1>DRANet</h1>
+		<p>Dual Reverse Attention Network for Person Re-IDentification</p>
+		<p>15 June 2021</p>
 	</div>
-
 </section>
 
+<section class="single">
+	<div class="wrap">
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Shuangwei Liu; Lin Qi; Yunzhou Zhang; Weidong Shi</div><div style="float:left; ">URL:   https://ieeexplore.ieee.org/document/8804419</div>
+				 <div style="float:left; ">Comments:  2019 IEEE International Conference on Image Processing (ICIP)</div>
+				 <div style="float:left; ">Categories: reverse_attention</div>
+		</code></div></div>
+		<h2 id="what-">What ?</h2>
 
+<p>Person Re-ID using a dual reverse attention based module. Creates hard examples by transforming features using channel and spatial reverse attention process.</p>
+
+<h2 id="why-">Why ?</h2>
+
+<p>Inability to generalise on hard examples(occlusion, light variances etc.). Mining <i>/</i> synthetic data generation is expensive and suffers on convergence problem.</p>
+
+<h2 id="how-">How ?</h2>
+
+<p>The authors introduce <b>DRANet</b> (Dual Reverse Attention Networks) to generate hard examples in convolutional feature space.</p>
+
+<div align="center" class="img-container">
+
+    <img src="/img/dranet/arch.png" width="512" height="256" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
+
+<p>The input image is fed to ResNet50 and features maps are divided into three parts (<b>Why ?</b>). Each partial feature sequentially goes through CIC (Channel Information Capture) and SIC (Spatial Information Capture).</p>
+
+<h4 id="dual-reverse-attention">Dual Reverse Attention</h4>
+
+<div align="center" class="img-container">
+    <img src="/img/dranet/rcam.png" alt="rcam" width="512" height="256" />
+    <figcaption>Channel based reverse Attention</figcaption>
+
+    <img src="/img/dranet/rsam.png" alt="rsam" width="512" height="256" />
+    <figcaption>Spatial based reverse Attention</figcaption>
+</div>
+
+<p>CIC provides a mask ‘m’ to suppress informative features and generate channel based hard examples.
+<!-- The authors use a squeeze function (FCL) to extract descriptive features for each channel and an excitation function to reflect relative importance of each channel (m) . Later they are combined using channel-wise multiplication for informative features.  <b> (B) </b> -->
+Similarly, SIC provides a mask, but <b>‘only for’</b> corresponding person identity <i>‘n’</i> (Only available during training).</p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>All <b>three</b> softmax losses are combined during training process. During testing, only B and SIC is possible (since person identity is available during training only for spatial reverse attention). Encodings from both features maps after GAP are concatenated (2048 - 1024*2) for predictions.</p>
+
+<h3 id="notes-">Notes :</h3>
+
+<p>The model improves mAP on three dataset Market-150, DukeMTMC-reID, CUHK03 by 2, 3 &amp; 5 %. But performs almost similar for rank 1, 5, and 10 accuracy.
+For details check out the original paper <a href="https://ieeexplore.ieee.org/document/8804419">DRANET</a>.</p>
+
+		
+			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/1/comments?per_page=100;' //'?client_id=&client_secret='
+
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status >= 200 && this.status < 400 ) {
+		let response = JSON.parse( this.response );
+
+		for ( var i = 0; i < response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
+
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
+
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
+
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
+
+	user.appendChild( userAvatar );
+
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
+
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
+
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
+
+	console.log(comment)
+	return comment;
+}
+request.send();
+</script>
+
+<hr>
+
+<div class="github-comments">
+	<h2>Comments</h2>
+	<ul id="gh-comments-list"></ul>
+	<p id="no-comments-found">No comments found for this article. </p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/sanketsans/sanketsans.github.io/issues/1">this ticket</a>. Comments appear on this page instantly.</p>
+</div>
+
+		
+	</div>
+</section>
 
 		</div>
 	</div>

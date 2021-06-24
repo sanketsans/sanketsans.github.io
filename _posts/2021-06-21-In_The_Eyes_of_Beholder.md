@@ -3,10 +3,10 @@ title: "In The Eyes of Beholder"
 subtitle: "In the Eye of Beholder: Joint Learning of Gaze and Actions in First Person Video"
 comments_id: 1
 categories:
-  - Attention;
-  - Action_Recognition;
-  - Gaze_prediction
-tags: [Attention,  Action_Recognition, Gaze_prediction]
+  - attention
+  - action_recognition
+  - gaze_prediction
+tags: [attention,  action_recognition, gaze_prediction]
 
 reference: "https://openaccess.thecvf.com/content_ECCV_2018/html/Yin_Li_In_the_Eye_ECCV_2018_paper.html"
 authors: "Yin Li, Miao Liu, James M. Rehg"

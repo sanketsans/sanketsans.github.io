@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>In The Eyes of Beholder – Sanket Thakur</title>
+	<title>Integrate Gaze Attention – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="In The Eyes of Beholder – Sanket Thakur">
+	<meta name="twitter:title" content="Integrate Gaze Attention – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="In The Eyes of Beholder – Sanket Thakur" />
+	<meta property="og:title" content="Integrate Gaze Attention – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -153,69 +153,76 @@
 		<div class="page__content">
 			<section class="intro">
 	<div class="wrap">
-		<h1>In The Eyes of Beholder</h1>
-		<p>In the Eye of Beholder: Joint Learning of Gaze and Actions in First Person Video</p>
+		<h1>Integrate Gaze Attention</h1>
+		<p>Integrating Human Gaze into Attention for Egocentric Activity Recognition</p>
+		<p>23 June 2021</p>
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Yin Li, Miao Liu, James M. Rehg</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content_ECCV_2018/html/Yin_Li_In_the_Eye_ECCV_2018_paper.html</div>
-				 <div style="float:left; ">Comments:  2019 Proceedings of the European Conference on Computer Vision (ECCV)</div>
-				 <div style="float:left; ">Categories: Attention;Action_Recognition;Gaze_prediction</div>
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Kyle Min, Jason J. Corso</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content/WACV2021/html/Min_Integrating_Human_Gaze_Into_Attention_for_Egocentric_Activity_Recognition_WACV_2021_paper.html</div>
+				 <div style="float:left; ">Comments:  2019 Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)</div>
+				 <div style="float:left; ">Categories: attention, action_recognition, sampling</div>
 		</code></div></div>
 		<h2 id="what-">What ?</h2>
 
-<p>Joint gaze estimation and action recognition using gaze distribution as attention. New dataset EGTEA (fine-grained actions) - 28hrs with 2D gaze labelling.</p>
+<p>Direct optimisation and sampling technique for better integrating gaze for FPV action recognition on EGTEA dataset.</p>
 
 <h2 id="why-">Why ?</h2>
 
-<p>Gaze is used for FPV action recognition since it naturally defined the ROI which can be used for attention based network. Gaze measurements are also quite in-consistent and causes uncertainty in modelling deep networks which is why instead of 2D gaze coordinates, a probabilistic distribution is preferred for modelling the deep network.</p>
+<p>Improvement to the paper <a href="https://sanketsans.github.io/project/in-the-eyes-of-beholder">In The Eyes of Beholder</a>. <br />
+<a href="https://www.youtube.com/watch?v=JFgXEbgcT7g">Gumble-Softmax</a> sampling used, introduces a significant bias to a gradient estimator, limiting its performance. Also a direct integration of sampled gaze map can cause confusion due to inaccurate gaze measurements.</p>
 
 <h2 id="how-">How ?</h2>
 
-<p>The authors use 2D gaze coordinates and transform it to a probabilistic distribution of gaze to create a saliency map for the image plane.</p>
-
-<p>The saliency acts as an attention grid for the input frame(s), which is used to extract visual features from the image. - weighted average pooling. The extracted features are then fed to a classifier which predicts the action.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>: empty_plane = np.zeros(m,n)
-: empty_plane[x][y] = 1 ## gaze position
-: q(m,n) = multivariate_normal(q(m,n))  ## probabilistic distribution , when no gaze is available, instead use a uniform distribution.
-: g'(m,n) &lt;- q(m,n) ## gaze attention map
-: p(g|x) = g'(m,n)
-
-: π = qψ(X) ## output from the neural network, distribution achieved by the network
-: q(g|x) = π(m,n)
-
-: p(y|g, x) = f (Σ(m,n) π(m,n) φ(x)(m,n) ) = SOFTMAX(W_t (Σ(m,n) π(m,n) φ(x)(m,n))
-</code></pre></div></div>
-
+<p>The authors use the same loss function as that of their competitors. Instead of curating an attention grid, they sample the gaze points through <a href="https://www.youtube.com/watch?v=JFgXEbgcT7g">Gumble-Max</a> trick.</p>
 <div align="center" class="img-container" style="margin-top:2%">
 
-    <img src="/img/In_The_Eyes/arch.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <img src="/img/integrate_gaze/gaze_sample.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
+<p>Gamma is the random samples from a Gumble distribution.</p>
+
+<p>Now, they propose to formulate log-likelihood using the class-wise log-probabilities as a function of x, image features and z, gaze sampled.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>: log(pθ)
+</code></pre></div></div>
+<div align="center" class="img-container" style="margin-top:2%">
+
+    <img src="/img/integrate_gaze/log_prob.png" width="684" height="684" border="1px" alt="arch" class="center" />
     <!-- <figcaption>DRANet architecture</figcaption> -->
 </div>
 
-<p>The sampling from <code class="highlighter-rouge">π(m,n)</code> is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.</p>
+<p>The gradient will then be a sum of multiple expectation terms of the class- wise log-probabilities, each multiplied by an indicator function, where each class gradient estimator is computed using direct optimisation.</p>
 
 <div align="center" class="img-container" style="margin-top:2%">
-    <img src="/img/In_The_Eyes/direct_samp.png" width="512" height="256" border="1px" alt="arch" class="center" />
-    <figcaption>Direct sampling</figcaption>
 
-    <img src="/img/In_The_Eyes/gumble_samp.png" width="512" height="256" border="1px" alt="arch" class="center" style="margin-top:2%" />
-    <figcaption>Gumbel sampling</figcaption>
+    <img src="/img/integrate_gaze/gradient.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
 </div>
 
-<p>Since, the network has two main goals to achieve : Create accurate gaze distribution and predict correct action. Therefore, the loss function is the negative of empirical lower bound :</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>where,
+: hφ(x, z) = log qφ(z|x)
 </code></pre></div></div>
 
-<p><strong><em>TL;DR</em></strong> Actions and Hand Mask Annotations.</p>
+<p>The unbiased parameter is introduced using a perturbation parameter, which is set to high initially and then progressively lowered.</p>
+<div align="center" class="img-container" style="margin-top:2%">
 
-<h3 id="notes-">Notes :</h3>
+    <img src="/img/integrate_gaze/unbias_param.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <!-- <figcaption>DRANet architecture</figcaption> -->
+</div>
 
-<p>The action classification accuracy is best when combined with gaze probability / attention on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.</p>
+<div align="center" class="img-container" style="margin-top:5%">
+
+    <img src="/img/integrate_gaze/arch.png" width="684" height="684" border="1px" alt="arch" class="center" />
+    <figcaption>Architecture</figcaption>
+</div>
+
+<p>The sampled gaze distribution is fed to a FC layer followed a sigmoid to act as a soft-attention map.</p>
+
+<h2 id="notes-">Notes :</h2>
+<p>Structured gaze modelling with direct optimisation performs better than other reparameterization technique such as Gumble-Softmax.</p>
 
 		
 			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>

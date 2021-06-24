@@ -5,16 +5,12 @@ layout: default
 <section class="intro">
 	<div class="wrap">
 		<h1>{{ page.title }}</h1>
-		<p>{{ page.subtitle }}</p>
+		<p>{{ page.date | date_to_long_string }}</p>
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  {{ page.authors}}</div><div style="float:left; ">URL:   {{ page.reference}}</div>
-				 <div style="float:left; ">Comments:  {{ page.comments}}</div>
-				 <div style="float:left; ">Categories: {{ page.categories}}</div>
-		</code></div></div>
 		{{ page.content }}
 		{% if page.comments_id %}
 			{% include comments.html %}
