@@ -10,6 +10,9 @@ collections:
   projects:
     output: true
     permalink: /project/:slug
+  tags:
+    output: true
+    permalink: /tags/:slug
 
 defaults:
   -
@@ -35,6 +38,13 @@ defaults:
       type: "projects"
     values:
       layout: "project"
+
+  -
+    scope:
+      path: ""
+      type: "tags"
+    values:
+      layout: "tags"
 
 markdown: kramdown
 

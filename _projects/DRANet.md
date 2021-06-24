@@ -4,7 +4,7 @@ subtitle: "Dual Reverse Attention Network for Person Re-IDentification"
 comments_id: 1
 categories:
   - Reverse_Attention
-tags: [Reverse Attention]
+tags: [Reverse_Attention]
 
 reference: "https://ieeexplore.ieee.org/document/8804419"
 authors: "Shuangwei Liu; Lin Qi; Yunzhou Zhang; Weidong Shi"

@@ -6,7 +6,7 @@ categories:
   - Attention;
   - Action_Recognition;
   - Gaze_prediction
-tags: [Attention]
+tags: [Attention,  Action_Recognition, Gaze_prediction]
 
 reference: "https://openaccess.thecvf.com/content_ECCV_2018/html/Yin_Li_In_the_Eye_ECCV_2018_paper.html"
 authors: "Yin Li, Miao Liu, James M. Rehg"

@@ -32,9 +32,16 @@ description:
 					<div class="portfolio-item__info" style="margin-top:5%">
 						<h2 class="portfolio-item__title">{{ project.title }}</h2>
 						<p class="portfolio-item__subtitle">{{ project.subtitle }}</p>
-						{% for tag in project.categories %}
-							<!-- <a href="#{{ tag | slugify }}"> {{ tag }} </a> -->
+						<!-- {% for tag in project.tags %}
 							<p class="portfolio-item__subtitle" style="display:inline; margin-left:1%">#<i>{{ tag }}</i> </p>
+						{% endfor %} -->
+						{% for tag in project.tags %}
+						  {% assign tag_slug = tag | slugify: "raw" %}
+						  <a class="tag-link"
+						    href={{ site.baseurl | append: "/tags/" | append: tag_slug | append: "/" }}
+						    rel="category tag" style="margin-left:2%">
+						    #{{ tag }}
+						  </a>
 						{% endfor %}
 					</div>
 				</div>
@@ -44,6 +51,23 @@ description:
 		</div>
 
 		{% endfor %}
+
+		<div class="all-tags">
+		  All tags:
+		  <ul>
+		    {% assign tags = site.projects | all_tags %}
+		    {% for tag in tags %}
+		      {% assign tag_slug = tag['name'] | slugify: "raw" %}
+		      <li>
+		        <a class="tag-link"
+		          href={{ site.baseurl | append: "/tags/" | append: tag_slug | append: "/" }}
+		          rel="category tag">
+		          #{{ tag['name'] }} ({{ tag['count'] }})
+		        </a>
+		      </li>
+		    {% endfor %}
+		  </ul>
+		</div>
 
 	</div>
 
