@@ -39,13 +39,6 @@ defaults:
     values:
       layout: "project"
 
-  -
-    scope:
-      path: ""
-      type: "tags"
-    values:
-      layout: "tags"
-
 markdown: kramdown
 
 kramdown:
