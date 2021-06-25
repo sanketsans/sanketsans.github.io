@@ -5,9 +5,67 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 24 Jun 2021 18:55:41 +0200</pubDate>
-    <lastBuildDate>Thu, 24 Jun 2021 18:55:41 +0200</lastBuildDate>
+    <pubDate>Fri, 25 Jun 2021 17:07:43 +0200</pubDate>
+    <lastBuildDate>Fri, 25 Jun 2021 17:07:43 +0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
+    
+        
+          <item>
+            <title>FACExplanations</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Feasible and Actionable counterfactuals using high density paths of data points and custom weight functions.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Counterfactuals does not consider underlying data distributions and constraints that makes them unachievable and infeasible.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+
+&lt;p&gt;A graph over the data points is constructed where edges are weighted using different metrics based on distances and density of data points. This metric can be tuned based on properties of target instance (to be explained counterfactually) - prediction threshold (for distance) and density threshold.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/FACE/counter_path.png&quot; width=&quot;80%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;HPGD&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;For the given data points graph, FACE suggests D to be the best counterfactual. As A has low classification margin and is in low-density region. B has good classification margin but again is in low-density. C is in high density but is not connected by a high density path.&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/FACE/epsilon_low.png&quot; width=&quot;80%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;Low threshold&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The counterfactuals generated ensures a path that guarantees feasible changes (due to high density data points). Furthermore, a custom weight and condition function is provided to remove inappropriate edges. The figure compares the differences in constructing counterfactuals by typical KDE (Kernel Density Estimator) approach (Left) and FACE approach (Right).&lt;/p&gt;
+
+&lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
+
+    &lt;img src=&quot;/img/FACE/epsilon_high.png&quot; width=&quot;80%&quot; height=&quot;60%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
+    &lt;figcaption&gt;High threshold&lt;/figcaption&gt;
+&lt;/div&gt;
+
+&lt;p&gt;However, the paths can also be decided based on a distance threshold metric, &lt;i&gt;ε&lt;/i&gt; , when the user wants to somewhat ignore the density metric. Different use cases can use different density thresholds based on the distribution of the data.&lt;/p&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
+&lt;p&gt;Assumes covariates to be distributed only on the basis of density. Actionable counterfactuals could be generated based on input constraints as well.&lt;/p&gt;
+</description>
+            <pubDate>Fri, 25 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/facexplanations</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/facexplanations</guid>
+            
+            <category>explainable_ai</category>
+            
+            <category>counterfactuals</category>
+            
+            
+            <category>explainable_ai</category>
+            
+            <category>counterfactuals</category>
+            
+          </item>
+        
     
         
           <item>

@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>TCN for action anticipation – Sanket Thakur</title>
+	<title>FACExplanations – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="TCN for action anticipation – Sanket Thakur">
+	<meta name="twitter:title" content="FACExplanations – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="TCN for action anticipation – Sanket Thakur" />
+	<meta property="og:title" content="FACExplanations – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -153,70 +153,59 @@
 		<div class="page__content">
 			<section class="intro">
 	<div class="wrap">
-		<h1>TCN for action anticipation</h1>
-		<p>Multi-Modal Temporal Convolutional Network for Anticipating Actions in Egocentric Videos</p>
-		<p style="float:left">22 June 2021</p>
+		<h1>FACExplanations</h1>
+		<p>High density paths for generating feasible and actionable counterfactuals</p>
+		<p style="float:left">25 June 2021</p>
+		
+			<p style="float:right" class="portfolio-item__subtitle"> Reviewed by: <a href = "https://www.linkedin.com/in/urja-pawar-11047a113/"<b> Urja Pawar, PhD student (MTU) </b> </a></p>
 		
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Olga Zatsarynna, Yazan Abu Farha and Juergen Gall</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content/CVPR2021W/Precognition/html/Zatsarynna_Multi-Modal_Temporal_Convolutional_Network_for_Anticipating_Actions_in_Egocentric_Videos_CVPRW_2021_paper.html</div>
-				 <div style="float:left; ">Comments:  2021 Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops</div>
-				 <div style="float:left; ">Categories: multi_modal, action_anticipation, fusion</div>
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Rafael Poyiadzi, Kacper Sokol, Raul Santos-Rodriguez, Tijl De Bie, Peter Flach</div><div style="float:left; ">URL:   https://dl.acm.org/doi/10.1145/3375627.3375850</div>
+				 <div style="float:left; ">Comments:  2020 Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society</div>
+				 <div style="float:left; ">Categories: explainable_ai, counterfactuals</div>
 		</code></div></div>
 		<h2 id="what-">What ?</h2>
 
-<p>Multi Modal based action anticipation approach using temporal convolutional networks.</p>
+<p>Feasible and Actionable counterfactuals using high density paths of data points and custom weight functions.</p>
 
 <h2 id="why-">Why ?</h2>
 
-<p>Recurrent Network (LSTM) based network are not efficient with inference and causes latency.</p>
+<p>Counterfactuals does not consider underlying data distributions and constraints that makes them unachievable and infeasible.</p>
 
 <h2 id="how-">How ?</h2>
 
-<p>Each clip is divided into ‘observed video’ and ‘action anticipation’ segment. The ‘observed’ segment is further split into smaller splits with single frame(RGB, object) and 5 frame(optical flow: horizontal and vertical component) for each snippet.
-For each modality (RGB, Optical flow and Object recognition) a uni-modal network is pre-trained using a hierarchy of dilated temporal convolution nets with residual blocks.</p>
+<p>A graph over the data points is constructed where edges are weighted using different metrics based on distances and density of data points. This metric can be tuned based on properties of target instance (to be explained counterfactually) - prediction threshold (for distance) and density threshold.</p>
 
 <div align="center" class="img-container" style="margin-top:2%">
 
-    <img src="/img/TCN_AA/uni_arch.png" width="512" height="512" border="1px" alt="arch" class="center" />
-    <!-- <figcaption>DRANet architecture</figcaption> -->
+    <img src="/img/FACE/counter_path.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
+    <figcaption>HPGD</figcaption>
 </div>
-<p>Backbone networks :</p>
-<ul>
-  <li>RGB / Optical flow : TBN (Temporal Binding Network <a href="https://arxiv.org/pdf/1908.08498.pdf">Kazakos et. al ICCV’19</a>)</li>
-  <li>Object recognition : Fast-CNN</li>
-</ul>
 
-<p>Features from different modalities are fused together in a pair-wise and mutual embeddings.</p>
+<p>For the given data points graph, FACE suggests D to be the best counterfactual. As A has low classification margin and is in low-density region. B has good classification margin but again is in low-density. C is in high density but is not connected by a high density path.</p>
 
 <div align="center" class="img-container" style="margin-top:2%">
 
-    <img src="/img/TCN_AA/arch.png" width="512" height="256" border="1px" alt="arch" class="center" />
-    <!-- <figcaption>DRANet architecture</figcaption> -->
+    <img src="/img/FACE/epsilon_low.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
+    <figcaption>Low threshold</figcaption>
 </div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
-rgb = np.random.randn(1024)
-flow = np.random.randn(1024)
-obj = np.random.rand(1024)
+<p>The counterfactuals generated ensures a path that guarantees feasible changes (due to high density data points). Furthermore, a custom weight and condition function is provided to remove inappropriate edges. The figure compares the differences in constructing counterfactuals by typical KDE (Kernel Density Estimator) approach (Left) and FACE approach (Right).</p>
 
-pair_rgb_obj = np.random.randn(rgb + obj)
-pair_rgb_flow = np.random.randn(rgb + flow)
-pair_obj_flow = np.random.randn(flow + obj)
-pair = np.random.randn(pair_rgb_obj + pair_rgb_flow + pair_obj_flow)
+<div align="center" class="img-container" style="margin-top:2%">
 
-mutual = np.random.randn(rgb + flow + obj)
+    <img src="/img/FACE/epsilon_high.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
+    <figcaption>High threshold</figcaption>
+</div>
 
-final = mutual + pair
-output = softmax(final)
+<p>However, the paths can also be decided based on a distance threshold metric, <i>ε</i> , when the user wants to somewhat ignore the density metric. Different use cases can use different density thresholds based on the distribution of the data.</p>
 
-</code></pre></div></div>
-
-<h2 id="notes">Notes</h2>
-<p>Does not perform better than SOTA action anticipation methods. But has faster training and inference time <i>wrt</i> RNN based network.</p>
+<h3 id="notes">Notes</h3>
+<p>Assumes covariates to be distributed only on the basis of density. Actionable counterfactuals could be generated based on input constraints as well.</p>
 
 		
 			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>

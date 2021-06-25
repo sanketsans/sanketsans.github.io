@@ -31,7 +31,12 @@ description: PhD candidate, Computer Vision. Gamer.
 				<div class="portfolio-item__content">
 					<div class="portfolio-item__info" style="margin-top:5%">
 						<h2 class="portfolio-item__title">{{ post.title }}</h2>
-						<p class="portfolio-item__subtitle">{{ post.subtitle }}</p>
+						<p class="portfolio-item__subtitle">{{ post.subtitle }}
+							<br>{% if post.reviewed_by %}
+								Reviewed By :<b> {{ post.reviewed_by}} </b>
+									{% endif %}
+						</p>
+
 						{% for tag in post.tags %}
 						  {% assign tag_slug = tag | slugify: "raw" %}
 						  <a class="tag-link"
