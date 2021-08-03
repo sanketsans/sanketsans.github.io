@@ -7,18 +7,18 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>Sanket Thakur – Sanket Thakur</title>
-	<meta name="description" content="PhD candidate, Computer Vision. Gamer.">
+	<title>3D vs 2D CNN – Sanket Thakur</title>
+	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Sanket Thakur – Sanket Thakur">
-	<meta name="twitter:description" content="PhD candidate, Computer Vision. Gamer.">
+	<meta name="twitter:title" content="3D vs 2D CNN – Sanket Thakur">
+	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="Sanket Thakur – Sanket Thakur" />
-	<meta property="og:description" content="PhD candidate, Computer Vision. Gamer." />
+	<meta property="og:title" content="3D vs 2D CNN – Sanket Thakur" />
+	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
 	<!-- Styles -->
@@ -151,54 +151,114 @@
 
 	<div class="page">
 		<div class="page__content">
-			<section class="blog single">
-
+			<section class="intro">
 	<div class="wrap">
-
+		<h1>3D vs 2D CNN</h1>
+		<p>A Close Look at Spatiotemporal Convolutions for Action recognition</p>
+		<p style="float:left">26 June 2021</p>
 		
-			
-
-				<article class="blog-post">
-
-					<div class="blog-post__header">
-						<h2 class="blog-post__title"><a href="/project/fellowship-exp">My experience as a ML fellow for fellowship.ai</a></h2>
-						<p class="blog-post__subtitle">03 August 2021</p>
-					</div>
-
-					
-
-					<div class="blog-post__content">
-						<p><p><a href="https://fellowship.ai"><b>Fellowship.Ai</b></a> is a four months long <b>“unpaid”</b> fellowship on various machine learning topics. The program is 100 % remote,
-and anyone can apply for it. (PS: Keep reading, if you should or not!). You can apply directly by submitting your resume, but if you complete one of the challenges mentioned on the website - you tend to increase your chances for getting to the interviews.
-The challenges are focused on different machine learning topics such as image segmentation, Natural Language Processing (NLP),
-One-Shot learning etc.</p>
-
-</p>
-						<p><a href="/project/fellowship-exp" class="button">Read More</a>
-					</div>
-
-				</article>
-			
-		
-
 	</div>
-
 </section>
 
+<section class="single">
+	<div class="wrap">
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Du Tran, Heng Wang, Lorenzo Torresani, Jamie Ray, Yann LeCun, Manohar Paluri</div><div style="float:left; ">URL:   https://openaccess.thecvf.com/content_cvpr_2018/papers/Tran_A_Closer_Look_CVPR_2018_paper.pdf</div>
+				 <div style="float:left; ">Comments:  2020 Proceedings of the International Conference on Computer Vision and Pattern Recognition (CVPR)</div>
+				 <div style="float:left; ">Categories: action_recognition, cnn_models</div>
+		</code></div></div>
+		<h3 id="what">What</h3>
+<p>Comparing different Spatiotemporal CNN model for action recognition task and proposes a new spatiotemporal CNN block : R(2+1)D CNN</p>
 
+<h3 id="why">Why</h3>
+<p>2D CNN applied to individual frames in a video gives appreciable results even after discarding temporal features.</p>
 
-<section class="pagination">
+<h3 id="how">How</h3>
+<p>The authors proposes multiple 3D CNN (reversed, mixed) and CNN with similar dimensions and validate with different clip size for accuracy performance comparison.</p>
 
-	
-	
-	<div class="pagination__next">
-		<a href="/project/page2/" class="button button--large"><span>Older Posts</span> <svg aria-hidden="true" style="width:1rem;height:1rem;vertical-align:text-bottom;line-height:1;" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" class="svg-inline--fa fa-angle-right fa-w-8 fa-3x"><path fill="currentColor" d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" class=""></path></svg></a>
+<p>They also argue that since 3D CNN store the temporal information for the clip length, it tends to perform better than 2D CNN .</p>
+
+<p>It is also proved that since R(2+1)D has more non-linearity (due to additional ReLU with 2D and 1d convolutional block), it has the best performance compared to other CNN models.</p>
+
+<p><strong><em>TL;DR</em></strong> Action recognition with a 34- layer R(2+1)D net</p>
+
+<h3 id="notes">Notes</h3>
+<p>Training on longer clips yields better results on clip-level models, as the filter learn long-term temporal dimensions,</p>
+
+		
+			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
+<script>
+const GH_API_URL = 'https://api.github.com/repos/sanketsans/sanketsans.github.io/issues/1/comments?per_page=100;' //'?client_id=&client_secret='
+
+let request = new XMLHttpRequest();
+request.open( 'GET', GH_API_URL, true );
+request.onload = function() {
+	if ( this.status >= 200 && this.status < 400 ) {
+		let response = JSON.parse( this.response );
+
+		for ( var i = 0; i < response.length; i++ ) {
+			document.getElementById( 'gh-comments-list' ).appendChild( createCommentEl( response[ i ] ) );
+		}
+
+		if ( 0 === response.length ) {
+			document.getElementById( 'no-comments-found' ).style.display = 'block';
+		}
+	} else {
+		console.error( this );
+	}
+};
+
+function createCommentEl( response ) {
+	let user = document.createElement( 'a' );
+	user.setAttribute( 'href', response.user.url.replace( 'api.github.com/users', 'github.com' ) );
+	user.classList.add( 'user' );
+
+	let userAvatar = document.createElement( 'img' );
+	userAvatar.classList.add( 'avatar' );
+	userAvatar.setAttribute( 'src', response.user.avatar_url );
+
+	user.appendChild( userAvatar );
+
+	let commentLink = document.createElement( 'a' );
+	commentLink.setAttribute( 'href', response.html_url );
+	commentLink.classList.add( 'comment-url' );
+	commentLink.innerHTML = '#' + response.id + ' - ' + response.created_at;
+
+	let commentContents = document.createElement( 'div' );
+	commentContents.classList.add( 'comment-content' );
+	commentContents.innerHTML = response.body;
+	// Progressive enhancement.
+	if ( window.showdown ) {
+		let converter = new showdown.Converter();
+		commentContents.innerHTML = converter.makeHtml( response.body );
+	}
+
+	let comment = document.createElement( 'li' );
+	comment.setAttribute( 'data-created', response.created_at );
+	comment.setAttribute( 'data-author-avatar', response.user.avatar_url );
+	comment.setAttribute( 'data-user-url', response.user.url );
+
+	comment.appendChild( user );
+	comment.appendChild( commentContents );
+	comment.appendChild( commentLink );
+
+	console.log(comment)
+	return comment;
+}
+request.send();
+</script>
+
+<hr>
+
+<div class="github-comments">
+	<h2>Comments</h2>
+	<ul id="gh-comments-list"></ul>
+	<p id="no-comments-found">No comments found for this article. </p>
+	<p id="leave-a-comment">Join the discussion for this article on <a href="https://github.com/sanketsans/sanketsans.github.io/issues/1">this ticket</a>. Comments appear on this page instantly.</p>
+</div>
+
+		
 	</div>
-	
-
 </section>
-
-
 
 		</div>
 	</div>

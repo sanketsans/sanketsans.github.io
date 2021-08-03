@@ -5,9 +5,67 @@
     <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 03 Aug 2021 13:20:49 +0200</pubDate>
-    <lastBuildDate>Tue, 03 Aug 2021 13:20:49 +0200</lastBuildDate>
+    <pubDate>Tue, 03 Aug 2021 17:00:59 +0200</pubDate>
+    <lastBuildDate>Tue, 03 Aug 2021 17:00:59 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+        
+          <item>
+            <title>Fairness explained</title>
+            <description>&lt;iframe src=&quot;https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0&quot; width=&quot;100%&quot; height=&quot;232&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; allow=&quot;encrypted-media&quot;&gt;&lt;/iframe&gt;
+</description>
+            <pubDate>Tue, 03 Aug 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/fairness-explained</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/fairness-explained</guid>
+            
+            <category>explainable_ai</category>
+            
+            <category>fairness</category>
+            
+            
+            <category>fairness</category>
+            
+            <category>explainable_ai</category>
+            
+          </item>
+        
+    
+        
+          <item>
+            <title>3D vs 2D CNN</title>
+            <description>&lt;h3 id=&quot;what&quot;&gt;What&lt;/h3&gt;
+&lt;p&gt;Comparing different Spatiotemporal CNN model for action recognition task and proposes a new spatiotemporal CNN block : R(2+1)D CNN&lt;/p&gt;
+
+&lt;h3 id=&quot;why&quot;&gt;Why&lt;/h3&gt;
+&lt;p&gt;2D CNN applied to individual frames in a video gives appreciable results even after discarding temporal features.&lt;/p&gt;
+
+&lt;h3 id=&quot;how&quot;&gt;How&lt;/h3&gt;
+&lt;p&gt;The authors proposes multiple 3D CNN (reversed, mixed) and CNN with similar dimensions and validate with different clip size for accuracy performance comparison.&lt;/p&gt;
+
+&lt;p&gt;They also argue that since 3D CNN store the temporal information for the clip length, it tends to perform better than 2D CNN .&lt;/p&gt;
+
+&lt;p&gt;It is also proved that since R(2+1)D has more non-linearity (due to additional ReLU with 2D and 1d convolutional block), it has the best performance compared to other CNN models.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt; Action recognition with a 34- layer R(2+1)D net&lt;/p&gt;
+
+&lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
+&lt;p&gt;Training on longer clips yields better results on clip-level models, as the filter learn long-term temporal dimensions,&lt;/p&gt;
+</description>
+            <pubDate>Sat, 26 Jun 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/cnn-compare</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/cnn-compare</guid>
+            
+            <category>action_recognition</category>
+            
+            <category>cnn_models</category>
+            
+            
+            <category>action_recognition</category>
+            
+            <category>cnn_models</category>
+            
+          </item>
+        
     
         
           <item>
