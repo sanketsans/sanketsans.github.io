@@ -10,8 +10,12 @@ Deep learning. I am currently a PhD student at PAVIS, Italian Institute of Techn
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research department. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
+Passionate about ***Generative models***, ***Egocentric vision*** & ***Multi modal learning.***
 
-**Passionate about Gaze tracking, Egocentric vision & Multi modal learning.**
+***Checkout my latest podcast !***
+<iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+If you are interested in talking to me about any paper you like, hit me up and lets make another interesting podcast.
 
 ## News [Updates]:
 
@@ -45,6 +49,8 @@ If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
     <div style="float:left; margin-left:2%">This claim is disputed.</div>
     <div style="clear: left;"/>
 </div>
+
+
 
 <div style="margin-top:2%">
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr">PI: Congratulating me for submission. <br>Me : Who was still running models to get results in the last hour. <a href="https://twitter.com/hashtag/thoughtsofaphd?src=hash&amp;ref_src=twsrc%5Etfw">#thoughtsofaphd</a> <a href="https://twitter.com/hashtag/phdchat?src=hash&amp;ref_src=twsrc%5Etfw">#phdchat</a> <a href="https://t.co/jGh35e8eMA">pic.twitter.com/jGh35e8eMA</a></p>&mdash; Sanket Thakur (@sanketsans97) <a href="https://twitter.com/sanketsans97/status/1406652103880216577?ref_src=twsrc%5Etfw">June 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
