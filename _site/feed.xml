@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title></title>
-    <description></description>
+    <title>sanketsans.github.io</title>
+    <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 25 Jun 2021 17:15:54 +0200</pubDate>
-    <lastBuildDate>Fri, 25 Jun 2021 17:15:54 +0200</lastBuildDate>
-    <generator>Jekyll v3.8.4</generator>
+    <pubDate>Tue, 03 Aug 2021 13:20:49 +0200</pubDate>
+    <lastBuildDate>Tue, 03 Aug 2021 13:20:49 +0200</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
     
         
           <item>
@@ -90,7 +90,7 @@
     &lt;figcaption&gt;HPGD&lt;/figcaption&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if facial_image.is_available():
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if facial_image.is_available():
     ## HPGD
     Two different training methods are evaluated :
       1. Implicit training : Joint Learning.
@@ -152,7 +152,7 @@ else:
 
 &lt;p&gt;Now, they propose to formulate log-likelihood using the class-wise log-probabilities as a function of x, image features and z, gaze sampled.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: log(pθ)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: log(pθ)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
 
@@ -168,7 +168,7 @@ else:
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;where,
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;where,
 : hφ(x, z) = log qφ(z|x)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -245,7 +245,7 @@ For each modality (RGB, Optical flow and Object recognition) a uni-modal network
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import numpy as np
 rgb = np.random.randn(1024)
 flow = np.random.randn(1024)
 obj = np.random.rand(1024)
@@ -302,7 +302,7 @@ output = softmax(final)
 
 &lt;p&gt;The saliency acts as an attention grid for the input frame(s), which is used to extract visual features from the image. - weighted average pooling. The extracted features are then fed to a classifier which predicts the action.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: empty_plane = np.zeros(m,n)
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;: empty_plane = np.zeros(m,n)
 : empty_plane[x][y] = 1 ## gaze position
 : q(m,n) = multivariate_normal(q(m,n))  ## probabilistic distribution , when no gaze is available, instead use a uniform distribution.
 : g'(m,n) &amp;lt;- q(m,n) ## gaze attention map
@@ -320,7 +320,7 @@ output = softmax(final)
     &lt;!-- &lt;figcaption&gt;DRANet architecture&lt;/figcaption&gt; --&gt;
 &lt;/div&gt;
 
-&lt;p&gt;The sampling from &lt;code class=&quot;highlighter-rouge&quot;&gt;π(m,n)&lt;/code&gt; is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.&lt;/p&gt;
+&lt;p&gt;The sampling from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;π(m,n)&lt;/code&gt; is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.&lt;/p&gt;
 
 &lt;div align=&quot;center&quot; class=&quot;img-container&quot; style=&quot;margin-top:2%&quot;&gt;
     &lt;img src=&quot;/img/In_The_Eyes/direct_samp.png&quot; width=&quot;70%&quot; height=&quot;50%&quot; border=&quot;1px&quot; alt=&quot;arch&quot; class=&quot;center&quot; /&gt;
@@ -332,7 +332,7 @@ output = softmax(final)
 
 &lt;p&gt;Since, the network has two main goals to achieve : Create accurate gaze distribution and predict correct action. Therefore, the loss function is the negative of empirical lower bound :&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;TL;DR&lt;/em&gt;&lt;/strong&gt; Actions and Hand Mask Annotations.&lt;/p&gt;

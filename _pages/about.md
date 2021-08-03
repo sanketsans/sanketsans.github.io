@@ -18,7 +18,7 @@ Previously, I have worked with <a href="https://www.bell-labs.com/our-research/f
 ##### Papers:
 
 ***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data***
-<p>June 2nd '21 [Under Review]</p>
+<p>Accepted at ACM ICMI '21</p>
 
 ##### Summer School:
 
@@ -26,6 +26,9 @@ Previously, I have worked with <a href="https://www.bell-labs.com/our-research/f
 <p>May 20th '21</p>
 
 ##### [Other]:
+
+***Website Chair, [ETRA '22](http://etra.acm.org/2022/index.html)***
+<p>July '21</p>
 
 ***Started PhD at [PAVIS/VGM](https://vgm.iit.it), IIT***
 <p>November '20</p>

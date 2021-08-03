@@ -180,7 +180,7 @@
 
 <p>The saliency acts as an attention grid for the input frame(s), which is used to extract visual features from the image. - weighted average pooling. The extracted features are then fed to a classifier which predicts the action.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>: empty_plane = np.zeros(m,n)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>: empty_plane = np.zeros(m,n)
 : empty_plane[x][y] = 1 ## gaze position
 : q(m,n) = multivariate_normal(q(m,n))  ## probabilistic distribution , when no gaze is available, instead use a uniform distribution.
 : g'(m,n) &lt;- q(m,n) ## gaze attention map
@@ -198,7 +198,7 @@
     <!-- <figcaption>DRANet architecture</figcaption> -->
 </div>
 
-<p>The sampling from <code class="highlighter-rouge">π(m,n)</code> is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.</p>
+<p>The sampling from <code class="language-plaintext highlighter-rouge">π(m,n)</code> is done using Gumbel-Softmax approach to make the entire pipeline fully differentiable instead of direct sampling.</p>
 
 <div align="center" class="img-container" style="margin-top:2%">
     <img src="/img/In_The_Eyes/direct_samp.png" width="70%" height="50%" border="1px" alt="arch" class="center" />
@@ -210,7 +210,7 @@
 
 <p>Since, the network has two main goals to achieve : Create accurate gaze distribution and predict correct action. Therefore, the loss function is the negative of empirical lower bound :</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Loss : −Σ log(p(y|g,x)) + KL[q(g|x)||p(g|x)]
 </code></pre></div></div>
 
 <p><strong><em>TL;DR</em></strong> Actions and Hand Mask Annotations.</p>
