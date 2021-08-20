@@ -4,10 +4,9 @@ subtitle: "High density paths for generating feasible and actionable counterfact
 comments_id: 1
 categories:
   - explainable_ai
-  - counterfactuals
 reviewed_by: Urja Pawar, PhD student (MTU)
 
-tags: [explainable_ai, counterfactuals]
+tags: [explainable_ai]
 
 reference: "https://dl.acm.org/doi/10.1145/3375627.3375850"
 authors: "Rafael Poyiadzi, Kacper Sokol, Raul Santos-Rodriguez, Tijl De Bie,

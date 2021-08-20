@@ -5,8 +5,8 @@ comments_id: 1
 categories:
   - attention
   - action_recognition
-  - sampling
-tags: [attention, action_recognition, sampling]
+
+tags: [attention, action_recognition]
 
 reference: "https://openaccess.thecvf.com/content/WACV2021/html/Min_Integrating_Human_Gaze_Into_Attention_for_Egocentric_Activity_Recognition_WACV_2021_paper.html"
 authors: "Kyle Min, Jason J. Corso"
