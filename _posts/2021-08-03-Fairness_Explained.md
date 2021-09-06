@@ -1,6 +1,7 @@
 ---
 title: "Fairness explained"
-subtitle: "Fairness definitions explained
+subtitle: "Fairness definitions explained"
+published: false
 "
 comments_id: 1
 categories:

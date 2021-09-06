@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>FACExplanations – Sanket Thakur</title>
+	<title>Music Separation – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="FACExplanations – Sanket Thakur">
+	<meta name="twitter:title" content="Music Separation – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="FACExplanations – Sanket Thakur" />
+	<meta property="og:title" content="Music Separation – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -153,59 +153,53 @@
 		<div class="page__content">
 			<section class="intro">
 	<div class="wrap">
-		<h1>FACExplanations</h1>
-		<p>High density paths for generating feasible and actionable counterfactuals</p>
-		<p style="float:left">25 June 2021</p>
-		
-			<p style="float:right" class="portfolio-item__subtitle"> Reviewed by: <a href = "https://www.linkedin.com/in/urja-pawar-11047a113/"<b> Urja Pawar, PhD student (MTU) </b> </a></p>
+		<h1>Music Separation</h1>
+		<p>Music Gesture for Visual Sound Separation</p>
+		<p style="float:left">20 August 2021</p>
 		
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Rafael Poyiadzi, Kacper Sokol, Raul Santos-Rodriguez, Tijl De Bie, Peter Flach</div><div style="float:left; ">URL:   https://dl.acm.org/doi/10.1145/3375627.3375850</div>
-				 <div style="float:left; ">Comments:  2020 Proceedings of the AAAI/ACM Conference on AI, Ethics, and Society</div>
-				 <div style="float:left; ">Categories: explainable_ai</div>
+		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Chuang Gan et al. </div><div style="float:left; ">URL:   https://arxiv.org/abs/2004.09476</div>
+				 <div style="float:left; ">Comments:  2020 Proceedings of the International Conference on Computer Vision and Pattern Recognition (CVPR)</div>
+				 <div style="float:left; ">Categories: sound_separation</div>
 		</code></div></div>
-		<h2 id="what-">What ?</h2>
+		<h3 id="what">What</h3>
+<p>Visual Sound separation for different music instruments.</p>
 
-<p>Feasible and Actionable counterfactuals using high density paths of data points and custom weight functions.</p>
+<h3 id="why">Why</h3>
+<p>Existing methods rely on appearance (also motion (optical flow)) based methods but do explore the relationship between audio and body keypoints.</p>
 
-<h2 id="why-">Why ?</h2>
+<h3 id="how">How</h3>
+<p>Compute keypoints for three video music datasets [ Music-21, URMP, AtinPiano ]. Main motivation is to associate body dynamics with audio signals for sound keypoints. Extracts global context features from video frames and merge with the outputs of context-aware GCNN on human keypoints. Each input to G-CNN is 2D keypoint coordinate.
+For audio, mixture spectograms are fed to an encoder-decoder network, where are the (visual + GCNN) are fused with encoder features with a self-guided attention mechanism. The U-net is responsible to generate binary spectogram mask for individual audio which is compared with a ground truth mask for dominant component in input mixed audio.</p>
 
-<p>Counterfactuals does not consider underlying data distributions and constraints that makes them unachievable and infeasible.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>visual features -&gt; (2048, D_a x 1) D_a - dimensions
+graph features -&gt; (N x T x D_p)
 
-<h2 id="how-">How ?</h2>
+v = visual network fusion -&gt; N x T x (D_a + D_p) ~ V x D_v
 
-<p>A graph over the data points is constructed where edges are weighted using different metrics based on distances and density of data points. This metric can be tuned based on properties of target instance (to be explained counterfactually) - prediction threshold (for distance) and density threshold.</p>
+a = audio features -&gt; F x D_s
 
-<div align="center" class="img-container" style="margin-top:2%">
+## Self-Guided Attention :
 
-    <img src="/img/FACE/counter_path.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
-    <figcaption>HPGD</figcaption>
-</div>
+h_t = np.dot(SOFTMAX(np.dot(v, a)), v) + a
 
-<p>For the given data points graph, FACE suggests D to be the best counterfactual. As A has low classification margin and is in low-density region. B has good classification margin but again is in low-density. C is in high density but is not connected by a high density path.</p>
+## Fused Features :
 
-<div align="center" class="img-container" style="margin-top:2%">
+z = MLP(h_t) + h_t
+</code></pre></div></div>
 
-    <img src="/img/FACE/epsilon_low.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
-    <figcaption>Low threshold</figcaption>
-</div>
+<p>The MLP is simply a two fully connected layer. The fused features are then fed to upsample layers of decoder part of the U-net. To create a binary mask, sigmoid operation is performed on the feature map.</p>
 
-<p>The counterfactuals generated ensures a path that guarantees feasible changes (due to high density data points). Furthermore, a custom weight and condition function is provided to remove inappropriate edges. The figure compares the differences in constructing counterfactuals by typical KDE (Kernel Density Estimator) approach (Left) and FACE approach (Right).</p>
+<p>The network is trained by minimising the per-pixel sigmoid cross-entropy loss.</p>
 
-<div align="center" class="img-container" style="margin-top:2%">
-
-    <img src="/img/FACE/epsilon_high.png" width="80%" height="60%" border="1px" alt="arch" class="center" />
-    <figcaption>High threshold</figcaption>
-</div>
-
-<p>However, the paths can also be decided based on a distance threshold metric, <i>ε</i> , when the user wants to somewhat ignore the density metric. Different use cases can use different density thresholds based on the distribution of the data.</p>
+<p><strong><em>TL;DR</em></strong> Reconstruct waveforms from spectograms.</p>
 
 <h3 id="notes">Notes</h3>
-<p>Assumes covariates to be distributed only on the basis of density. Actionable counterfactuals could be generated based on input constraints as well.</p>
+<p>Keypoint based representation only can perform better than RGB + Keypoints.</p>
 
 		
 			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>

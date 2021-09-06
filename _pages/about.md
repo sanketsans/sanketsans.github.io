@@ -13,27 +13,9 @@ Previously, I have worked with <a href="https://www.bell-labs.com/our-research/f
 Passionate about ***Generative models***, ***Egocentric vision*** & ***Multi modal learning.***
 
 ***Checkout my latest podcast !***
-<!-- <iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="232" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
-<script async defer onload="redcircleIframe();" src="https://api.podcache.net/embedded-player/sh/3bf9dea5-8505-4c5f-9864-8ba5090c504f/ep/4f71d927-41a6-4d4f-ac8a-9a6b4a58e6f4"></script>
-    <div class="redcirclePlayer-4f71d927-41a6-4d4f-ac8a-9a6b4a58e6f4"></div>
-    <style>
-    .redcircle-link:link {
-        color: #ea404d;
-        text-decoration: none;
-    }
-    .redcircle-link:hover {
-        color: #ea404d;
-    }
-    .redcircle-link:active {
-        color: #ea404d;
-    }
-    .redcircle-link:visited {
-        color: #ea404d;
-    }
-</style>
-<p style="margin-top:3px;margin-left:11px;font-family: sans-serif;font-size: 10px; color: gray;">Powered by <a class="redcircle-link" href="https://redcircle.com?utm_source=rc_embedded_player&utm_medium=web&utm_campaign=embedded_v1">RedCircle</a></p>
+<iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-If you are interested in talking to me about any paper you like, hit me up and lets make another interesting podcast.
+Hit me up and lets make another ***podcast***
 
 ## News [Updates]:
 
@@ -48,6 +30,9 @@ If you are interested in talking to me about any paper you like, hit me up and l
 <p>May 20th '21</p>
 
 ##### [Other]:
+
+***Accepted for [ELLIS Doctoral symposium '21](https://ellisds.eu)***
+<p>September '21</p>
 
 ***Website Chair, [ETRA '22](http://etra.acm.org/2022/index.html)***
 <p>July '21</p>

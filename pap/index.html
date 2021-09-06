@@ -16,10 +16,23 @@ description: PhD candidate, Computer Vision. Gamer.
 
 </section>
 
-<section class="portfolio">
-
 	<div class="wrap">
 
+		<div class="portfolio-item" style="margin-left:3%; margin-right:15%">
+			<h2> Spotify Podcast : </h2> <br>
+			<iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="55%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+			If you are interested in talking to me about your research, hit me up and lets make another interesting <b>podcast</b>.
+
+			<div style="margin-top:0%">
+					<p style="margin-top:5%; margin-left:5%" ><b>I will be adding more on a regular basis. </b></p>
+					<div style="float:left; margin-left:5%; width:3%; height:3%"><img src="/img/claim_sign.png" alt="claim_sign" ></div>
+					<div style="float:left; margin-left:1%">This claim is disputed.</div>
+					<div style="clear: left;"/>
+			</div>
+
+		</div>
+		<section class="portfolio">
 		{% for post in site.posts %}
 
 		<div class="portfolio-item" style="margin-left:5%">
@@ -29,7 +42,8 @@ description: PhD candidate, Computer Vision. Gamer.
 				<div class="portfolio-item__image" style="background-image: url({{ post.featured_image  }});"></div>
 
 				<div class="portfolio-item__content">
-					<div class="portfolio-item__info" style="margin-top:5%">
+					<div class="portfolio-item__info" >
+						<!-- style="margin-top:1%"> -->
 						<h2 class="portfolio-item__title">{{ post.title }}</h2>
 						<p class="portfolio-item__subtitle">{{ post.subtitle }}
 							<br>{% if post.reviewed_by %}
@@ -57,11 +71,11 @@ description: PhD candidate, Computer Vision. Gamer.
 
 	</div>
 
-	<div style="margin-top:10%">
+	<!-- <div style="margin-top:10%">
 			<p style="margin-top:5%; margin-left:5%" ><b>I will be adding more on a regular basis. </b></p>
 			<div style="float:left; margin-left:5%; width:3%; height:3%"><img src="/img/claim_sign.png" alt="claim_sign" ></div>
 			<div style="float:left; margin-left:1%">This claim is disputed.</div>
 			<div style="clear: left;"/>
-	</div>
+	</div> -->
 
 </section>
