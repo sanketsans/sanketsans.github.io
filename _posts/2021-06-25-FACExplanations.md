@@ -6,7 +6,7 @@ categories:
   - explainable_ai
 reviewed_by: Urja Pawar, PhD student (MTU)
 
-tags: [explainable_ai]
+tags: [XAI]
 
 reference: "https://dl.acm.org/doi/10.1145/3375627.3375850"
 authors: "Rafael Poyiadzi, Kacper Sokol, Raul Santos-Rodriguez, Tijl De Bie,

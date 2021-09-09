@@ -7,7 +7,7 @@ categories:
 
 reviewed_by:
 
-tags: [sound_separation]
+tags: [sound-separation]
 
 reference: "https://arxiv.org/abs/2004.09476"
 authors: "Chuang Gan et al. "
@@ -50,4 +50,4 @@ The network is trained by minimising the per-pixel sigmoid cross-entropy loss.
 ***TL;DR*** Reconstruct waveforms from spectograms.
 
 ### Notes
-Keypoint based representation only can perform better than RGB + Keypoints. 
+Keypoint based representation only can perform better than RGB + Keypoints.

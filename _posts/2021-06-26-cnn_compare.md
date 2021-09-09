@@ -6,7 +6,7 @@ categories:
   - action_recognition
 reviewed_by:
 
-tags: [action_recognition]
+tags: [action-recognition]
 
 reference: "https://openaccess.thecvf.com/content_cvpr_2018/papers/Tran_A_Closer_Look_CVPR_2018_paper.pdf"
 authors: "Du Tran, Heng Wang, Lorenzo Torresani, Jamie Ray, Yann LeCun, Manohar Paluri"

@@ -1,5 +1,5 @@
 ---
-tag: "attention"
+tag: "gaze-prediction"
 layout: default
 title: Papers Breif
 subtitle: /pap/

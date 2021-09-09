@@ -6,7 +6,7 @@ comments_id: 1
 categories:
   - fairness
   - explainable_ai
-tags: [explainable_ai, fairness]
+tags: [XAI]
 
 reference: "https://dl.acm.org/doi/10.1145/3194770.3194776"
 authors: "Shail Verma; Julia Robin"

@@ -5,8 +5,8 @@
     <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 06 Sep 2021 20:24:36 +0200</pubDate>
-    <lastBuildDate>Mon, 06 Sep 2021 20:24:36 +0200</lastBuildDate>
+    <pubDate>Thu, 09 Sep 2021 17:52:55 +0200</pubDate>
+    <lastBuildDate>Thu, 09 Sep 2021 17:52:55 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
         
@@ -51,7 +51,7 @@ z = MLP(h_t) + h_t
             <link>http://localhost:4000/blog/music-separation</link>
             <guid isPermaLink="true">http://localhost:4000/blog/music-separation</guid>
             
-            <category>sound_separation</category>
+            <category>sound-separation</category>
             
             
             <category>sound_separation</category>
@@ -84,7 +84,7 @@ z = MLP(h_t) + h_t
             <link>http://localhost:4000/blog/cnn-compare</link>
             <guid isPermaLink="true">http://localhost:4000/blog/cnn-compare</guid>
             
-            <category>action_recognition</category>
+            <category>action-recognition</category>
             
             
             <category>action_recognition</category>
@@ -138,7 +138,7 @@ z = MLP(h_t) + h_t
             <link>http://localhost:4000/blog/facexplanations</link>
             <guid isPermaLink="true">http://localhost:4000/blog/facexplanations</guid>
             
-            <category>explainable_ai</category>
+            <category>XAI</category>
             
             
             <category>explainable_ai</category>
@@ -195,9 +195,9 @@ else:
             <link>http://localhost:4000/blog/head-gaze-in-the-wild</link>
             <guid isPermaLink="true">http://localhost:4000/blog/head-gaze-in-the-wild</guid>
             
-            <category>gaze_prediction</category>
+            <category>gaze-prediction</category>
             
-            <category>head_pose_estimation</category>
+            <category>pose-estimation</category>
             
             
             <category>gaze_prediction</category>
@@ -275,7 +275,7 @@ else:
             
             <category>attention</category>
             
-            <category>action_recognition</category>
+            <category>action-recognition</category>
             
             
             <category>attention</category>
@@ -344,11 +344,9 @@ output = softmax(final)
             <link>http://localhost:4000/blog/tcn-action-anticipation</link>
             <guid isPermaLink="true">http://localhost:4000/blog/tcn-action-anticipation</guid>
             
-            <category>multi_modal</category>
+            <category>multi-modal</category>
             
-            <category>action_anticipation</category>
-            
-            <category>fusion</category>
+            <category>action-anticipation</category>
             
             
             <category>multi_modal</category>
@@ -422,9 +420,9 @@ output = softmax(final)
             
             <category>attention</category>
             
-            <category>action_recognition</category>
+            <category>action-recognition</category>
             
-            <category>gaze_prediction</category>
+            <category>gaze-prediction</category>
             
             
             <category>attention</category>
@@ -486,10 +484,10 @@ For details check out the original paper &lt;a href=&quot;https://ieeexplore.iee
             <link>http://localhost:4000/blog/dranet</link>
             <guid isPermaLink="true">http://localhost:4000/blog/dranet</guid>
             
-            <category>reverse_attention</category>
+            <category>attention</category>
             
             
-            <category>reverse_attention</category>
+            <category>attention</category>
             
           </item>
         

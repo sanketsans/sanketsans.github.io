@@ -6,7 +6,7 @@ categories:
   - attention
   - action_recognition
 
-tags: [attention, action_recognition]
+tags: [attention, action-recognition]
 
 reference: "https://openaccess.thecvf.com/content/WACV2021/html/Min_Integrating_Human_Gaze_Into_Attention_for_Egocentric_Activity_Recognition_WACV_2021_paper.html"
 authors: "Kyle Min, Jason J. Corso"

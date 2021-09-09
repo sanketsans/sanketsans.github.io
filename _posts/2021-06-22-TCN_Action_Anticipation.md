@@ -7,7 +7,7 @@ categories:
   - action_anticipation
   - fusion
 
-tags: [multi_modal, action_anticipation, fusion]
+tags: [multi-modal, action-anticipation]
 
 reference: "https://openaccess.thecvf.com/content/CVPR2021W/Precognition/html/Zatsarynna_Multi-Modal_Temporal_Convolutional_Network_for_Anticipating_Actions_in_Egocentric_Videos_CVPRW_2021_paper.html"
 authors: "Olga Zatsarynna, Yazan Abu Farha and Juergen Gall"

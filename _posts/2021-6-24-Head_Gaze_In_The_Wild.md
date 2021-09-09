@@ -6,7 +6,7 @@ categories:
   - gaze_prediction
   - head_pose_estimation
 
-tags: [gaze_prediction, head_pose_estimation]
+tags: [gaze-prediction, pose-estimation]
 
 reference: "https://openaccess.thecvf.com/content_WACV_2020/html/Wang_Learning_to_Detect_Head_Movement_in_Unconstrained_Remote_Gaze_Estimation_WACV_2020_paper.html"
 authors: "Zhecan Wang, Jian Zhao, Cheng Lu, Fan Yang, Han Huang, lianji li, Yandong Guo"
