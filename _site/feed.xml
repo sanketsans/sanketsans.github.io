@@ -5,9 +5,54 @@
     <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 09 Sep 2021 17:52:55 +0200</pubDate>
-    <lastBuildDate>Thu, 09 Sep 2021 17:52:55 +0200</lastBuildDate>
+    <pubDate>Mon, 13 Sep 2021 15:51:06 +0200</pubDate>
+    <lastBuildDate>Mon, 13 Sep 2021 15:51:06 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+        
+          <item>
+            <title>Who is Looking ?</title>
+            <description>&lt;h2 id=&quot;what-&quot;&gt;What ?&lt;/h2&gt;
+
+&lt;p&gt;Identifying and segmenting the person  seen from multiple view, also the person whose first person view is available.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-&quot;&gt;Why ?&lt;/h2&gt;
+
+&lt;p&gt;Combining multi camera views and having a reconstruct the events.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-&quot;&gt;How ?&lt;/h2&gt;
+&lt;p&gt;All the videos are egocentric in nature**&lt;/p&gt;
+
+&lt;p&gt;Establish a separate segmentation module to identify the segmentation mask given a pre-mask(prev. segmentation mask) for specific / target person, using RGB and optical flow.
+A joint network is then created for the given task&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Given two ‘third-third’ person views:&lt;/em&gt;&lt;/strong&gt;
+Identify the common person viewed from both the views. The joint network is constructed using two segmentation module and the mask is then fed to another set of CNN with shared weights to segment the common person.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Given one third person (egocentric) view and one first person view:&lt;/em&gt;&lt;/strong&gt;
+Identify the person whose first person view is available. The joint network is composed of one segmentation module for thirs person view and first person view is fed to VGG module. The mask from both module is then fed to another CNN. The weights are only shared for embedding space. The CNN features from VGG spatial is multiplied to soft attention of background and VGG temporal features with soft attention of foreground since person in FPV himself does not appear but background might reflect some similarities.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Loss:&lt;/em&gt;&lt;/strong&gt;
+Authors propose using two loss function : sigmoid cross entropy ( to correct the segmentation mask ) and constrastive loss ( to encourage less distances b/w positive samples and more for negative samples. )&lt;/p&gt;
+
+&lt;h3 id=&quot;limitations&quot;&gt;Limitations&lt;/h3&gt;
+
+&lt;p&gt;Only performed for egocentric videos(IUShareView dataset). The model always assumes atleast one person in each frame hence does not perform well for no-person frames.&lt;/p&gt;
+
+&lt;h3 id=&quot;tldr-&quot;&gt;TL/DR :&lt;/h3&gt;
+&lt;p&gt;Evaluation protocol&lt;/p&gt;
+</description>
+            <pubDate>Mon, 13 Sep 2021 00:00:00 +0200</pubDate>
+            <link>http://localhost:4000/blog/whoislooking</link>
+            <guid isPermaLink="true">http://localhost:4000/blog/whoislooking</guid>
+            
+            <category>egocentric</category>
+            
+            
+            <category>egocentric</category>
+            
+          </item>
+        
     
         
           <item>
@@ -199,6 +244,8 @@ else:
             
             <category>pose-estimation</category>
             
+            <category>egocentric</category>
+            
             
             <category>gaze_prediction</category>
             
@@ -277,6 +324,8 @@ else:
             
             <category>action-recognition</category>
             
+            <category>egocentric</category>
+            
             
             <category>attention</category>
             
@@ -347,6 +396,8 @@ output = softmax(final)
             <category>multi-modal</category>
             
             <category>action-anticipation</category>
+            
+            <category>egocentric</category>
             
             
             <category>multi_modal</category>
@@ -423,6 +474,8 @@ output = softmax(final)
             <category>action-recognition</category>
             
             <category>gaze-prediction</category>
+            
+            <category>egocentric</category>
             
             
             <category>attention</category>
