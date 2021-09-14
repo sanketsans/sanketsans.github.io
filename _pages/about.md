@@ -15,7 +15,7 @@ Passionate about ***Generative models***, ***Egocentric vision*** & ***Multi mod
 ***Checkout my latest podcast !***
 <iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-Hit me up and lets make another ***podcast***
+Hit me up and lets make another ***podcast.***
 
 ## News [Updates]:
 
