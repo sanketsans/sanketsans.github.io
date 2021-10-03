@@ -21,8 +21,9 @@ Hit me up and lets make another ***podcast.***
 
 ##### Papers:
 
-***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data***
-<p>Accepted at ACM ICMI '21</p>
+***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data*** , ACM ICMI ' 21<br>
+**Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue
+<!-- <p>Accepted at ACM ICMI '21</p> -->
 
 ##### Summer School:
 
