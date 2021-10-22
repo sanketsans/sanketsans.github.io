@@ -31,11 +31,11 @@ Y = transpose(W).X
 ```
 This Y will be somewhat smoothened version of X thanks to <b>re-weighting</b> which we just did. It amplifies the relations between the data points and bring the similar ones closer and vice versa. 
 
-Lets take a look at this from natural language perspective. Suppose we have two sentences V_1, and V_2, each word represented as vector. Now, there must be some correlation between some words of one sentence to an another word of the other sentence. That's where we need attention to figure out the corelation between different sentence and understand the context. As one can image, it is widely used in machine translation based tasks.
+Lets take a look at this from natural language perspective. Suppose we have two sentences V_1, and V_2, each word represented as vector. Now, there must be some correlation between some words of one sentence to an another word of the other sentence. That's where we need attention to figure out the correlation between different sentence and understand the context. As one can image, it is widely used in machine translation based tasks.
 
 Lets take a simpler sentence: 
 ###### Sky is clear today 
-Sky is connected with clear and today. Sky in itself can mean other things as well, eg. someone's name. But here there is a context which says that the sky is clear today. So machine should be able to relate the corelation between the words to understand the context. 
+Sky is connected with clear and today. Sky in itself can mean other things as well, eg. someone's name. But here there is a context which says that the sky is clear today. So machine should be able to relate the words to understand the context. 
 So, we try the earlier re-weightning factor in this as well. 
 So ,we create word embeddings for our sentence. Since machine cannot understand generic words, we create
 ###### V = [V_1, V_2, V_3, V_4] - # word embeddings.
@@ -53,7 +53,7 @@ W_11.V_1 + W_12.V2 + W_13.V3 + W_14.V4 = Y_1
 But all this work only gives the re-weighted vector just for V_1. So , we repeat all these steps for each word to get all the re-weighted embeddings. 
 In the end, we get, <b> Y = [Y_1, Y_2, Y_3, Y_4] </b> which can provide us a better context for the sentence. 
 
-This all in itself is called self-atteion. There are couple of things to take note of : 
+This all in itself is called self-attention. There are couple of things to take note of : 
 <ul>
   <li> No trained weights </li>
   <li> Order has no influence </li>
