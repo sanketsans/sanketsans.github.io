@@ -13,7 +13,7 @@ I hear a lot about self-attention in papers I read every now and then. And almos
 
 Lets say you have a time series data. It is in their nature to be very noisy. And believe me when I say this. How ? Read my recent paper - <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=pM6-D7EAAAAJ&citation_for_view=pM6-D7EAAAAJ:u5HHmVD_uO8C"><b>Predicting gaze from egocentric social interaction videos and IMU data</b></a>
 
-I know you didnt go through the link. Anyway, lets consider you have data of says stocks, now if you have ever invested in stocks, you know they are risky and subject to marke.. I mean, they are very noisy wrt time. It is like having multiple local minima with no end. Though there was global minima in March, 2020 - if you know what I mean !
+I know you didnt go through the link. Anyway, lets consider you have data of say stocks, now if you have ever invested in stocks, you know they are risky and subject to marke.. I mean, they are very noisy wrt time. It is like having multiple local minima with no end. Though there was global minima in March, 2020 - if you know what I mean !
 
 So, now we have this noisy data and we somewhat want to smoothen it out. So, one way is to apply re-weighing to the stock data and generate new smoothened out data. We can map the co-related data points in both noisy and re-weighing set to create corresponding "re-weighted data points". 
 eg. The timeseries data , X and our re-weighing factor, W  both have n corresponding points. 
@@ -60,7 +60,7 @@ This all in itself is called self-atteion. There are couple of things to take no
   <li> Priority has no influence </li>
 </ul>
 
-We can make this more intelligence by adding some learnable parameters to better understand larger sentences and their context. Therefore, we add weights to the pipeline - which I will discuss in the next post. 
+We can make this more intelligent by adding some learnable parameters to better understand larger sentences and their context. Therefore, we add weights to the pipeline - which I will discuss in the next post. 
 
 
 
