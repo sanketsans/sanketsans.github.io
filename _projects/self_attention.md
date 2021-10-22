@@ -41,10 +41,10 @@ So ,we create word embeddings for our sentence. Since machine cannot understand 
 ###### V = [V_1, V_2, V_3, V_4] - # word embeddings.
 From these embeddings we create a re-weighting factor. Thefore, for each embeddings we do a dot product with every other vector in the representation and perform a normalization so that all vector add upto 1. So, 
 ```
-V_1.V_1 = W -> (N) W_11
-V_1.V_2 = W -> (O) W_12 
-V_1.V_3 = W -> (R) W_13 
-V_1.V_4 = W -> (M) W_14
+V_1.V_1 -> (N) W_11
+V_1.V_2 -> (O) W_12 
+V_1.V_3 -> (R) W_13 
+V_1.V_4 -> (M) W_14
 ```
 So now we have these re-weighting factors which we can join with original embeddings.
 ```
