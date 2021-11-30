@@ -7,17 +7,17 @@
 
 	<!-- Page Info -->
 	<link rel="shortcut icon" href="">
-	<title>Music Separation – Sanket Thakur</title>
+	<title>Self attention in a nutshell, like seriously  – Sanket Thakur</title>
 	<meta name="description" content="">
 
 	<!-- Twitter Card -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Music Separation – Sanket Thakur">
+	<meta name="twitter:title" content="Self attention in a nutshell, like seriously  – Sanket Thakur">
 	<meta name="twitter:description" content="">
 	<meta name="twitter:image:src" content="http://localhost:4000">
 
 	<!-- Facebook OpenGraph -->
-	<meta property="og:title" content="Music Separation – Sanket Thakur" />
+	<meta property="og:title" content="Self attention in a nutshell, like seriously  – Sanket Thakur" />
 	<meta property="og:description" content="" />
 	<meta property="og:image" content="http://localhost:4000" />
 
@@ -171,53 +171,62 @@
 		<div class="page__content">
 			<section class="intro">
 	<div class="wrap">
-		<h1>Music Separation</h1>
-		<p>Music Gesture for Visual Sound Separation</p>
-		<p style="float:left">20 August 2021</p>
-		
+		<h1>Self attention in a nutshell, like seriously </h1>
+		<p></p>
 	</div>
 </section>
 
 <section class="single">
 	<div class="wrap">
-		<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div style="float:left; ">Authors:  Chuang Gan et al. </div><div style="float:left; ">URL:   https://arxiv.org/abs/2004.09476</div>
-				 <div style="float:left; ">Comments:  2020 Proceedings of the International Conference on Computer Vision and Pattern Recognition (CVPR)</div>
-				 <div style="float:left; ">Categories: sound-separation</div>
-		</code></div></div>
-		<h3 id="what">What</h3>
-<p>Visual Sound separation for different music instruments.</p>
+		<p>I hear a lot about self-attention in papers I read every now and then. And almost every time i get very puzzeled whenever the word is mentioned. Whether it is action recognition, image translation, image segementation or anything else (PS: sorry for being computer vision bias), self-attention is the new trend, I suppose.</p>
 
-<h3 id="why">Why</h3>
-<p>Existing methods rely on appearance (also motion (optical flow)) based methods but do explore the relationship between audio and body keypoints.</p>
+<p>Lets say you have a time series data. It is in their nature to be very noisy. And believe me when I say this. How ? Read my recent paper - <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=pM6-D7EAAAAJ&amp;citation_for_view=pM6-D7EAAAAJ:u5HHmVD_uO8C"><b>Predicting gaze from egocentric social interaction videos and IMU data</b></a></p>
 
-<h3 id="how">How</h3>
-<p>Compute keypoints for three video music datasets [ Music-21, URMP, AtinPiano ]. Main motivation is to associate body dynamics with audio signals for sound keypoints. Extracts global context features from video frames and merge with the outputs of context-aware GCNN on human keypoints. Each input to G-CNN is 2D keypoint coordinate.
-For audio, mixture spectograms are fed to an encoder-decoder network, where are the (visual + GCNN) are fused with encoder features with a self-guided attention mechanism. The U-net is responsible to generate binary spectogram mask for individual audio which is compared with a ground truth mask for dominant component in input mixed audio.</p>
+<p>I know you didnt go through the link. Anyway, lets consider you have data of say stocks, now if you have ever invested in stocks, you know they are risky and subject to marke.. I mean, they are very noisy wrt time. It is like having multiple local minima with no end. Though there was global minima in March, 2020 - if you know what I mean !</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>visual features -&gt; (2048, D_a x 1) D_a - dimensions
-graph features -&gt; (N x T x D_p)
+<p>So, now we have this noisy data and we somewhat want to smoothen it out. So, one way is to apply re-weighing to the stock data and generate new smoothened out data. We can map the co-related data points in both noisy and re-weighing set to create corresponding “re-weighted data points”. 
+eg. The timeseries data , X and our re-weighing factor, W  both have n corresponding points.</p>
+<h6 id="x--x_1-x_2--x_n">X = [x_1, x_2, …. x_n]</h6>
 
-v = visual network fusion -&gt; N x T x (D_a + D_p) ~ V x D_v
+<h6 id="w--w_1-w_2--w_n">W = [w_1, w_2, …. w_n]</h6>
+<p>We can then simply denote the smoothened out factor as :</p>
 
-a = audio features -&gt; F x D_s
-
-## Self-Guided Attention :
-
-h_t = np.dot(SOFTMAX(np.dot(v, a)), v) + a
-
-## Fused Features :
-
-z = MLP(h_t) + h_t
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Y = W.X
 </code></pre></div></div>
+<p>If you are nosy about linear algebra, then:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Y = transpose(W).X
+</code></pre></div></div>
+<p>This Y will be somewhat smoothened version of X thanks to <b>re-weighting</b> which we just did. It amplifies the relations between the data points and bring the similar ones closer and vice versa.</p>
 
-<p>The MLP is simply a two fully connected layer. The fused features are then fed to upsample layers of decoder part of the U-net. To create a binary mask, sigmoid operation is performed on the feature map.</p>
+<p>Lets take a look at this from natural language perspective. Suppose we have two sentences V_1, and V_2, each word represented as vector. Now, there must be some correlation between some words of one sentence to an another word of the other sentence. That’s where we need attention to figure out the correlation between different sentence and understand the context. As one can image, it is widely used in machine translation based tasks.</p>
 
-<p>The network is trained by minimising the per-pixel sigmoid cross-entropy loss.</p>
+<p>Lets take a simpler sentence:</p>
+<h6 id="sky-is-clear-today">Sky is clear today</h6>
+<p>Sky is connected with clear and today. Sky in itself can mean other things as well, eg. someone’s name. But here there is a context which says that the sky is clear today. So machine should be able to relate the words to understand the context. 
+So, we try the earlier re-weightning factor in this as well. 
+So ,we create word embeddings for our sentence. Since machine cannot understand generic words, we create</p>
+<h6 id="v--v_1-v_2-v_3-v_4----word-embeddings">V = [V_1, V_2, V_3, V_4] - # word embeddings.</h6>
+<p>From these embeddings we create a re-weighting factor. Thefore, for each embeddings we do a dot product with every other vector in the representation and perform a normalization so that all vector add upto 1. So,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>V_1.V_1 -&gt; (N) W_11
+V_1.V_2 -&gt; (O) W_12 
+V_1.V_3 -&gt; (R) W_13 
+V_1.V_4 -&gt; (M) W_14
+</code></pre></div></div>
+<p>So now we have these re-weighting factors which we can join with original embeddings.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>W_11.V_1 + W_12.V2 + W_13.V3 + W_14.V4 = Y_1
+</code></pre></div></div>
+<p>But all this work only gives the re-weighted vector just for V_1. So , we repeat all these steps for each word to get all the re-weighted embeddings. 
+In the end, we get, <b> Y = [Y_1, Y_2, Y_3, Y_4] </b> which can provide us a better context for the sentence.</p>
 
-<p><strong><em>TL;DR</em></strong> Reconstruct waveforms from spectograms.</p>
+<p>This all in itself is called self-attention. There are couple of things to take note of :</p>
+<ul>
+  <li> No trained weights </li>
+  <li> Order has no influence </li>
+  <li> Priority has no influence </li>
+</ul>
 
-<h3 id="notes">Notes</h3>
-<p>Keypoint based representation only can perform better than RGB + Keypoints.</p>
+<p>We can make this more intelligent by adding some learnable parameters to better understand larger sentences and their context. Therefore, we add weights to the pipeline - which I will discuss in the next post.</p>
+
 
 		
 			<script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
