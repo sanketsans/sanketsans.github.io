@@ -40,9 +40,9 @@ social_settings:
   etsy_url: ''
   kickstarter_url: ''
   soundcloud_url: ''
-  spotify_url: ''
+  spotify_url: 'https://open.spotify.com/show/7bnalsMIGlbmQYZtqrf36d?si=b1cd36fa51344652'
   bandcamp_url: ''
-  linkedin_url: ''
+  linkedin_url: 'https://www.linkedin.com/in/sanketsans/'
 
 advanced_settings:
   ajax_loading: false
