@@ -5,12 +5,11 @@ description: PhD candidate, Computer Vision. Gamer.
 featured_image: /img/sanket.jpg
 ---
 
-I'm Sanket, an aspiring researcher working in the domain of Deep Learning, Computer Vision and Machine Learning with a focus on Multi Modal
-Deep learning. I am currently a PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue.
+I'm Sanket, an aspiring researcher working on Multi Modal Deep learning with a focus on egocentric vision. I am currently a PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focus on social interaction analysis for first person videos. 
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research department. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
-Passionate about ***Generative models***, ***Egocentric vision*** & ***Multi modal learning.***
+Passionate about ***Video understanding***, ***object detection*** & ***transformers.***
 
 ***Checkout my latest podcast !***
 <iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -23,28 +22,40 @@ Hit me up and lets make another ***podcast.***
 
 ***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data*** , ACM ICMI ' 21<br>
 **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://dl.acm.org/doi/abs/10.1145/3462244.3479954"><path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.826-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784zm-4.9 0h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.555-.658.587-2.034-.062-2.692-.298-.3-.712-.459-1.2-.459zm-.692.783h.496c.473 0 .802.173.915.644.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12zm-2.74-.783h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.095-.291.095-.597 0-.885-.16-.484-.606-.761-1.224-.761zm-.761.732h.546c.235 0 .467.028.576.228.067.123.067.366 0 .489-.109.199-.341.227-.576.227h-.546v-.944z"/></a></svg> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://dl.acm.org/doi/abs/10.1145/3462244.3479954"><path d="M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-3v-1h3v1zm0 2h-3v1h3v-1zm0 3h-10v1h10v-1zm-5-6h-5v4h5v-4z"/></a></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://github.com/IIT-PAVIS/MultimodalGaze"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></a></svg>
+<!-- </svg> -->
+
 <!-- <p>Accepted at ACM ICMI '21</p> -->
 
-##### Summer School:
+<!-- ##### Summer School: -->
 
-***Accepted into CIFAR Summer School '21***
-<p>May 20th '21</p>
+<!-- ***Accepted into CIFAR Summer School '21***
+<p>May 20th '21</p> -->
 
 ##### [Other]:
 
-***Accepted for [ELLIS Doctoral symposium '21](https://ellisds.eu)***
-<p>September '21</p>
+***Accepted for [ELLIS Doctoral symposium '21](https://ellisds.eu)*** , September '21 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.5 13c-1.932 0-3.5 1.567-3.5 3.5s1.568 3.5 3.5 3.5 3.5-1.567 3.5-3.5-1.568-3.5-3.5-3.5zm1.5 4h-1v1h-1v-1h-1v-1h1v-1h1v1h1v1zm-13.001-5.9c0 1.692-.766 2.9-1.206 3.9h-1.397c.227-1 1.954-3.415 1.021-4.982-.55-.923-2.272-.924-2.819-.015-.507.841-.24 2.417.712 4.215.518.978.374 1.734.162 2.197-.406.889-1.303 1.317-2.316 1.612-2.01.588-1.825.055-1.825 1.973h-1.329l-.002-.618c0-1.262.099-1.989 1.59-2.333 1.719-.397 3.319-.745 2.545-2.209-2.361-4.457-.627-6.84 1.866-6.84 1.687 0 2.998 1.09 2.998 3.1zm5.691 1.395c.607 1.146.447 2.016.206 2.543-.66 1.445-2.472 1.863-4.39 2.305-1.252.29-1.172.588-1.172 2.657h-1.331l-.003-.825c0-1.681.132-2.652 2.119-3.111 2.293-.53 4.427-.994 3.394-2.946-3.147-5.941-.835-9.118 2.488-9.118 3.164 0 5.337 2.879 3.041 8h-1.483c1.159-2.325 1.428-4.326.708-5.533-.902-1.517-3.617-1.509-4.512-.022-.768 1.273-.426 3.478.935 6.05z"/></svg>
+<p></p>
 
-***Website Chair, [ETRA '22](http://etra.acm.org/2022/index.html)***
-<p>July '21</p>
+***Website Chair, [ETRA '22](http://etra.acm.org/2022/index.html)*** , July '21 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 3.2c0-.663-.537-1.2-1.2-1.2h-17.6c-.663 0-1.2.537-1.2 1.2v11.8h20v-11.8zm-2 9.8h-16v-9h16v9zm2 3h-20c-.197.372-2 4.582-2 4.998 0 .522.418 1.002 1.002 1.002h21.996c.584 0 1.002-.48 1.002-1.002 0-.416-1.803-4.626-2-4.998zm-12.229 5l.467-1h3.523l.467 1h-4.457z"/></svg>
+<p></p>
 
-***Started PhD at [PAVIS/VGM](https://vgm.iit.it), IIT***
-<p>November '20</p>
+
+***Started PhD at [PAVIS/VGM](https://vgm.iit.it), IIT*** , November '20 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 21h-3l1-3h1l1 3zm-12.976-4.543l8.976-4.575v6.118c-1.007 2.041-5.607 3-8.5 3-3.175 0-7.389-.994-8.5-3v-6.614l8.024 5.071zm11.976.543h-1v-7.26l-10.923 5.568-11.077-7 12-5.308 11 6.231v7.769z"/></svg>
+<!-- <p></p> -->
 
 ---------
 
 You can find me on [Twitter](https://twitter.com/sanketsans97).  
 If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
+
+Checkout some of my VR / AR tutorials from previous life
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><a href="https://maker.pro/profile/sanket.thakur"><path d="M14 20h-6v-1h6v1zm5-12h-2v1h2v-1zm-3 9h-8v1h8v-1zm8-13v15h-4v5h-16v-5h-4v-15h4v-4h16v4h4zm-18 0h12v-2h-12v2zm12 11h-12v7h12v-7zm4-9h-20v11h2v-4h16v4h2v-11zm-10 2h-7v3h7v-3zm7 2h-2v1h2v-1zm-3 0h-2v1h2v-1zm0-2h-2v1h2v-1z"/></a></svg>
 
 **PS: I am still updating this site, few commits a day.**
  <!-- width="2%" height="2%" -->
