@@ -25,7 +25,7 @@ Hit me up and lets make another ***podcast.***
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://dl.acm.org/doi/abs/10.1145/3462244.3479954"><path d="M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-3v-1h3v1zm0 2h-3v1h3v-1zm0 3h-10v1h10v-1zm-5-6h-5v4h5v-4z"/></a></svg>
 
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://github.com/IIT-PAVIS/MultimodalGaze"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></a></svg>
-*   **Audio-Visual Inpainting:\\Reconstructing Missing Visual Information with Sound** <br>
+*   **Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** <br>
     ***Under Review***
 *   **Anticipating Next Active Object for egocentric videos** <br>
     ***Journal Review***
