@@ -327,11 +327,11 @@
 	</p>
 	<table align=center width=850px>
 			<td>
-				The <span class="green-text"><b>green</b></span> dot represent the ground truth gaze point from Tobii Eye Tracker, and the <span class="red-text"><b>red</b> </span> dot point represent the predicted gaze point 
-				from our multimodal encoder (RGB + IMU). We propose using a box around the centered point to provide a vicinity around the center. A correct prediction is 
+				The <span class="green-text"><b>green</b></span> dot represent the predicted gaze point from our multimodal encoder (RGB + IMU), and the <span class="red-text"><b>red</b> </span> dot point represent the ground-truth gaze point 
+				from Tobii eye tracker. We propose using a box around the centered point to provide a vicinity around the center. A correct prediction is 
 				classified if the region of overlap (IoU) between the ground-truth bouding box and predicted bouding box >= 0.5. 
 
-				As can be seen from the result video, the predicted points are more stable and also mostly aligned with the ground-truth bounding box. 
+				As can be seen from the result video, the predicted points are quite close to the ground-truth coordinates, although the instability is caused due to high contrast in the scene.
 			</td>
 	</table>
 	<hr>
