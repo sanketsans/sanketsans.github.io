@@ -12,7 +12,11 @@ Previously, I have worked with <a href="https://www.bell-labs.com/our-research/f
 Passionate about ***Video understanding***, ***object detection*** & ***transformers.***
 
 ***Checkout my latest podcast !***
-<iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="100%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+<div style="display: flex; justify-content: center;">
+    <iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="80%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+
+
 
 Hit me up and lets make another ***podcast.***
 
@@ -20,17 +24,16 @@ Hit me up and lets make another ***podcast.***
 
 ##### Papers:
 
-*   **Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** , ACM ICMI ' 21<br>
-    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://dl.acm.org/doi/abs/10.1145/3462244.3479954"><path d="M11.362 2c4.156 0 2.638 6 2.638 6s6-1.65 6 2.457v11.543h-16v-20h7.362zm.827-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-3v-1h3v1zm0 2h-3v1h3v-1zm0 3h-10v1h10v-1zm-5-6h-5v4h5v-4z"/></a></svg>
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://github.com/IIT-PAVIS/MultimodalGaze"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></a></svg>
+***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** , ACM ICMI ' 21<br>
+    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue <br>
+    [Project Page](predicting-gaze-egocentric.html), [Paper](https://dl.acm.org/doi/abs/10.1145/3462244.3479954), [Code](https://github.com/IIT-PAVIS/MultimodalGaze) 
     
-*   **Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** , ICASSP '23 <br>
+***Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** , ICASSP '23 <br>
     Valentina Sanguineti, **Sanket Thakur**, Pietro Morerio, Alessio Del Bue, Vittorio Murino
+
     
-*   **Anticipating Next Active Object for egocentric videos** <br>
-    ***Journal Review***
+***Anticipating Next Active Object for egocentric videos** <br>
+    **Journal Review**
 
 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><a xlink:href="https://dl.acm.org/doi/abs/10.1145/3462244.3479954"><path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.826-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784zm-4.9 0h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.555-.658.587-2.034-.062-2.692-.298-.3-.712-.459-1.2-.459zm-.692.783h.496c.473 0 .802.173.915.644.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12zm-2.74-.783h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.095-.291.095-.597 0-.885-.16-.484-.606-.761-1.224-.761zm-.761.732h.546c.235 0 .467.028.576.228.067.123.067.366 0 .489-.109.199-.341.227-.576.227h-.546v-.944z"/></a></svg> -->
 <!-- </svg> -->

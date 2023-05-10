@@ -1,0 +1,17 @@
+@inproceedings{10.1145/3462244.3479954,
+author = {Thakur, Sanket Kumar and BEYAN, CIGDEM and Morerio, Pietro and Del Bue, Alessio},
+title = {Predicting Gaze from Egocentric Social Interaction Videos and IMU Data},
+year = {2021},
+isbn = {9781450384810},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3462244.3479954},
+doi = {10.1145/3462244.3479954},
+abstract = {Gaze prediction in egocentric videos is a fairly new research topic, which might have several applications for assistive technology (e.g., supporting blind people in their daily interactions), security (e.g., attention tracking in risky work environments), education (e.g., augmented / mixed reality training simulators, immersive games) and so forth. Egocentric gaze is typically estimated from video while few works attempt to use inertial measurement unit (IMU) data, a sensor modality often available in wearable devices (e.g., augmented reality headsets). Instead, in this paper, we examine whether joint learning of egocentric video and corresponding IMU data can improve the first-person gaze prediction compared to using these modalities separately. In this respect, we propose a multimodal network and evaluate it on several unconstrained social interaction scenarios captured by a first-person perspective. The proposed multimodal network achieves better results compared to unimodal methods as well as several (multimodal) baselines, showing that using egocentric video together with IMU data can boost the first-person gaze estimation performance.},
+booktitle = {Proceedings of the 2021 International Conference on Multimodal Interaction},
+pages = {717–722},
+numpages = {6},
+keywords = {egocentric video, IMU, social interactions, gaze, multimodal},
+location = {Montr\'{e}al, QC, Canada},
+series = {ICMI '21}
+}
