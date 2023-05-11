@@ -43,7 +43,8 @@ social_settings:
   spotify_url: 'https://open.spotify.com/show/7bnalsMIGlbmQYZtqrf36d?si=b1cd36fa51344652'
   bandcamp_url: ''
   linkedin_url: 'https://www.linkedin.com/in/sanketsans/'
-  cv_url: 'https://drive.google.com/file/d/14VtNHlQFTSNj4IezEenTvGRXdyKukdMc/view?usp=sharing'
+  cv_url: 'https://drive.google.com/file/d/1V_Tu0nv9xCpRH6475DzQomVdpfMrS4xt/view?usp=share_link'
+  scholar_url: 'https://scholar.google.com/citations?user=pM6-D7EAAAAJ&hl=en&authuser=1'
 
 advanced_settings:
   ajax_loading: false
