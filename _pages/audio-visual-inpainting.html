@@ -294,7 +294,7 @@
 				<tr>
 					<td align=center width=120px>
 						<center>
-							<span style="font-size:24px"><a href='https://arxiv.org/abs/2302.06358'>[Paper]</a></span>
+							<span style="font-size:24px"><a href='https://ieeexplore.ieee.org/abstract/document/10095447'>[Paper]</a></span>
 						</center>
 					</td>
 					<td align=center width=300px>
@@ -312,7 +312,7 @@
 			<tr>
 				<td width=400px>
 					<center>
-						<img class="round" style="width:600px" src="/img/resources/nao_journal/wacv_teas.png"/>
+						<img class="round" style="width:500px" src="/img/resources/icassp/teaser.png"/>
 					</center>
 				</td>
 			</tr>
@@ -321,12 +321,15 @@
 		<table align=center width=850px>
 			<tr>
 				<td>
-					The next-active-object (NAO) problem formulation in our paper is inspired from action anticipation based setup. Let 	<b><i>V</i></b>, be a given video clip, 
-					we split the video clip into three sequential parts: the observed segment of length &#x3C4;<sub>o</sub>, the time to contact (TTC) window
-					of length &#x3C4;<sub>a</sub> and a given action segment which starts at timestep <it>t = </it> &#x3C4;<sub>s</sub>. The goal is to localize
-					NAO at the beginning of an action segment at timestep <it>t = </it>	&#x3C4;<sub>s</sub>, where contact might happen. For this task, the observation 
-					of the video segment spans a range preceeding the action start time	&#x3C4;<sub>s</sub> by observation duration	&#x3C4;<sub>o</sub>, and ends &#x3C4;<sub>a</sub>
-					seconds before &#x3C4;<sub>s</sub>, where &#x3C4;<sub>a</sub> is the time to contact window. 
+					Imagine a scene where originally there was a plane flying in the
+					sky and later the plane is removed. Probably, when we will inpaint
+					it, it will be completed with a visually consistent texture, but we
+					will miss the plane and the original semantic content in the scene.
+					Clearly, without any additional information, the plane cannot be re-
+					covered. Here, for the first time, we tackle a multi-modal instance
+					of the classical inpainting problem: given a missing image region
+					and an audio sample, the inpainted region should comply with the
+					semantic content of the sound as well as with the surrounding visual appearance.
 				</td>
 			</tr>
 		</table>
@@ -338,22 +341,28 @@
 		<center><h1>Abstract</h1></center>
 		<tr>
 			<td>
-				This paper addresses the problem of anticipating the next-active-object location
-				in the future, for a given egocentric video clip where the contact might happen,
-				before any action takes place. The problem is considerably hard, as we aim at
-				estimating the position of such objects in a scenario where the observed clip and
-				the action segment are separated by the so-called time to contact segment. We
-				name this task Anticipating the Next ACTive Object (ANACTO). To this end, we
-				propose a transformer-based self-attention framework to identify and locate the
-				next-active-object in an egocentric clip, where the contact might happen to un-
-				dertake a human-object interaction. We benchmark our method on three major
-				egocentric datasets namely, EpicKitchen-100, EGTEA+ and Ego4D. Since the defined task is new, we compare our model with
-				the state-of-the-art action anticipation-based method(s) to curate relevant base-
-				line methods. In the end, we also provide the annotations for next-active-object for EpicKitchen-100 and EGETA+ datasets.
+				We tackle audio-visual inpainting, the problem of completing an image in such a way to be consistent with the sound associated to the
+				scene. To this end, we propose a multimodal, audio-visual inpaint-
+				ing method (AVIN), and show how to leverage sound to reconstruct
+				semantically consistent images. AVIN is a 2-stage algorithm, which
+				first learns the scene semantics and reconstructs low resolution im-
+				ages based on a conditional probability distribution of pixels in the
+				space conditioned to audio, and then refines such result with a GAN-
+				based network to increase the resolution of the reconstructed image.
+				We show that AVIN is able to recover the original content, especially
+				in the hard cases where the missing area heavily degrades the scene
+				semantics: it can perform cross-modal generation whenever no vi-
+				sual context is observed at all, reconstructing visual data from sound
+				only. 
 			</td>
 		</tr>
 	</table>
 	<br>
+	<hr>
+	<center><h1>Talk</h1></center>
+	<p align="center">
+		<iframe src="https://drive.google.com/file/d/1GjQvSR9pKSYEKx4VjkGW1GkH_gsVO3Sv/preview" width="640" height="480" allow="autoplay"></iframe>
+	</p>
 
 	<hr>
 
@@ -371,7 +380,7 @@
 		<tr>
 			<td align=center width=300px>
 				<center>
-					<td><img class="round" style="width:850px" src="/img/resources/nao_journal/method.png"/></td>
+					<td><img class="round" style="width:850px" src="/img/resources/icassp/model.png"/></td>
 				</center>
 			</td>
 			<!-- <td align=center width=100px>
@@ -381,23 +390,18 @@
 			</td> -->
 		</tr>
 	</table>
+	<br>
 	<table align=center width=850px>
 		<center>
 			<tr>
 				<td>
-					Our T-ANACTO model is an encoder-decoder architecture. Its encoder is composed of
-					an object detector and a Vision Transformer (ViT). The object detector takes an input frame
-					(e.g., size of 1920×1080) and predicts the location of objects in terms of bounding boxes (x, y,
-					w, h) and detection confidence scores (c). The input of ViT are the frame(s), first resized to,
-					224×224 and then divided into the patches (16×16). The object detections (x, y, w, h) are also
-					converted to match the scaled size of the frame (i.e., 224×224), reshaped, and are then passed
-					through a MLP to convert it into the same dimension as the embeddings from the transformer
-					encoder, which are later concatenated together to be given to the decoder. There exist a linear
-					layer between the decoder and the T-ANACTO encoder, which adjusts the feature dimensions to
-					be fed to the transformer decoder. Transformer decoder uses temporal aggregation to predict the
-					next active object. For each frame, the decoder aggregate the features from the encoder for current
-					and past frames along with the embeddings of last predicted active objects and then predicts the
-					next active object for the future frames.
+					Our AVIN model works in two stages. <b>Stage I :</b> AudioPixelCNN takes a low resolution masked image as an input. The image is then conditioned 
+					upon the corresponding audio sample for the subject that is to be filled with in the missing region. This outputs a low-resolution representation of 
+					complete image filling the missing region with context information. This outputs is stochastic since the pixels are sampled from a probability distribution
+					to output a wide range of images. <b>Stage II: </b> In this stage, a ADSR-GAN model is used to refine the low-resolution image from stage I. The GAN takes the 
+					output from previous stage, high resolution masked image and also the corresponding audio sample to generate a high-resolution representation of the final image. 
+					The image is then fed to a discriminator to follow a min-max learning to better generate high-resolution images while keeping the visual semantics of the missing 
+					regions preserved. 
 				</td>
 			</tr>
 		</center>
@@ -405,95 +409,31 @@
 	<table align=center width=800px>
 		<br>
 		<tr><center>
-			<span style="font-size:28px">&nbsp;[GitHub] (To be Released soon)
+			<span style="font-size:28px">&nbsp;<a href="https://docs.google.com/presentation/d/e/2PACX-1vRaGSgpoghJe6jPUF6-WROC5cAr3w449We0r-ATHYOTBVytLM37jwM6kYSddC7gsw/pub?start=false&loop=false&delayms=3000">[Slides]</a>
 			</center>
 		</span>
-	</table>
-	<br>
-	<hr>
-	<center><h1>ANACTO annotations</h1></center>
-	<table align=center width=850px>
-		<td>
-			The annotations for EpicKitchen-100 and EGTEA+ dataset for ANACTO task was curated using an Hand-Object detector <span class="cyan-text"><a href="https://fouheylab.eecs.umich.edu/~dandans/projects/100DOH/">Shan et al.</a></span>. 
-			The detector is currently SOTA on EpicKitchen-100. We used the Hand-Object detector and ran it on both the datasets (EpicKitchen-100 and EGTEA+). The annotations (bounding boxes - left hand,
-			right hand, active object(s)) are extracted for each frame. We used the action anticipation splits from <span class="cyan-text"><a href="https://iplab.dmi.unict.it/rulstm/">Furnari et al.</a></span> to label the 
-			next-active-object annotations at the beginning of an action. <br>
-			We provide the annotations for 94% and 92% of video clips in EpicKitchen-100 and EGTEA+ dataset respectively. <br>
-			<br>
-			It is to be noted that the T-ANACTO model is designed for identifying the next-active-object location at the beginning of an action. However, based on recent literature 
-				<span class="cyan-text"><a href="https://ego4d-data.org/">Grauman et al.</a></span>, for the need of identifying next-active-object in the last observed frame, we provide 
-				relevant models' visualizations to argue that T-ANACTO is also able to locate its attention to important regions in the last observed frame to predict the next-active-object. 
-			
-		</td>
 	</table>
 	<br>
 	<hr>
 
 	<center><h1>Results</h1></center>
 
-	<p align="center">
-		<iframe src="https://drive.google.com/file/d/1hXZ42A6a2Aoi0mUg3a6xD7sdof5Tjsuv/preview" width="640" height="480" allow="autoplay">
-		</iframe>
-	</p>
-
-	<table align=center width=850px>
-			<td>
-				We provide the visualizations of the attention of model over multiple video clips. We randomly stop at a random frame in the observed segment to provide
-				the effective visualizations of our model, T-ANACTO, to identify important regions in the frame based on past motion. Based on the heatmaps, it can be 
-				identified that the model is also capable in anticipating the next-active-object in the last observed frame as well.  
-				The <span class="green-text">green</span> bounding boxes are the predicted bounding boxes by T-ANACTO at the beginning of an action. 
-			</td>
-	</table>
-	<hr>
-	<center><h1>Model Visualizations</h1></center>
 	<center>
 		<div class="slideshow-container">
 			<div class="mySlides fade">
-			  <div class="numbertext">1 / 7</div>
-			  <img src="/img/resources/nao_journal/wacv23_epic0.png" style="width:100%">
-			  <figcaption >Results on <b><it>EpicKitchen-100</it></b> for last observed frame of video clip with TTC
-				&#x3C4;<sub>a</sub> = 0.5 seconds before the beginning of an action.</figcaption>
+			  <div class="numbertext">1 / 3</div>
+			  <img src="/img/resources/icassp/suburmp.png" style="width:70%">
+			  <figcaption >Cross-Model Generation on <b><it>SubURMP</it></b></figcaption>
 			</div>
 			<div class="mySlides fade">
-			  <div class="numbertext">2 / 7</div>
-			  <img src="/img/resources/nao_journal/wacv23_ego_6.png" style="width:100%">
-			  <figcaption>Results for <b><it>Ego4D</it></b>>
-				dataset when trained to identify next active object wrt last ob-
-				served frame. </figcaption>
+			  <div class="numbertext">2 / 3</div>
+			  <img src="/img/resources/icassp/audioset.png" style="width:100%">
+			  <figcaption>Cross-Model Generation on <b><it>AudioSet</it></b> </figcaption>
 			</div>
 			<div class="mySlides fade">
-			  <div class="numbertext">3 / 7</div>
-			  <img src="/img/resources/nao_journal/wacv23_gtea.png" style="width:100%">
-			  <figcaption>Results on <b><it>EGTEA+</it></b> for last observed frame of video clip with 
-				&#x3C4;<sub>a</sub> = 1.0 seconds before the beginning of an action.</figcaption>
-			</div>
-			<div class="mySlides fade">
-				<div class="numbertext">4 / 7</div>
-				<img src="/img/resources/nao_journal/wacv23_comp.png" style="width:100%">
-				<figcaption>Results show the diversity of spatial attention for the last observed frame preceding
-					the beginning of an action segment for different setups of TTC window for &#x3C4;<sub>a</sub>= 0.25, 0.5, 1.0
-					seconds. The spatial attention regions tend to appear more assertive as the model examines the
-					frames closer to an action segment, i.e; as the τa is decreased</figcaption>
-			</div>
-			<div class="mySlides fade">
-				<div class="numbertext">5 / 7</div>
-				<img src="/img/resources/nao_journal/eccv_hands_detec.png" style="width:100%">
-				<figcaption>Our T-ANACTO model also learns
-					to attribute to hand position in an image frame, even though we do not explicitly provide the hand
-					location in training and testing. </figcaption>
-			</div>
-			<div class="mySlides fade">
-				<div class="numbertext">6 / 7</div>
-				<img src="/img/resources/nao_journal/eccv_fail_glass.png" style="width:100%">
-				<figcaption>The model fails
-					to attribute attention to objects which are light colored or easily
-					camouflaged with the background. </figcaption>
-			</div>
-			<div class="mySlides fade">
-				<div class="numbertext">7 / 7</div>
-				<img src="/img/resources/nao_journal/eccv_fail_time.png" style="width:100%">
-				<figcaption>When the scene completely
-					changes at the beginning of action from the past observed segment.</figcaption>
+			  <div class="numbertext">3 / 3</div>
+			  <img src="/img/resources/icassp/vggsound.png" style="width:100%">
+			  <figcaption>Cross-Model Generation on <b><it>VGGSound</it></b></figcaption>
 			</div>
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 			<a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -503,11 +443,6 @@
 			<span class="dot" onclick="currentSlide(0)"></span>
 			<span class="dot" onclick="currentSlide(1)"></span>
 			<span class="dot" onclick="currentSlide(2)"></span>
-			<span class="dot" onclick="currentSlide(3)"></span>
-			<span class="dot" onclick="currentSlide(4)"></span>
-			<span class="dot" onclick="currentSlide(5)"></span>
-			<span class="dot" onclick="currentSlide(6)"></span>
-			<span class="dot" onclick="currentSlide(7)"></span>
 		  </div>
 		</center>
 		
@@ -556,14 +491,13 @@
 	<table align=center width=450px>
 		<center><h1>Paper and Supplementary Material</h1></center>
 		<tr>
-			<td><a href=""><img class="layered-paper-big" style="height:175px" src="/img/resources/nao_journal/paper.png"/></a></td>
-			<td><span style="font-size:14pt">S. Thakur, C. Beyan, P. Morerio, V. Murino, A. Del Bue<br>
-				<b>Anticipating Next Active Objects for Egocentric Videos</b><br>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="/img/resources/icassp/paper.png"/></a></td>
+			<td><span style="font-size:14pt">V. Sanguineti, S. Thakur, P. Morerio, A. Del Bue, V. Murino, <br>
+				<b>Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound</b><br>
 				<!-- In International Conference on Multimodal Interaction, 2021<br> -->
-				(hosted on <a href="https://arxiv.org/abs/2302.06358">arxiv</a>)<br>
+				(hosted on <a href="https://ieeexplore.ieee.org/abstract/document/10095447">IEEE</a>)<br>
 				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
 				<span style="font-size:12pt"><a href=""><br></a>
-					Mail:  <a href="mailto:sanket.thakur@iit.it">sanket.thakur@iit.it</a> for access to the next-active-object data for EK-100 and EGTEA.
 				</span>
 			</td>
 		</tr>
@@ -573,7 +507,7 @@
 	<table align=center width=600px>
 		<tr>
 			<td><span style="font-size:14pt"><center>
-				<a href="/img/resources/nao_journal/bibtex.txt">[Bibtex]</a>
+				<a href="/img/resources/icassp/bibtex.txt">[Bibtex]</a>
 			</center></td>
 		</tr>
 	</table>

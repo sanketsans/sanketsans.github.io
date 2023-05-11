@@ -34,7 +34,7 @@ Hit me up and lets make another ***podcast.***
 
     
 ***Anticipating Next Active Object for egocentric videos** <br>
-    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue <br>
+    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
     **Journal Review** <br>
     [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358)
     

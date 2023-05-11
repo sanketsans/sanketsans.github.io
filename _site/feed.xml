@@ -5,8 +5,8 @@
     <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 11 May 2023 16:11:55 +0200</pubDate>
-    <lastBuildDate>Thu, 11 May 2023 16:11:55 +0200</lastBuildDate>
+    <pubDate>Thu, 11 May 2023 17:10:08 +0200</pubDate>
+    <lastBuildDate>Thu, 11 May 2023 17:10:08 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
         
