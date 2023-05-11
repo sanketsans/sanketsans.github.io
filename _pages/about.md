@@ -29,7 +29,8 @@ Hit me up and lets make another ***podcast.***
     [<span style="color: #249eda;">Project Page</span>](predicting-gaze-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://dl.acm.org/doi/abs/10.1145/3462244.3479954), [<span style="color: #575453;">Code</span>](https://github.com/IIT-PAVIS/MultimodalGaze) 
     
 ***Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** , ICASSP '23 <br>
-    Valentina Sanguineti, **Sanket Thakur**, Pietro Morerio, Alessio Del Bue, Vittorio Murino
+    Valentina Sanguineti, **Sanket Thakur**, Pietro Morerio, Alessio Del Bue, Vittorio Murino<br>
+    [<span style="color: #249eda;">Project Page</span>](audio-visual-inpainting.html), [<span style="color: #6cc644;">Paper</span>](https://ieeexplore.ieee.org/abstract/document/10095447)
 
     
 ***Anticipating Next Active Object for egocentric videos** <br>
