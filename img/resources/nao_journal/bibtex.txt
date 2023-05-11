@@ -1,0 +1,8 @@
+@misc{thakur2023anticipating,
+      title={Anticipating Next Active Objects for Egocentric Videos}, 
+      author={Sanket Thakur and Cigdem Beyan and Pietro Morerio and Vittorio Murino and Alessio Del Bue},
+      year={2023},
+      eprint={2302.06358},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
