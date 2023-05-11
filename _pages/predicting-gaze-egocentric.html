@@ -121,6 +121,45 @@
 		height: 1px;
 		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 	}
+
+    .swipe-container {
+      width: 660px;
+      height: 400px;
+      background-color: #ccc;
+      overflow: hidden;
+	  justify-content: center;
+    }
+    
+    .swipe-content {
+      width: 1300px; /* Width of the entire content */
+      height: 100%;
+      display: flex;
+      transition: transform 0.3s ease-out;
+    }
+    
+    .swipe-item {
+      flex: 0 0 660px; /* Width of each individual item */
+      height: 100%;
+      background-color: #f0f0f0;
+    }
+
+	.swipe-buttons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+    }
+
+    .swipe-btn {
+      width: 300px;
+      height: 300px;
+      background-color: #143d7a;
+      color: #363434;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+    }
+    
+
 </style>
 
 <html>
@@ -224,23 +263,54 @@
 
 	<hr>
 	<center><h1>Talk</h1></center>
-
 	<p align="center">
-	<iframe src="https://drive.google.com/file/d/1UexFQPMbeXwjlgECm1ggASlnyQtKt4t1/preview" width="660" height="395" allow="autoplay"></iframe>
+		<iframe src="https://drive.google.com/file/d/1UexFQPMbeXwjlgECm1ggASlnyQtKt4t1/preview" width="660" height="395" allow="autoplay"></iframe>
 	</p>
-	<!-- <p align="center">
-		<iframe width="660" height="395" src="https://drive.google.com/file/d/1UexFQPMbeXwjlgECm1ggASlnyQtKt4t1/view?usp=sharing" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe>
-	</p> -->
 
-	<table align=center width=800px>
-		<br>
-		<tr>
-			<center>
-				<span style="font-size:28px"><a href='https://docs.google.com/presentation/d/1bgWIb73ZLzIKcZ06f-BGyj8dCFd8VsAN/edit?usp=sharing&ouid=114461650968330017338&rtpof=true&sd=true'>[Slides]</a>
-				</span>
-			</center>
-		</tr>
-	</table>
+	<!-- <center>
+	<div class="swipe-container">
+		<div class="swipe-content">
+			<div class="swipe-item">
+				<iframe src="https://drive.google.com/file/d/1UexFQPMbeXwjlgECm1ggASlnyQtKt4t1/preview" width="660" height="395" allow="autoplay"></iframe>
+			</div>
+			<div class="swipe-item">
+				<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQLzHYzQzWkty1IK4R8ZgX4Zy2VYRWjWhF4GBl4v2XEOky1Fo8YgixHJQWQKnfezQ/embed?start=true&loop=false&delayms=2000" frameborder="0" width="660" height="395" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+			</div>
+		</div>
+
+		<div class="swipe-buttons">
+			<div class="swipe-btn swipe-btn-left">&lt;</div>
+			<div class="swipe-btn swipe-btn-right">&gt;</div>
+		</div>
+	</div>
+	</center>
+	<script>
+		const container = document.querySelector('.swipe-container');
+		const content = document.querySelector('.swipe-content');
+		const leftBtn = document.querySelector('.swipe-btn-left');
+		const rightBtn = document.querySelector('.swipe-btn-right');
+		
+		let currentX = 0;
+		const itemWidth = container.offsetWidth; // Width of each swipe item
+		
+		leftBtn.addEventListener('click', swipeLeft);
+		rightBtn.addEventListener('click', swipeRight);
+		
+		function swipeLeft() {
+		  if (currentX >= 0) return; // Prevent swiping beyond the first item
+		  currentX += itemWidth;
+		  content.style.transform = `translateX(${currentX}px)`;
+		}
+		
+		function swipeRight() {
+		  const minTranslateX = -(content.offsetWidth - container.offsetWidth);
+		  if (currentX <= minTranslateX) return; // Prevent swiping beyond the last item
+		  currentX -= itemWidth;
+		  content.style.transform = `translateX(${currentX}px)`;
+		}
+	  </script> -->
+
+
 	<hr>
 
 	<center><h1>Code</h1></center>
