@@ -1,5 +1,5 @@
 ---
-tag: "multi-modal"
+tag: "GAN"
 layout: default
 title: Papers Breif
 subtitle: /pap/

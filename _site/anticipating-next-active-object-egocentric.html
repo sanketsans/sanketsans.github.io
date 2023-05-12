@@ -323,10 +323,8 @@
 				<td>
 					The next-active-object (NAO) problem formulation in our paper is inspired from action anticipation based setup. Let 	<b><i>V</i></b>, be a given video clip, 
 					we split the video clip into three sequential parts: the observed segment of length &#x3C4;<sub>o</sub>, the time to contact (TTC) window
-					of length &#x3C4;<sub>a</sub> and a given action segment which starts at timestep <it>t = </it> &#x3C4;<sub>s</sub>. The goal is to localize
-					NAO at the beginning of an action segment at timestep <it>t = </it>	&#x3C4;<sub>s</sub>, where contact might happen. For this task, the observation 
-					of the video segment spans a range preceeding the action start time	&#x3C4;<sub>s</sub> by observation duration	&#x3C4;<sub>o</sub>, and ends &#x3C4;<sub>a</sub>
-					seconds before &#x3C4;<sub>s</sub>, where &#x3C4;<sub>a</sub> is the time to contact window. 
+					of length &#x3C4;<sub>a</sub> and a given action segment which starts at timestep <it>t = </it> &#x3C4;<sub>s</sub>. The goal is to observe a video segment till
+					&#x3C4;<sub>a</sub> and localize NAO at the beginning of an action segment at timestep <it>t = </it>	&#x3C4;<sub>s</sub>, where contact might happen.
 				</td>
 			</tr>
 		</table>
@@ -376,13 +374,11 @@
 					Our T-ANACTO model is an encoder-decoder architecture. Its encoder is composed of
 					an object detector and a Vision Transformer (ViT). The object detector takes an input frame
 					(e.g., size of 1920×1080) and predicts the location of objects in terms of bounding boxes (x, y,
-					w, h) and detection confidence scores (c). The input of ViT are the frame(s), first resized to,
-					224×224 and then divided into the patches (16×16). The object detections (x, y, w, h) are also
+					w, h) and detection confidence scores (c). ViT takes the resized (224x224) frames as input,
+					and then divide it into the patches (16×16). The object detections are also
 					converted to match the scaled size of the frame (i.e., 224×224), reshaped, and are then passed
 					through a MLP to convert it into the same dimension as the embeddings from the transformer
-					encoder, which are later concatenated together to be given to the decoder. There exist a linear
-					layer between the decoder and the T-ANACTO encoder, which adjusts the feature dimensions to
-					be fed to the transformer decoder. Transformer decoder uses temporal aggregation to predict the
+					encoder, which are later concatenated together to be given to the decoder. Transformer decoder uses temporal aggregation to predict the
 					next active object. For each frame, the decoder aggregate the features from the encoder for current
 					and past frames along with the embeddings of last predicted active objects and then predicts the
 					next active object for the future frames.

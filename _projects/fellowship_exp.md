@@ -3,9 +3,11 @@ title: "My experience as a ML fellow for fellowship.ai"
 published: true
 tags: internship blog GAN deep-learning
 comments_id: 2
+date: 25 Dec 2021
 categories:
   - GAN
   - Internship
+tags: [internship, GAN]
 ---
 
 <a href="https://fellowship.ai"><b>Fellowship.Ai</b></a> is a four months long <b>"unpaid"</b> fellowship on various machine learning topics. The program is 100 % remote,

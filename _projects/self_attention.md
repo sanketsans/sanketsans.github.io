@@ -3,10 +3,12 @@ title: "Self attention in a nutshell, like seriously "
 published: true
 tags: attention intro
 comments_id: 1
+date: 20 July 2022
 categories:
   - attention
   - intro
   - technical
+tags: [attention, transformers]
 ---
 
 I hear a lot about self-attention in papers I read every now and then. And almost every time i get very puzzeled whenever the word is mentioned. Whether it is action recognition, image translation, image segementation or anything else (PS: sorry for being computer vision bias), self-attention is the new trend, I suppose. 
