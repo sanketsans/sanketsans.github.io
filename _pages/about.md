@@ -41,7 +41,7 @@ Hit me up and lets make another ***podcast.***
 ***Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>
     **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
     **Under Submission** <br>
-    **Winner CVPR23 EGO4D STA challenge** <br>
+    **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
     [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953)
     
 
