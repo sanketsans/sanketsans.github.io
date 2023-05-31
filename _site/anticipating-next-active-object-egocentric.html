@@ -404,7 +404,7 @@
 			next-active-object annotations at the beginning of an action. <br>
 			We provide the annotations for 94% and 92% of video clips in EpicKitchen-100 and EGTEA+ dataset respectively. <br>
 			<br>
-			It is to be noted that the T-ANACTO model is designed for identifying the next-active-object location at the beginning of an action. However, based on recent literature 
+			It is to be noted that the T-ANACTO model is designed for identifying the next-active-object location at the beginning of an action, after &#x3C4;<sub>a</sub>. However, based on recent literature 
 				<span class="cyan-text"><a href="https://ego4d-data.org/">Grauman et al.</a></span>, for the need of identifying next-active-object in the last observed frame, we provide 
 				relevant models' visualizations to argue that T-ANACTO is also able to locate its attention to important regions in the last observed frame to predict the next-active-object. 
 			
@@ -431,24 +431,29 @@
 	<hr>
 	<center><h1>Model Visualizations</h1></center>
 	<center>
+		<table align=center width=850px>
+			<td>
+				The pictures presented here are the attention visualization of the model <it>w.r.t</it> last observed frame of an observed segment. 
+			</td>
+		</table>
 		<div class="slideshow-container">
 			<div class="mySlides fade">
 			  <div class="numbertext">1 / 7</div>
 			  <img src="/img/resources/nao_journal/wacv23_epic0.png" style="width:100%">
-			  <figcaption >Results on <b><it>EpicKitchen-100</it></b> for last observed frame of video clip with TTC
+			  <figcaption >Results on <b>EpicKitchen-100</b> for last observed frame of video clip with TTC
 				&#x3C4;<sub>a</sub> = 0.5 seconds before the beginning of an action.</figcaption>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">2 / 7</div>
 			  <img src="/img/resources/nao_journal/wacv23_ego_6.png" style="width:100%">
-			  <figcaption>Results for <b><it>Ego4D</it></b>
+			  <figcaption>Results for <b>Ego4D</b>
 				dataset when trained to identify next active object wrt last ob-
 				served frame. </figcaption>
 			</div>
 			<div class="mySlides fade">
 			  <div class="numbertext">3 / 7</div>
 			  <img src="/img/resources/nao_journal/wacv23_gtea.png" style="width:100%">
-			  <figcaption>Results on <b><it>EGTEA+</it></b> for last observed frame of video clip with 
+			  <figcaption>Results on <b>EGTEA+</b> for last observed frame of video clip with 
 				&#x3C4;<sub>a</sub> = 1.0 seconds before the beginning of an action.</figcaption>
 			</div>
 			<div class="mySlides fade">
