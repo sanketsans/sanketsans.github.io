@@ -42,7 +42,7 @@ Hit me up and lets make another ***podcast.***
     **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
     **Under Submission** <br>
     **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
-    [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953), [<span style="color: #6cc644;">Technical Report (GANOv2) </span>](https://arxiv.org/abs/2305.16066), [<span style="color: #575453;">Code - CVPR23 submission</span>](https://github.com/sanketsans/ganov2), 
+    [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953), [<span style="color: #6cc644;">Technical Report (GANOv2) </span>](https://arxiv.org/abs/2305.16066), [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2)
     
 
 
