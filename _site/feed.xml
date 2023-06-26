@@ -5,8 +5,8 @@
     <description>Peronal website</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 05 Jun 2023 00:18:03 +0300</pubDate>
-    <lastBuildDate>Mon, 05 Jun 2023 00:18:03 +0300</lastBuildDate>
+    <pubDate>Mon, 26 Jun 2023 10:25:12 +0200</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2023 10:25:12 +0200</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
         
@@ -42,7 +42,7 @@ Authors propose using two loss function : sigmoid cross entropy ( to correct the
 &lt;h3 id=&quot;tldr-&quot;&gt;TL/DR :&lt;/h3&gt;
 &lt;p&gt;Evaluation protocol&lt;/p&gt;
 </description>
-            <pubDate>Mon, 13 Sep 2021 00:00:00 +0300</pubDate>
+            <pubDate>Mon, 13 Sep 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/whoislooking</link>
             <guid isPermaLink="true">http://localhost:4000/blog/whoislooking</guid>
             
@@ -92,7 +92,7 @@ z = MLP(h_t) + h_t
 &lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
 &lt;p&gt;Keypoint based representation only can perform better than RGB + Keypoints.&lt;/p&gt;
 </description>
-            <pubDate>Fri, 20 Aug 2021 00:00:00 +0300</pubDate>
+            <pubDate>Fri, 20 Aug 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/music-separation</link>
             <guid isPermaLink="true">http://localhost:4000/blog/music-separation</guid>
             
@@ -125,7 +125,7 @@ z = MLP(h_t) + h_t
 &lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
 &lt;p&gt;Training on longer clips yields better results on clip-level models, as the filter learn long-term temporal dimensions,&lt;/p&gt;
 </description>
-            <pubDate>Sat, 26 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Sat, 26 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/cnn-compare</link>
             <guid isPermaLink="true">http://localhost:4000/blog/cnn-compare</guid>
             
@@ -179,7 +179,7 @@ z = MLP(h_t) + h_t
 &lt;h3 id=&quot;notes&quot;&gt;Notes&lt;/h3&gt;
 &lt;p&gt;Assumes covariates to be distributed only on the basis of density. Actionable counterfactuals could be generated based on input constraints as well.&lt;/p&gt;
 </description>
-            <pubDate>Fri, 25 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Fri, 25 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/facexplanations</link>
             <guid isPermaLink="true">http://localhost:4000/blog/facexplanations</guid>
             
@@ -236,7 +236,7 @@ else:
 &lt;h3 id=&quot;notes&quot;&gt;Notes:&lt;/h3&gt;
 &lt;p&gt;The ablation study was evaluated on three main dataset (for facial image) and two for eyes image learning and the network works best for all of them. Authors also suggest using BEC (Both Eyes concatenated on Channel) method for pre-processing of eye images, instead of handling them individually (CA - Component Analysis).&lt;/p&gt;
 </description>
-            <pubDate>Thu, 24 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Thu, 24 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/head-gaze-in-the-wild</link>
             <guid isPermaLink="true">http://localhost:4000/blog/head-gaze-in-the-wild</guid>
             
@@ -316,7 +316,7 @@ else:
 &lt;h2 id=&quot;notes-&quot;&gt;Notes :&lt;/h2&gt;
 &lt;p&gt;Structured gaze modelling with direct optimisation performs better than other reparameterization technique such as Gumble-Softmax.&lt;/p&gt;
 </description>
-            <pubDate>Wed, 23 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Wed, 23 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/integrate-gaze-attention</link>
             <guid isPermaLink="true">http://localhost:4000/blog/integrate-gaze-attention</guid>
             
@@ -389,7 +389,7 @@ output = softmax(final)
 &lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
 &lt;p&gt;Does not perform better than SOTA action anticipation methods. But has faster training and inference time &lt;i&gt;wrt&lt;/i&gt; RNN based network.&lt;/p&gt;
 </description>
-            <pubDate>Tue, 22 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Tue, 22 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/tcn-action-anticipation</link>
             <guid isPermaLink="true">http://localhost:4000/blog/tcn-action-anticipation</guid>
             
@@ -465,7 +465,7 @@ output = softmax(final)
 
 &lt;p&gt;The action classification accuracy is best when combined with gaze probability / attention on EGTEA dataset. When trained and tested on Epic-Kitchen, it performs on par with SOTA but not better, given that EPIC-Kitchen does not have gaze labelling.&lt;/p&gt;
 </description>
-            <pubDate>Mon, 21 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Mon, 21 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/in-the-eyes-of-beholder</link>
             <guid isPermaLink="true">http://localhost:4000/blog/in-the-eyes-of-beholder</guid>
             
@@ -533,7 +533,7 @@ Similarly, SIC provides a mask, but &lt;b&gt;‘only for’&lt;/b&gt; correspond
 &lt;p&gt;The model improves mAP on three dataset Market-150, DukeMTMC-reID, CUHK03 by 2, 3 &amp;amp; 5 %. But performs almost similar for rank 1, 5, and 10 accuracy.
 For details check out the original paper &lt;a href=&quot;https://ieeexplore.ieee.org/document/8804419&quot;&gt;DRANET&lt;/a&gt;.&lt;/p&gt;
 </description>
-            <pubDate>Tue, 15 Jun 2021 00:00:00 +0300</pubDate>
+            <pubDate>Tue, 15 Jun 2021 00:00:00 +0200</pubDate>
             <link>http://localhost:4000/blog/dranet</link>
             <guid isPermaLink="true">http://localhost:4000/blog/dranet</guid>
             
