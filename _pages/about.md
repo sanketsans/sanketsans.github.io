@@ -24,28 +24,35 @@ Hit me up and lets make another ***podcast.***
 
 ##### Papers:
 
-***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** <br>
-ACM ICMI'21 <br>
-    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue <br>
-    [<span style="color: #249eda;">Project Page</span>](predicting-gaze-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://dl.acm.org/doi/abs/10.1145/3462244.3479954), [<span style="color: #575453;">Code</span>](https://github.com/IIT-PAVIS/MultimodalGaze) 
-    
-***Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** <br>
-ICASSP'23 <br>
-    Valentina Sanguineti, **Sanket Thakur**, Pietro Morerio, Alessio Del Bue, Vittorio Murino<br>
-    [<span style="color: #249eda;">Project Page</span>](audio-visual-inpainting.html), [<span style="color: #6cc644;">Paper</span>](https://ieeexplore.ieee.org/abstract/document/10095447)
-
-    
-***Anticipating Next Active Object for egocentric videos** <br>
-    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
-    **Journal Review** <br>
-    [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358)
-
 ***Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>
 ICIP'23 <br>
     **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
     **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
     [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953), [<span style="color: #6cc644;">Technical Report (GANOv2) </span>](https://arxiv.org/abs/2305.16066), [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/guided-attention-for-next-active-object-ego4d/short-term-object-interaction-anticipation-on)](https://paperswithcode.com/sota/short-term-object-interaction-anticipation-on?p=guided-attention-for-next-active-object-ego4d)
+
+***Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** <br>
+ICASSP'23 <br>
+    Valentina Sanguineti, **Sanket Thakur**, Pietro Morerio, Alessio Del Bue, Vittorio Murino<br>
+    [<span style="color: #249eda;">Project Page</span>](audio-visual-inpainting.html), [<span style="color: #6cc644;">Paper</span>](https://ieeexplore.ieee.org/abstract/document/10095447)
+
+***Anticipating Next Active Object for egocentric videos** <br>
+    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Vittorio Murino, Alessio Del Bue <br>
+    **Journal Review** <br>
+    [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358)
+
+
+***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** <br>
+ACM ICMI'21 <br>
+    **Sanket Thakur**, Cigdem Beyan, Pietro Morerio, Alessio Del Bue <br>
+    [<span style="color: #249eda;">Project Page</span>](predicting-gaze-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://dl.acm.org/doi/abs/10.1145/3462244.3479954), [<span style="color: #575453;">Code</span>](https://github.com/IIT-PAVIS/MultimodalGaze) 
+    
+
+
+    
+
+
+
 
     
 
