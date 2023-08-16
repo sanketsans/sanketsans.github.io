@@ -34,6 +34,7 @@ Hit me up and lets make another ***podcast.***
 ICIP'23 <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br> 
     [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953) <br>
+    ------------------<br>
     [<span style="color: #6cc644;">CVPRW Paper </span>](https://arxiv.org/abs/2305.16066) - **GANOv2**, [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2) <br>
     **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/guided-attention-for-next-active-object-ego4d/short-term-object-interaction-anticipation-on)](https://paperswithcode.com/sota/short-term-object-interaction-anticipation-on?p=guided-attention-for-next-active-object-ego4d)
@@ -98,7 +99,7 @@ ACM ICMI'21 <br>
 You can find me on [Twitter](https://twitter.com/sanketsans97).  
 If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
 
-Checkout some of my <a href="https://maker.pro/profile/sanket.thakur"><b><u>VR / AR tutorials</u></a> from previous life
+Checkout some of my <a href="https://maker.pro/profile/sanket.thakur"><b><u>VR / AR tutorials</u></b></a> from previous life
 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><path d="M14 20h-6v-1h6v1zm5-12h-2v1h2v-1zm-3 9h-8v1h8v-1zm8-13v15h-4v5h-16v-5h-4v-15h4v-4h16v4h4zm-18 0h12v-2h-12v2zm12 11h-12v7h12v-7zm4-9h-20v11h2v-4h16v4h2v-11zm-10 2h-7v3h7v-3zm7 2h-2v1h2v-1zm-3 0h-2v1h2v-1zm0-2h-2v1h2v-1z"/></svg>
 
 **PS: I am still updating this site, few commits a day.**
