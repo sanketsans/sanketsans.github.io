@@ -78,6 +78,9 @@ ACM ICMI'21 <br>
 
 ##### [Other]:
 
+***Visiting [CSIC-IRI](https://www.iri.upc.edu)(UPC), Barcelona to work with [Mariella Dimiccoli](https://www.iri.upc.edu/staff/mdimiccoli)***, May '22
+<p></p>
+
 ***Invited Technical Talk at SVNIT,India : [Egocentric Video Understanding](https://drive.google.com/file/d/1gBB2ICuQB3rrcuz4fyKPIxbBv3S6cka_/view?usp=sharing)*** , Aug '22
 <p></p>
 
