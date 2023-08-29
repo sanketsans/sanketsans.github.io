@@ -27,7 +27,7 @@ Hit me up and lets make another ***podcast.***
 ***Leveraging Next-Active Objects for Short-Term Anticipation in Egocentric Videos** <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br>
     WACV '24 <br>
-    **Coming Soon**
+    [<span style="color: #249eda;">Project Page</span>](leverage-next-active-object-action-anticipation.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2308.08303)
     <!-- [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358) -->
 
 ***Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>

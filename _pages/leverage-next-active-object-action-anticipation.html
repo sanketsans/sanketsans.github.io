@@ -1,0 +1,525 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.green-text{
+		color: green;
+	}
+	.red-text{
+		color: red;
+	}
+	.cyan-text{
+		color: rgb(31, 134, 160);
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+
+	.mySlides {
+	display: none
+	}
+	img {
+	vertical-align: middle;
+	}
+	.slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+	}
+	/* Next & previous buttons */
+	.prev,
+	.next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	}
+	/* Position the "next button" to the right */
+	.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+	}
+	/* On hover, add a black background color with a little bit see-through */
+	.prev:hover,
+	.next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+	}
+	/* Caption text */
+	.text {
+	color: #0b0c0c;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+	}
+	/* Number text (1/3 etc) */
+	.numbertext {
+	color: #ffffff;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+	}
+	/* The dots/bullets/indicators */
+	.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #999999;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+	}
+	.active,
+	.dot:hover {
+	background-color: #111111;
+	}
+	/* Fading animation */
+	.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
+	}
+	@-webkit-keyframes fade {
+	from {
+		opacity: .4
+	}
+	to {
+		opacity: 1
+	}
+	}
+	@keyframes fade {
+	from {
+		opacity: .4
+	}
+	to {
+		opacity: 1
+	}
+	}
+	/* On smaller screens, decrease text size */
+	@media only screen and (max-width: 300px) {
+	.prev,
+	.next,
+	.text {
+		font-size: 11px
+	}
+	}
+
+	sub {
+		vertical-align: sub;
+		font-size: smaller;
+	}
+    
+
+</style>
+
+<html>
+<head>
+	<title>Leveraging Next-Active Objects for Context-Aware Anticipation in Egocentric Videos</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Leveraging Next-Active Objects for Context-Aware Anticipation in Egocentric Videos" />
+	<meta property="og:description" content="This is the paper desc" />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:34px">Leveraging Next-Active Objects for Context-Aware Anticipation in Egocentric Videos</span><br>
+		<br>
+		<table align=center width=1000px>
+			<table align=center width=1000px>
+				<tr>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px"><a href="https://sanketsans.github.io/about">Sanket Thakur</a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px"><a href="https://cbeyan.github.io/">Cigdem Beyan</a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.it/citations?user=lPV9rbkAAAAJ&hl=it">Pietro Morerio</a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=yV3_PTkAAAAJ&hl=en">Vittorio Murino</a></span>
+						</center>
+					</td>
+					<td align=center width=150px>
+						<center>
+							<span style="font-size:24px"><a href="https://scholar.google.com/citations?user=LUzvbGIAAAAJ&hl=en">Alessio Del Bue</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table align=center width=250px>
+				<tr>
+					<td align=center width=120px>
+						<center>
+							<span style="font-size:24px"><a href='https://arxiv.org/abs/2308.08303'>[Paper]</a></span>
+						</center>
+					</td>
+					<td align=center width=300px>
+						<center>
+							<span style="font-size:18px">[GitHub] (Soon)</span><br>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</table>
+	</center>
+	<br>
+	<center>
+		<table align=center width=850px>
+			<tr>
+				<td width=400px>
+					<center>
+						<img class="round" style="width:500px" src="/img/resources/wacv24/wacv_teaser.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<!-- <table align=center width=850px>
+			<tr>
+				<td>
+					Imagine a scene where originally there was a plane flying in the
+					sky and later the plane is removed. Probably, when we will inpaint
+					it, it will be completed with a visually consistent texture, but we
+					will miss the plane and the original semantic content in the scene.
+					Clearly, without any additional information, the plane cannot be re-
+					covered. Here, for the first time, we tackle a multi-modal instance
+					of the classical inpainting problem: given a missing image region
+					and an audio sample, the inpainted region should comply with the
+					semantic content of the sound as well as with the surrounding visual appearance.
+				</td>
+			</tr>
+		</table> -->
+	</center>
+        <br>
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				Objects are crucial for understanding human-object interactions. 
+				By identifying the relevant objects, one can also predict potential future interactions or actions that may occur with these objects. 
+				In this paper, we study the problem of Short-Term Object interaction anticipation (STA) and propose NAOGAT (Next-Active-Object Guided Anticipation Transformer), 
+				a multi-modal end-to-end transformer network, that attends to objects in observed frames in order to anticipate the next-active-object (NAO) and, eventually, 
+				to guide the model to predict context-aware future actions.
+				The task is challenging since it requires anticipating future action along with the object with which the action occurs and the time after which the interaction will begin, 
+				a.k.a. the time to contact (TTC). Compared to existing video modeling architectures for action anticipation, NAOGAT captures the relationship between objects and 
+				the global scene context in order to predict detections for the next active object and anticipate relevant future actions given these detections, leveraging the objects' dynamics to improve accuracy. 
+				One of the key strengths of our approach, in fact, is its ability to exploit the motion dynamics of objects within a given clip
+				, which is often ignored by other models, and separately decoding the object-centric and motion-centric information. Through our experiments, we show that our model outperforms existing methods on two separate datasets, 
+				Ego4D and EpicKitchens-100 (``Unseen Set''), as measured by several additional metrics, such as time to contact, and next-active-object localization. 
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<!-- <center><h1>Talk</h1></center>
+	<p align="center">
+		<iframe src="https://drive.google.com/file/d/1GjQvSR9pKSYEKx4VjkGW1GkH_gsVO3Sv/preview" width="640" height="480" allow="autoplay"></iframe>
+	</p> -->
+
+	<hr>
+
+	<center><h1>Code</h1></center>
+
+	<table align=center width=420px>
+		<center>
+			<tr>
+				<td>
+				</td>
+			</tr>
+		</center>
+	</table>
+	<table align=center width=400px>
+		<tr>
+			<td align=center width=300px>
+				<center>
+					<td><img class="round" style="width:950px" src="/img/resources/wacv24/wacv23_method.png"/></td>
+				</center>
+			</td>
+			<!-- <td align=center width=100px>
+				<center>
+					<td><img class="round" style="width:200px" src="/img/resources/gaze/propmethod.png"/></td>
+				</center>
+			</td> -->
+		</tr>
+	</table>
+	<br>
+	<table align=center width=850px>
+		<center>
+			<tr>
+				<td>
+					Our NAOGAT model first extracts feature information and object detections from a set of frames within an observed clip segment by means of a backbone network and an object detector; object detections are then transformed into object embeddings using an MLP network. The frame features are then concatenated with object embeddings to be sent to the transformer encoder after appending with spatial positional encoding. The encoder then extracts foreground motion (video memory) and global context features, which are used in two separate decoders to perform object-centric and motion-centric predictions. For object decoder, detections from the last observed frame and learnable embeddings are used to create object queries to perform fixed-set predictions for the NAO class label and its bounding box using a transformer decoder. In the last stage, we leverage Object dynamics to extract background motion in terms of object trajectories for detected objetcs in sampled frames. We then use the object decoder's outputs with the combined frame representation of video memory and object dynamics to perform predictions for motion-related outputs, such as future action and time to contact (TTC).
+				</td>
+			</tr>
+		</center>
+	</table>
+	<!-- <table align=center width=800px>
+		<br>
+		<tr><center>
+			<span style="font-size:28px">&nbsp;<a href="https://docs.google.com/presentation/d/e/2PACX-1vRaGSgpoghJe6jPUF6-WROC5cAr3w449We0r-ATHYOTBVytLM37jwM6kYSddC7gsw/pub?start=false&loop=false&delayms=3000">[Slides]</a>
+			<a href="https://drive.google.com/file/d/1EYdQFW2kBfwyrdCzpnYHYugPjc5-KDu9/view?usp=share_link">[Poster]</a>
+			</center>
+		</span> 
+	</table> -->
+	<br>
+	<!-- <hr>
+
+	<center><h1>Results</h1></center>
+
+	<center>
+		<div class="slideshow-container">
+			<div class="mySlides fade">
+			  <div class="numbertext">1 / 3</div>
+			  <img src="/img/resources/icassp/suburmp.png" style="width:70%">
+			  <figcaption >Cross-Model Generation on <b><it>SubURMP</it></b></figcaption>
+			</div>
+			<div class="mySlides fade">
+			  <div class="numbertext">2 / 3</div>
+			  <img src="/img/resources/icassp/audioset.png" style="width:100%">
+			  <figcaption>Cross-Model Generation on <b><it>AudioSet</it></b> </figcaption>
+			</div>
+			<div class="mySlides fade">
+			  <div class="numbertext">3 / 3</div>
+			  <img src="/img/resources/icassp/vggsound.png" style="width:100%">
+			  <figcaption>Cross-Model Generation on <b><it>VGGSound</it></b></figcaption>
+			</div>
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		  </div>
+		  <br>
+		  <div style="text-align:center">
+			<span class="dot" onclick="currentSlide(0)"></span>
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+		  </div>
+		</center>
+		
+		<script>
+			let slideIndex = 0;
+			let timeoutId = null;
+			const slides = document.getElementsByClassName("mySlides");
+			const dots = document.getElementsByClassName("dot");
+			
+			showSlides();
+			function currentSlide(index) {
+				slideIndex = index;
+				showSlides();
+			}
+			function plusSlides(step) {
+				
+				if(step < 0) {
+					slideIndex -= 2;
+					
+					if(slideIndex < 0) {
+					slideIndex = slides.length - 1;
+					}
+				}
+				
+				showSlides();
+			}
+			function showSlides() {
+				for(let i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+				dots[i].classList.remove('active');
+				}
+				slideIndex++;
+				if(slideIndex > slides.length) {
+				slideIndex = 1
+				}
+				slides[slideIndex - 1].style.display = "block";
+				dots[slideIndex - 1].classList.add('active');
+				if(timeoutId) {
+					clearTimeout(timeoutId);
+				}
+				timeoutId = setTimeout(showSlides, 7000); // Change image every 5 seconds
+			}
+		</script>
+	<br> -->
+	<hr>
+	<table align=center width=450px>
+		<center><h1>Paper and Supplementary Material</h1></center>
+		<tr>
+			<td><a href=""><img class="layered-paper-big" style="height:175px" src="/img/resources/wacv24/paper.png"/></a></td>
+			<td><span style="font-size:14pt">S. Thakur, C. Beyan, P. Morerio, A. Del Bue, V. Murino, <br>
+				<b>Leveraging Next-Active Objects for Context-Aware Anticipation in Egocentric Videos</b><br>
+				In Winter Conference on Applications of Computer Vision (WACV), 2023<br>
+				(hosted on <a href="https://arxiv.org/abs/2308.08303">arxiv</a>)<br>
+				<!-- (<a href="./resources/camera-ready.pdf">camera ready</a>)<br> -->
+				<span style="font-size:12pt"><a href=""><br></a>
+				</span>
+			</td>
+		</tr>
+	</table>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<td><span style="font-size:14pt"><center>
+				<a href="/img/resources/wacv24/bibtex.txt">[Bibtex]</a>
+			</center></td>
+		</tr>
+	</table>
+
+	<hr>
+	<br>
+
+	<table align=center width=900px>
+		<tr>
+			<td width=400px>
+				<left>
+					<center><h1>Acknowledgements</h1></center>
+					This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>.
+				</left>
+			</td>
+		</tr>
+	</table>
+
+<br>
+</body>
+</html>
+

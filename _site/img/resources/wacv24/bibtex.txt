@@ -1,0 +1,8 @@
+@misc{thakur2023leveraging,
+      title={Leveraging Next-Active Objects for Context-Aware Anticipation in Egocentric Videos}, 
+      author={Sanket Thakur and Cigdem Beyan and Pietro Morerio and Vittorio Murino and Alessio Del Bue},
+      year={2023},
+      eprint={2308.08303},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
