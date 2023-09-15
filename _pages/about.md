@@ -78,6 +78,8 @@ ACM ICMI'21 <br>
 
 ##### [Other]:
 
+***Technical Talk at Dolby Labs : [Next-Active-Objects for egocentric videos](https://drive.google.com/file/d/1unUyanZZ-BkZ-pK3Vg80Zn_ys78WrQHJ/view?usp=sharing)***, Sept '23
+
 ***Visiting [CSIC-IRI](https://www.iri.upc.edu)(UPC), Barcelona to work with [Mariella Dimiccoli](https://www.iri.upc.edu/staff/mdimiccoli)***, May '22
 <p></p>
 
