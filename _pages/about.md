@@ -78,7 +78,7 @@ ACM ICMI'21 <br>
 
 ##### [Other]:
 
-***Poster Award, Synapse AI symposium 2023: [(Poster)](https://drive.google.com/file/d/19a2UdN0CxnEjR0jqVfHCkArlsXOJnV23/view?usp=sharing)***, Sept '23
+***Poster Award, Synapse AI symposium 2023: [(Poster)](https://drive.google.com/file/d/1Imzc9fP0EJjUvBti7ANltc3evGfRuOwt/view?usp=sharing)***, Sept '23
 
 ***Technical Talk at Dolby Labs : [Next-Active-Objects for egocentric videos](https://drive.google.com/file/d/1unUyanZZ-BkZ-pK3Vg80Zn_ys78WrQHJ/view?usp=sharing)***, Sept '23
 
