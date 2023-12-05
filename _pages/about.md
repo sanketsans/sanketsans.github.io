@@ -5,11 +5,13 @@ description: PhD candidate, Computer Vision. Gamer.
 featured_image: /img/sanket.jpg
 ---
 
-I'm Sanket, an aspiring researcher working on Multi Modal Deep learning with a focus on egocentric vision. I am currently a PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focus on social interaction analysis for first person videos. 
+I'm Sanket, an aspiring researcher working on Multi Modal Deep learning with a focus on egocentric vision. I am final year PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focus on social interaction analysis for first person videos. 
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research teams. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
-Passionate about ***Video understanding***, ***object detection*** & ***transformers.***
+Passionate about ***Video understanding***, ***object detection*** & ***multimodal learning.***
+<font color="red">PS : On the lookout for full-time roles as MLE / Applied Scientist. </font>
+
 
 ***Checkout my latest podcast !***
 <div style="display: flex; justify-content: center;">
@@ -24,36 +26,37 @@ Hit me up and lets make another ***podcast.***
 
 ##### Papers:
 
-* **Leveraging Next-Active Objects for Short-Term Anticipation in Egocentric Videos** <br>
+***Leveraging Next-Active Objects for Short-Term Anticipation in Egocentric Videos** <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br>
     WACV '24 <br>
     [<span style="color: #249eda;">Project Page</span>](leverage-next-active-object-action-anticipation.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2308.08303)
     <!-- [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358) -->
 
-*  **Guided Attention for Next Active Object@ EGO4D STA Challenge** <br>
+
+***Guided Attention for Next Active Object@ EGO4D STA Challenge** <br>
 CVPRW'23 <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br> 
     [<span style="color: #6cc644;">CVPRW Paper </span>](https://arxiv.org/abs/2305.16066) - **GANOv2**, [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2) <br>
     **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/guided-attention-for-next-active-object-ego4d/short-term-object-interaction-anticipation-on)](https://paperswithcode.com/sota/short-term-object-interaction-anticipation-on?p=guided-attention-for-next-active-object-ego4d)
 
-* **Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>
+***Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>
 ICIP'23 <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br> 
     [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953) <br>
 
-* **Anticipating Next Active Object for egocentric videos** <br>
+***Anticipating Next Active Object for egocentric videos** <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br>
     **Journal Review** <br>
     [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358)
 
-* **Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** <br>
+***Audio-Visual Inpainting: Reconstructing Missing Visual Information with Sound** <br>
 ICASSP'23 <br>
     Sanguineti V., **Thakur S.**, Morerio P., Del Bue A., Murino V.<br>
     [<span style="color: #249eda;">Project Page</span>](audio-visual-inpainting.html), [<span style="color: #6cc644;">Paper</span>](https://ieeexplore.ieee.org/abstract/document/10095447)
 
 
-* **Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** <br>
+***Predicting Gaze from Egocentric Social Interaction Videos and IMU Data** <br>
 ACM ICMI'21 <br>
     **Thakur S.**, Beyan C., Morerio P., Del Bue A. <br>
     [<span style="color: #249eda;">Project Page</span>](predicting-gaze-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://dl.acm.org/doi/abs/10.1145/3462244.3479954), [<span style="color: #575453;">Code</span>](https://github.com/IIT-PAVIS/MultimodalGaze) 
@@ -80,7 +83,7 @@ ACM ICMI'21 <br>
 
 ##### [Other]:
 
-***Poster Award, Synapse AI symposium 2023: [(Poster)](https://drive.google.com/file/d/1Imzc9fP0EJjUvBti7ANltc3evGfRuOwt/view?usp=sharing)***, Sept '23
+***Poster Award, Synapse AI symposium 2023: [(Poster)](https://drive.google.com/file/d/19a2UdN0CxnEjR0jqVfHCkArlsXOJnV23/view?usp=sharing)***, Sept '23
 
 ***Technical Talk at Dolby Labs : [Next-Active-Objects for egocentric videos](https://drive.google.com/file/d/1unUyanZZ-BkZ-pK3Vg80Zn_ys78WrQHJ/view?usp=sharing)***, Sept '23
 

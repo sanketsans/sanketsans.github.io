@@ -321,7 +321,7 @@
 		<table align=center width=850px>
 			<tr>
 				<td>
-					Imagine a scene where originally there was a plane flying in the
+					<b>Fig 1.</b> Imagine a scene where originally there was a plane flying in the
 					sky and later the plane is removed. Probably, when we will inpaint
 					it, it will be completed with a visually consistent texture, but we
 					will miss the plane and the original semantic content in the scene.
@@ -395,7 +395,7 @@
 		<center>
 			<tr>
 				<td>
-					Our AVIN model works in two stages. <b>Stage I :</b> AudioPixelCNN takes a low resolution masked image as an input. The image is then conditioned 
+					<b>Fig 2.</b> Our AVIN model works in two stages. <b>Stage I :</b> AudioPixelCNN takes a low resolution masked image as an input. The image is then conditioned 
 					upon the corresponding audio sample for the subject that is to be filled with in the missing region. This outputs a low-resolution representation of 
 					complete image filling the missing region with context information. This outputs is stochastic since the pixels are sampled from a probability distribution
 					to output a wide range of images. <b>Stage II: </b> In this stage, a ADSR-GAN model is used to refine the low-resolution image from stage I. The GAN takes the 

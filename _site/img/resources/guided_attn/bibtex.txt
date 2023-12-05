@@ -1,3 +1,11 @@
+@misc{thakur2023enhancing,
+      title={Enhancing Next Active Object-based Egocentric Action Anticipation with Guided Attention}, 
+      author={Sanket Thakur and Cigdem Beyan and Pietro Morerio and Vittorio Murino and Alessio Del Bue},
+      year={2023},
+      eprint={2305.12953},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 @misc{thakur2023guided,
       title={Guided Attention for Next Active Object @ EGO4D STA Challenge}, 
       author={Sanket Thakur and Cigdem Beyan and Pietro Morerio and Vittorio Murino and Alessio Del Bue},
