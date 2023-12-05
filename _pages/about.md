@@ -30,15 +30,17 @@ Hit me up and lets make another ***podcast.***
     [<span style="color: #249eda;">Project Page</span>](leverage-next-active-object-action-anticipation.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2308.08303)
     <!-- [<span style="color: #249eda;">Project Page</span>](anticipating-next-active-object-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2302.06358) -->
 
+*  **Guided Attention for Next Active Object@ EGO4D STA Challenge** <br>
+CVPRW'23 <br>
+    **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br> 
+    [<span style="color: #6cc644;">CVPRW Paper </span>](https://arxiv.org/abs/2305.16066) - **GANOv2**, [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2) <br>
+    **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/guided-attention-for-next-active-object-ego4d/short-term-object-interaction-anticipation-on)](https://paperswithcode.com/sota/short-term-object-interaction-anticipation-on?p=guided-attention-for-next-active-object-ego4d)
+
 * **Enchancing Next-Active-Object based Egocentric Action Anticipation with Guided Attention** <br>
 ICIP'23 <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br> 
     [<span style="color: #249eda;">Project Page</span>](guided-attention-egocentric.html), [<span style="color: #6cc644;">Paper</span>](https://arxiv.org/abs/2305.12953) <br>
-    - - - - - - - - -<br>
-*    [<span style="color: #6cc644;">CVPRW Paper </span>](https://arxiv.org/abs/2305.16066) - **GANOv2**, [<span style="color: #575453;">Code, GANOv2 - CVPR23 submission</span>](https://github.com/sanketsans/ganov2) <br>
-    **Winner CVPR23 EGO4D STA challenge** &#9733; <br>
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/guided-attention-for-next-active-object-ego4d/short-term-object-interaction-anticipation-on)](https://paperswithcode.com/sota/short-term-object-interaction-anticipation-on?p=guided-attention-for-next-active-object-ego4d)
-
 
 * **Anticipating Next Active Object for egocentric videos** <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br>
