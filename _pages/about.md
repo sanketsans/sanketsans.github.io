@@ -112,7 +112,7 @@ ACM ICMI'21 <br>
 ---------
 
 You can find me on [Twitter](https://twitter.com/sanketsans97).  
-If you're oldfashioned you can [send me an email](mailto:sanket.thakur@iit.it)
+If you're oldfashioned you can [send me an email](mailto:sanketkumar1996@gmail.com)
 
 Checkout some of my <a href="https://maker.pro/profile/sanket.thakur"><b><u>VR / AR tutorials</u></b></a> from previous life
 <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><path d="M14 20h-6v-1h6v1zm5-12h-2v1h2v-1zm-3 9h-8v1h8v-1zm8-13v15h-4v5h-16v-5h-4v-15h4v-4h16v4h4zm-18 0h12v-2h-12v2zm12 11h-12v7h12v-7zm4-9h-20v11h2v-4h16v4h2v-11zm-10 2h-7v3h7v-3zm7 2h-2v1h2v-1zm-3 0h-2v1h2v-1zm0-2h-2v1h2v-1z"/></svg>
@@ -123,9 +123,8 @@ Checkout some of my <a href="https://maker.pro/profile/sanket.thakur"><b><u>VR /
     <div style="float:left; width:4%; height:4%"><img src="/img/claim_sign.png" alt="claim_sign"></div>
     <div style="float:left; margin-left:2%">This claim is disputed.</div>
     <div style="clear: left;"/>
+
 </div>
-
-
 
 <div style="margin-top:2%">
     <blockquote class="twitter-tweet"><p lang="en" dir="ltr">PI: Congratulating me for submission. <br>Me : Who was still running models to get results in the last hour. <a href="https://twitter.com/hashtag/thoughtsofaphd?src=hash&amp;ref_src=twsrc%5Etfw">#thoughtsofaphd</a> <a href="https://twitter.com/hashtag/phdchat?src=hash&amp;ref_src=twsrc%5Etfw">#phdchat</a> <a href="https://t.co/jGh35e8eMA">pic.twitter.com/jGh35e8eMA</a></p>&mdash; Sanket Thakur (@sanketsans97) <a href="https://twitter.com/sanketsans97/status/1406652103880216577?ref_src=twsrc%5Etfw">June 20, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
