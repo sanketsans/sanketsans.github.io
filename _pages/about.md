@@ -82,6 +82,8 @@ ACM ICMI'21 <br>
 <p>May 20th '21</p> -->
 
 ##### [Other]:
+***Stable Diffusion Concept : Pok-Logo < gan-pok>***
+[<span style="color: #249eda;">Hugging face</span>](https://huggingface.co/sd-concepts-library/pok-logo)
 
 ***Generative AI based : Guess The YouTube game***
 [<span style="color: #249eda;">Project Page</span>](https://github.com/sanketsans/GuessYT)
