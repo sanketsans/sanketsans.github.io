@@ -10,7 +10,6 @@ I'm Sanket, an aspiring researcher working on Multi Modal Deep learning with a f
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research teams. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
 Passionate about ***Video understanding***, ***object detection*** & ***multimodal learning.***
-<font color="red">PS : On the lookout for full-time roles as MLE / Applied Scientist. </font>
 
 
 ***Checkout my latest podcast !***
@@ -23,6 +22,8 @@ Passionate about ***Video understanding***, ***object detection*** & ***multimod
 Hit me up and lets make another ***podcast.***
 
 ## News [Updates]:
+
+#### Jan'25 : Joined [Frontera Health](https://fronterahealth.com/) as Applied Research Scientist.
 
 ##### Papers:
 
