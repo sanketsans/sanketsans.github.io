@@ -23,7 +23,7 @@ Hit me up and lets make another ***podcast.***
 
 ## News [Updates]:
 
-#### Jan'25 : Joined [Frontera Health](https://fronterahealth.com/) as Applied Research Scientist.
+***<b>Jan'25</b>** : Joined [Frontera Health](https://fronterahealth.com/) as Applied Research Scientist.
 
 ##### Papers:
 
