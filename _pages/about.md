@@ -1,16 +1,16 @@
 ---
 title: Ciao
 subtitle: /tʃaʊ/
-description: PhD candidate, Computer Vision. Gamer.
+description: Applied Scientist. Gamer.
 featured_image: /img/sanket.jpg
 ---
 
-I'm Sanket, an aspiring researcher working on Multi Modal Deep learning with a focus on egocentric vision. I am final year PhD student at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focus on social interaction analysis for first person videos. 
+I'm Sanket, an Applied Scientist working with <a href="https://fronterahealth.com/"><b>Frontera Health</b></a>. I like to build scalable ML system and train very large neural networks. 
+Earlier, I finished my PhD at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focused on social interaction analysis for first person videos. 
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research teams. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
 Passionate about ***Video understanding***, ***object detection*** & ***multimodal learning.***
-
 
 ***Checkout my latest podcast !***
 <div style="display: flex; justify-content: center;">
