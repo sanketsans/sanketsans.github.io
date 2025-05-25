@@ -1,6 +1,6 @@
 basic_settings:
   site_title: Sanket Thakur
-  site_tagline: PhD candidate, Computer Vision. Gamer.
+  site_tagline: Applied Scientist. Gamer.
   # favicon_image: /images/favicon.png
 
 header_settings:
@@ -25,7 +25,7 @@ social_settings:
   google-plus_url: ''
   vimeo_url: ''
   pinterest_url: ''
-  medium_url: ''
+  medium_url: 'https://sanketsans.medium.com/'
   quora_url: ''
   amazon_url: ''
   apple_url: ''
