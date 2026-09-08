@@ -1,17 +1,26 @@
 ---
-title: Ciao
-subtitle: /tʃaʊ/
-description: Applied Scientist. Gamer.
+title: About
+subtitle: LLM Research Engineer
+description: LLM Research Engineer.
 featured_image: /img/sanket.jpg
 ---
 
-I'm Sanket, an Applied Scientist working with <a href="https://fronterahealth.com/"><b>Frontera Health</b></a>. I like to build scalable ML system and train very large neural networks. 
+<div class="bio-status" data-animate>
+  <span class="bio-status__dot"></span>
+  <span class="bio-status__text">Currently: Post-training RL</span>
+</div>
+
+I'm Sanket, an **LLM Research Engineer at [Multiverse Computing](https://www.multiversecomputing.com)**. I work on **post-training RL** — aligning foundation models with human preferences and task objectives through reinforcement learning.
 <br><br>
 Earlier, I finished my PhD at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focused on social interaction analysis for first person videos. 
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research teams. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
-Passionate about ***Video understanding***, ***object detection*** & ***multimodal learning.***
+Areas of interest: ***post-training RL***, ***alignment***.
+<br>
+PS: Also exploring ***mechinterptability***.
+
+{% include medium-carousel.html %}
 
 ***Checkout my latest podcast !***
 <div style="display: flex; justify-content: center;">
@@ -22,11 +31,13 @@ Passionate about ***Video understanding***, ***object detection*** & ***multimod
 
 Hit me up and lets make another ***podcast.***
 
-## News [Updates]:
+## News [Updates]: <a id="updates"></a>
+
+***<b>Mar'27</b>** : Joined [Multiverse Computing](https://www.multiversecomputing.com) as LLM Research Engineer — working on post-training RL.
 
 ***<b>Jan'25</b>** : Joined [Frontera Health](https://fronterahealth.com/) as Applied Research Scientist.
 
-##### Papers:
+##### Papers: <a id="work"></a>
 
 ***Leveraging Next-Active Objects for Short-Term Anticipation in Egocentric Videos** <br>
     **Thakur S.**, Beyan C., Morerio P., Murino V., Del Bue A. <br>

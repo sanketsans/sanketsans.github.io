@@ -2,7 +2,7 @@
 layout: default
 title: Papers Breif
 subtitle: /pap/
-description: PhD candidate, Computer Vision. Gamer.
+description: LLM Research Engineer at Multiverse Computing.
 ---
 
 <section class="intro">
@@ -35,9 +35,10 @@ description: PhD candidate, Computer Vision. Gamer.
 
 		</div>
 		<section class="portfolio">
+		<div id="pap-list">
 		{% for post in site.posts %}
 
-		<div class="portfolio-item" style="margin-left:5%">
+		<div class="portfolio-item pap-post-item" data-page="{{ forloop.index0 | divided_by: 5 | plus: 1 }}" style="margin-left:5%">
 
 			<a class="portfolio-item__link" href="{{ post.url }}">
 
@@ -69,7 +70,50 @@ description: PhD candidate, Computer Vision. Gamer.
 		</div>
 
 		{% endfor %}
+		</div>
 
+		{% if site.posts.size > 5 %}
+		<div class="pagination pap-pagination" id="pap-pagination">
+			<div class="pagination__prev" style="display:none">
+				<a href="#" class="button button--large" onclick="papPagePrev(); return false;">
+					<span>← Newer Posts</span>
+				</a>
+			</div>
+			<div class="pagination__next">
+				<a href="#" class="button button--large" onclick="papPageNext(); return false;">
+					<span>Older Posts →</span>
+				</a>
+			</div>
+		</div>
+		<script>
+		(function () {
+			var perPage = 5;
+			var items = document.querySelectorAll("#pap-list .pap-post-item");
+			var totalPages = Math.ceil(items.length / perPage);
+			var current = 1;
+
+			function render() {
+				items.forEach(function (el) {
+					var p = parseInt(el.getAttribute("data-page"));
+					el.style.display = (p === current) ? "" : "none";
+				});
+				var prev = document.querySelector("#pap-pagination .pagination__prev");
+				var next = document.querySelector("#pap-pagination .pagination__next");
+				if (prev) prev.style.display = current > 1 ? "" : "none";
+				if (next) next.style.display = current < totalPages ? "" : "none";
+			}
+
+			window.papPageNext = function () {
+				if (current < totalPages) { current++; render(); }
+			};
+			window.papPagePrev = function () {
+				if (current > 1) { current--; render(); }
+			};
+
+			render();
+		})();
+		</script>
+		{% endif %}
 
 	</div>
 

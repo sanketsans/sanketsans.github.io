@@ -1,0 +1,31 @@
+{%- comment -%}
+  Hero section — adapted from hero-1.tsx (21st dev) to Liquid + SCSS.
+  Props (all optional except title/subtitle):
+    eyebrow, title, subtitle, cta_label, cta_href
+  Usage:  {% include hero.html title="..." subtitle="..." %}
+{%- endcomment -%}
+<section class="hero" id="hero">
+  <div class="hero__grid-bg" aria-hidden="true"></div>
+  <div class="hero__radial-accent" aria-hidden="true"></div>
+
+  {%- if include.eyebrow -%}
+    <a href="{{ include.eyebrow_href | default: '#' }}" class="hero__eyebrow group">
+      <span>{{ include.eyebrow }}
+        <svg class="hero__eyebrow-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </span>
+    </a>
+  {%- endif -%}
+
+  <h1 class="hero__title">{{ include.title }}</h1>
+  <p class="hero__subtitle">{{ include.subtitle }}</p>
+
+  {%- if include.cta_label -%}
+    <div class="hero__cta">
+      <a href="{{ include.cta_href | default: '#' }}" class="hero__cta-btn">{{ include.cta_label }}</a>
+    </div>
+  {%- endif -%}
+
+  <div class="hero__bottom-fade" aria-hidden="true"></div>
+</section>

@@ -2,14 +2,25 @@
 layout: default
 ---
 
-<section class="intro">
+{% if page.hero %}
+  {% include hero.html
+     eyebrow=page.eyebrow
+     eyebrow_href=page.eyebrow_href
+     title=page.hero_title
+     subtitle=page.subtitle
+     cta_label=page.cta_label
+     cta_href=page.cta_href
+  %}
+{% else %}
+<section class="intro" data-animate>
 	<div class="wrap">
 		<h1>{{ page.title }}</h1>
 		<p>{{ page.subtitle }}</p>
 	</div>
 </section>
+{% endif %}
 
-<section class="single">
+<section class="single" data-animate>
 	<div class="wrap">
 		{{ page.content }}
 	</div>

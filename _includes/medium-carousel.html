@@ -1,0 +1,108 @@
+{%- comment -%}
+  Medium posts carousel — reads from _data/medium_posts.yml.
+  Shows latest Medium posts in a swipeable carousel with prev/next controls.
+  Usage: {% include medium-carousel.html %}
+{%- endcomment -%}
+{% assign mposts = site.data.medium_posts.posts %}
+{% if mposts.size > 0 %}
+<div class="medium-carousel" data-animate>
+  <div class="medium-carousel__header">
+    <h3 class="medium-carousel__title">Latest on Medium</h3>
+    <a href="https://sanketsans.medium.com" target="_blank" rel="noopener noreferrer" class="medium-carousel__link">See all →</a>
+  </div>
+
+  <div class="medium-carousel__viewport">
+    <div class="medium-carousel__track" id="medium-carousel-track">
+      {% for post in mposts %}
+      <div class="medium-carousel__slide">
+        <a href="{{ post.url }}" target="_blank" rel="noopener noreferrer" class="medium-carousel__slide-inner">
+          <span class="medium-carousel__date">{{ post.date }}</span>
+          <h4 class="medium-carousel__post-title">{{ post.title }}</h4>
+          {% if post.subtitle %}
+          <p class="medium-carousel__subtitle">{{ post.subtitle }}</p>
+          {% endif %}
+          <span class="medium-carousel__read">Read on Medium →</span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if mposts.size > 1 %}
+  <div class="medium-carousel__controls">
+    <button class="medium-carousel__btn medium-carousel__btn--prev" onclick="mediumCarouselPrev()" aria-label="Previous">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <div class="medium-carousel__dots" id="medium-carousel-dots"></div>
+    <button class="medium-carousel__btn medium-carousel__btn--next" onclick="mediumCarouselNext()" aria-label="Next">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+(function () {
+  var track = document.getElementById("medium-carousel-track");
+  if (!track) return;
+  var slides = track.querySelectorAll(".medium-carousel__slide");
+  var current = 0;
+  var total = slides.length;
+
+  // Build dots
+  var dotsContainer = document.getElementById("medium-carousel-dots");
+  if (dotsContainer) {
+    for (var i = 0; i < total; i++) {
+      var dot = document.createElement("button");
+      dot.className = "medium-carousel__dot";
+      dot.setAttribute("aria-label", "Go to slide " + (i + 1));
+      dot.setAttribute("data-index", i);
+      dot.addEventListener("click", function () {
+        goTo(parseInt(this.getAttribute("data-index")));
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    var dots = dotsContainer ? dotsContainer.querySelectorAll(".medium-carousel__dot") : [];
+    dots.forEach(function (d, i) {
+      d.classList.toggle("is-active", i === current);
+    });
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, total - 1));
+    track.style.transform = "translateX(-" + current * 100 + "%)";
+    updateDots();
+  }
+
+  window.mediumCarouselPrev = function () {
+    goTo(current - 1);
+  };
+  window.mediumCarouselNext = function () {
+    goTo(current + 1);
+  };
+
+  // Touch / swipe support
+  var startX = 0;
+  var isDragging = false;
+
+  track.addEventListener("touchstart", function (e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
+
+  track.addEventListener("touchend", function (e) {
+    if (!isDragging) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) { window.mediumCarouselNext(); } else { window.mediumCarouselPrev(); }
+    }
+    isDragging = false;
+  }, { passive: true });
+
+  updateDots();
+})();
+</script>
+{% endif %}
