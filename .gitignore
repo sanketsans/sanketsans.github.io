@@ -1,0 +1,7 @@
+# Claude Code local tooling (skills, caches) — not part of the site
+.claude/
+
+# Jekyll build output
+_site/
+.sass-cache/
+.bundle/
