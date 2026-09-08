@@ -1,0 +1,202 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+#
+# sync-medium — fetch latest posts from Medium and write them to
+# _data/medium_posts.yml so Jekyll can render them at build time.
+#
+# Usage:  ruby bin/sync-medium
+#
+# Strategy:
+#   1. Try Medium's RSS feed (works intermittently — Medium blocks
+#      server-side requests sometimes).
+#   2. If RSS fails, fall back to parsing _projects/*.md for medium_url
+#      front matter (the curated set you already maintain).
+#
+# This is meant to be run locally or in CI before `jekyll build`.
+# On GitHub Pages, you can run this in a GitHub Action before the
+# `jekyll build` step to keep the Medium list fresh.
+
+require "net/http"
+require "uri"
+require "yaml"
+require "time"
+
+MEDIUM_USER  = "sanketsans"
+FEED_URLS    = [
+  "https://sanketsans.medium.com/rss",
+  "https://medium.com/@#{MEDIUM_USER}/rss",
+  "https://rss.medium.com/@#{MEDIUM_USER}/rss"
+]
+OUTPUT       = File.expand_path("../_data/medium_posts.yml", __dir__)
+PROJECTS_DIR = File.expand_path("../_projects", __dir__)
+TIMEOUT      = 15
+
+# --- String#truncate_words fallback (not in Ruby 3.1 stdlib) ---
+unless "".respond_to?(:truncate_words)
+  class String
+    def truncate_words(count = 30, trailer = "...")
+      words = split
+      return self if words.length <= count
+      words[0...count].join(" ") + trailer
+    end
+  end
+end
+
+# Parse "25 May 2025" or ISO date into a Time for sorting.
+def parse_date(str)
+  return Time.at(0) if str.nil? || str.empty?
+  # Try "DD Month YYYY" format (e.g. "15 Nov 2025", "25 May 2025")
+  if str =~ /(\d+)\s+(\w+)\s+(\d{4})/
+    begin
+      return Time.parse("#{$1} #{$2} #{$3}")
+    rescue
+      return Time.at(0)
+    end
+  end
+  # Try ISO 8601
+  begin
+    return Time.parse(str)
+  rescue
+    return Time.at(0)
+  end
+end
+
+def fetch_rss(url)
+  uri = URI.parse(url)
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = (uri.scheme == "https")
+  http.read_timeout = TIMEOUT
+  http.open_timeout = TIMEOUT
+
+  req = Net::HTTP::Get.new(uri.request_uri)
+  req["User-Agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+  req["Accept"] = "application/rss+xml, application/xml, text/xml, */*"
+
+  res = http.request(req)
+  return nil unless res.is_a?(Net::HTTPSuccess)
+
+  body = res.body
+  # Medium sometimes returns its HTML SPA shell instead of RSS.
+  # Only accept responses that look like XML.
+  return nil unless body&.include?("<item") || body&.include?("<entry")
+  body
+rescue StandardError => e
+  warn "  ! #{url}: #{e.message}"
+  nil
+end
+
+def parse_rss(xml)
+  posts = []
+  return posts if xml.nil? || xml.empty?
+
+  # RSS 2.0 <item> or Atom <entry>
+  items = xml.scan(/<(?:item|entry)>(.*?)<\/(?:item|entry)>/m)
+  items.each do |m|
+    item = m[0]
+
+    title = item[/<title>(.*?)<\/title>/m, 1]&.strip
+    link  = item[/<link[^>]*>(.*?)<\/link>/m, 1]&.strip
+    link  ||= item[/<link[^>]*href="([^"]+)"/, 1]&.strip
+    pub   = item[/<pubDate>(.*?)<\/pubDate>/m, 1]&.strip
+    pub ||= item[/<published>(.*?)<\/published>/m, 1]&.strip
+    pub ||= item[/<updated>(.*?)<\/updated>/m, 1]&.strip
+
+    next if title.nil? || link.nil? || link.empty?
+
+    # Strip CDATA and HTML from description
+    desc = item[/<description><!\[CDATA\[(.*?)\]\]><\/description>/m, 1]
+    desc ||= item[/<description>(.*?)<\/description>/m, 1]
+    desc ||= item[/<summary>(.*?)<\/summary>/m, 1]
+    subtitle = desc&.gsub(/<[^>]*>/, "")&.gsub(/\s+/, " ")&.strip&.truncate_words(20) rescue nil
+
+    posts << {
+      "title"    => title,
+      "url"      => link,
+      "date"     => pub || "",
+      "subtitle" => subtitle || "",
+      "_sort"    => parse_date(pub),
+    }
+  end
+  posts.sort_by { |p| p["_sort"] || Time.at(0) }.reverse
+rescue StandardError => e
+  warn "  ! parse error: #{e.message}"
+  []
+end
+
+def fallback_from_projects(dir)
+  # Parse _projects/*.md for medium_url front matter
+  posts = []
+  Dir.glob(File.join(dir, "*.md")).each do |f|
+    content = File.read(f)
+    next unless content =~ /^medium_url:\s*["']?(https:[^\s"']+)["']?\s*$/
+
+    url = $1
+    title = content[/^title:\s*["']?(.+?)["']?\s*$/, 1] || File.basename(f, ".md")
+    date  = content[/^date:\s*(.+?)\s*$/, 1] || ""
+    excerpt = content[/^excerpt:\s*["']?(.+?)["']?\s*$/m, 1] || ""
+
+    posts << {
+      "title"    => title,
+      "url"      => url,
+      "date"     => date,
+      "subtitle" => excerpt,
+      "_sort"    => parse_date(date),
+    }
+  end
+  posts.sort_by { |p| p["_sort"] || Time.at(0) }.reverse
+rescue StandardError => e
+  warn "  ! fallback parse error: #{e.message}"
+  []
+end
+
+# --- Main ---
+
+puts "==> Fetching Medium posts for @#{MEDIUM_USER}..."
+
+xml = nil
+used_url = nil
+FEED_URLS.each do |url|
+  print "  - trying #{url}... "
+  xml = fetch_rss(url)
+  if xml
+    puts "ok (#{xml.length} bytes)"
+    used_url = url
+    break
+  else
+    puts "failed"
+  end
+end
+
+posts = if xml
+  parse_rss(xml)
+else
+  warn "  ! All RSS feeds failed. Falling back to _projects/ medium_url entries."
+  fallback_from_projects(PROJECTS_DIR)
+end
+
+if posts.empty?
+  warn "  ! No posts found. Keeping existing data file."
+  exit 0
+end
+
+puts "  Found #{posts.length} posts."
+
+# Strip internal sort key before writing to YAML
+posts.each { |p| p.delete("_sort") }
+
+data = {
+  "posts"      => posts,
+  "fetched_at" => Time.now.utc.iso8601,
+  "source"     => used_url || "fallback:_projects",
+}
+
+File.open(OUTPUT, "w") do |f|
+  f.puts "# Auto-generated by bin/sync-medium — do not edit by hand."
+  f.puts "# Medium posts fetched from #{used_url || 'fallback: _projects/*.md'}"
+  f.puts "# Last fetched: #{data['fetched_at']}"
+  f.puts "# To refresh: ruby bin/sync-medium"
+  f.puts
+  f.puts(data.to_yaml)
+end
+
+puts "  -> Written #{posts.length} posts to #{OUTPUT}"

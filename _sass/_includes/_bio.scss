@@ -1,0 +1,189 @@
+// Bio status indicator + scroll-reveal animations.
+// Vanilla CSS — no framer-motion. Paired with assets/js/scroll-reveal.js.
+
+// --- Bio status pill ---
+.bio-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 0.02em;
+}
+
+.bio-status__dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: bio-pulse 2s ease-in-out infinite;
+}
+
+.bio-status__text {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+@keyframes bio-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  50%      { opacity: 0.6; box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+
+// --- Scroll reveal ---
+// Elements with [data-animate] start hidden + shifted down;
+// .is-visible (added by IntersectionObserver) fades them in.
+[data-animate] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Respect reduced motion: show immediately, no transitions.
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// Stagger: direct children of .single content get incremental delays.
+// This creates a cascading reveal as sections enter the viewport.
+[data-animate]:nth-child(2)  { transition-delay: 0.05s; }
+[data-animate]:nth-child(3)  { transition-delay: 0.1s; }
+[data-animate]:nth-child(4)  { transition-delay: 0.15s; }
+[data-animate]:nth-child(5)  { transition-delay: 0.2s; }
+[data-animate]:nth-child(6)  { transition-delay: 0.25s; }
+
+// --- Link hover animation ---
+// Inline text links flip: black bg / white text on hover,
+// reverse (transparent bg / inherit text) on mouse-out.
+// Excludes nav, button, and image links — only inline content links.
+.single a:not(.button):not(.tag-link):not(.blog-post__image) {
+  position: relative;
+  background: transparent;
+  color: inherit;
+  padding: 0.1em 0.25em;
+  margin: 0 -0.25em;
+  border-radius: 0.2em;
+  border-bottom: 0.1em solid currentColor;
+  transition: background-color 0.25s ease, color 0.25s ease;
+
+  &:hover, &:focus {
+    background-color: #000;
+    color: #fff;
+    border-bottom-color: #fff;
+    text-decoration: none;
+  }
+}
+
+// --- Homepage section headings ---
+.medium-section, .posts-section {
+  margin-bottom: 3rem;
+}
+
+.medium-section__heading, .posts-section__heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+// --- Blog post reveal + hover lift ---
+.blog-post {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-post {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// --- Spotify podcast embed card ---
+.spotify-card {
+  max-width: 600px;
+  margin: 2em auto;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #000;
+    color: #fff;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: #1db954; // Spotify green
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__embed {
+    line-height: 0; // remove inline iframe gap
+    iframe {
+      display: block;
+      width: 100% !important;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotify-card {
+    transition: none;
+    &:hover { transform: none; }
+  }
+}
+
