@@ -134,3 +134,56 @@
   }
 }
 
+// --- Spotify podcast embed card ---
+.spotify-card {
+  max-width: 600px;
+  margin: 2em auto;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #000;
+    color: #fff;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: #1db954; // Spotify green
+  }
+
+  &__label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  &__embed {
+    line-height: 0; // remove inline iframe gap
+    iframe {
+      display: block;
+      width: 100% !important;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spotify-card {
+    transition: none;
+    &:hover { transform: none; }
+  }
+}
+

@@ -23,9 +23,8 @@ PS: Also exploring ***mechinterptability***.
 {% include medium-carousel.html %}
 
 ***Checkout my latest podcast !***
-<div style="display: flex; justify-content: center;">
-    <iframe src="https://open.spotify.com/embed/show/7bnalsMIGlbmQYZtqrf36d?t=0" width="80%" height="35%" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-</div>
+
+{% include spotify-embed.html %}
 
 
 
