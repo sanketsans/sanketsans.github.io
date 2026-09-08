@@ -73,7 +73,7 @@
 // Inline text links flip: black bg / white text on hover,
 // reverse (transparent bg / inherit text) on mouse-out.
 // Excludes nav, button, and image links — only inline content links.
-.single a:not(.button):not(.tag-link):not(.blog-post__image) {
+.single a:not(.button):not(.tag-link):not(.blog-post__image):not(.medium-carousel__slide-inner):not(.medium-carousel__link) {
   position: relative;
   background: transparent;
   color: inherit;
