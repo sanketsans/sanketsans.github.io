@@ -20,7 +20,7 @@ Areas of interest: ***post-training RL***, ***alignment***.
 <br>
 PS: Also exploring ***mechinterptability***.
 
-{% include medium-carousel.html %}
+{% include post-carousel.html %}
 
 ***Checkout my latest podcast !***
 

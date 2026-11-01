@@ -5,7 +5,9 @@ $pc-ease: cubic-bezier(0.16, 1, 0.3, 1);
 $pc-accent: #b48cde;
 
 .post-carousel {
-  margin-bottom: 3rem;
+  margin: 2.5rem 0 3rem;
+
+  &:first-child { margin-top: 0; }
 }
 
 .post-carousel__header {

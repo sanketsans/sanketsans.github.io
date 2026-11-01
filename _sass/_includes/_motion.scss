@@ -155,7 +155,7 @@ $ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 // --- Inline text links ---
 // Same selector as the base link style in _bio.scss. The border underline is
 // swapped for two background layers: [underline, ink fill].
-$text-link: ".single a:not(.button):not(.tag-link):not(.blog-post__image):not(.medium-carousel__slide-inner):not(.medium-carousel__link):not(.post-card__link)";
+$text-link: ".single a:not(.button):not(.tag-link):not(.blog-post__image):not(.post-card__link)";
 
 .motion #{$text-link} {
   border-bottom: 0;
