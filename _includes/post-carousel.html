@@ -1,0 +1,48 @@
+{%- comment -%}
+  Home page posts carousel — reads from _data/medium_posts.yml.
+  Scroll-snap track with drag, keyboard, and prev/next controls. Each card
+  gets a generative dot-art cover seeded by its index (no images needed).
+  Usage: {% include post-carousel.html %}
+{%- endcomment -%}
+{% assign cposts = site.data.medium_posts.posts %}
+{% if cposts.size > 0 %}
+<div class="post-carousel" data-animate>
+  <div class="post-carousel__header">
+    <h3 class="post-carousel__heading">From Medium</h3>
+    <div class="post-carousel__meta">
+      <span class="post-carousel__counter" aria-live="polite">
+        <span class="js-pc-current">01</span> / {{ cposts.size | prepend: '0' | slice: -2, 2 }}
+      </span>
+      <button class="post-carousel__btn js-pc-prev" aria-label="Previous post" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="post-carousel__btn js-pc-next" aria-label="Next post">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="post-carousel__track js-pc-track" tabindex="0" role="region" aria-label="Medium posts">
+    {% for post in cposts %}
+    <article class="post-card">
+      <a class="post-card__link" href="{{ post.url }}" target="_blank" rel="noopener noreferrer">
+        <div class="post-card__cover">
+          <canvas class="post-card__canvas" data-seed="{{ forloop.index }}" aria-hidden="true"></canvas>
+          <span class="post-card__index" aria-hidden="true">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+        </div>
+        <div class="post-card__body">
+          {% if post.date %}<span class="post-card__date">{{ post.date }}</span>{% endif %}
+          <h4 class="post-card__title">{{ post.title }}</h4>
+          {% if post.subtitle %}<p class="post-card__subtitle">{{ post.subtitle }}</p>{% endif %}
+          <span class="post-card__cta">Read on Medium <span aria-hidden="true">↗</span></span>
+        </div>
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="post-carousel__progress" aria-hidden="true"><span class="js-pc-bar"></span></div>
+</div>
+
+<script src="/assets/js/post-carousel.js"></script>
+{% endif %}
