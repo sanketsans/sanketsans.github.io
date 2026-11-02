@@ -32,7 +32,7 @@ Hit me up and lets make another ***podcast.***
 
 ## News [Updates]: <a id="updates"></a>
 
-***<b>Mar'27</b>** : Joined [Multiverse Computing](https://www.multiversecomputing.com) as LLM Research Engineer — working on post-training RL.
+***<b>Mar'26</b>** : Joined [Multiverse Computing](https://www.multiversecomputing.com) as LLM Research Engineer — working on post-training RL.
 
 ***<b>Jan'25</b>** : Joined [Frontera Health](https://fronterahealth.com/) as Applied Research Scientist.
 
