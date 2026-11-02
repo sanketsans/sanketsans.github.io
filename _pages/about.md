@@ -3,6 +3,10 @@ title: About
 subtitle: LLM Research Engineer
 description: LLM Research Engineer.
 featured_image: /img/sanket.jpg
+permalink: /
+redirect_from:
+  - /about
+  - /about.html
 ---
 
 <div class="bio-status" data-animate>
