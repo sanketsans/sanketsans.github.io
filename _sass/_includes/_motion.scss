@@ -1,0 +1,298 @@
+// Motion graphics layer — paired with assets/js/motion.js.
+// Styles only apply once JS adds `.motion` to <html>, so no-JS and
+// reduced-motion visitors get the static site untouched.
+
+$motion-accent: #b48cde;
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+// --- Dot grid canvas in the sidebar ---
+.dot-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  @include mq(tabletl) {
+    position: fixed;
+    right: auto;
+    width: 20rem;
+  }
+}
+
+// --- Film grain over the whole page ---
+.motion body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 0.9s steps(6) infinite;
+}
+
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-4%, 3%); }
+  40%  { transform: translate(3%, -5%); }
+  60%  { transform: translate(-6%, -2%); }
+  80%  { transform: translate(5%, 4%); }
+  100% { transform: translate(0, 0); }
+}
+
+// --- Site title: glitch on hover (chromatic aberration) ---
+.motion .header__title {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  transition: text-shadow 0.2s ease;
+
+  &:hover {
+    text-shadow: -2px 0 rgba(255, 0, 80, 0.7), 2px 0 rgba(0, 220, 255, 0.7);
+    animation: glitch-shift 0.35s steps(2) 2;
+  }
+}
+
+@keyframes glitch-shift {
+  0%   { transform: translate(0); }
+  50%  { transform: translate(-1px, 1px) skewX(-4deg); }
+  100% { transform: translate(1px, -1px); }
+}
+
+// --- Per-word slide-mask-in ---
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+}
+
+.word-mask__inner {
+  display: inline-block;
+  transform: translateY(110%) rotate(4deg);
+  transform-origin: left bottom;
+  opacity: 0;
+  transition: transform 0.9s $ease-out-expo, opacity 0.6s ease;
+}
+
+.is-split-in .word-mask__inner {
+  transform: none;
+  opacity: 1;
+}
+
+// Hero title uses a gradient text fill, so each word re-applies it.
+.motion .hero__title {
+  animation: none;
+
+  .word-mask__inner {
+    background: inherit;
+    -webkit-background-clip: text;
+            background-clip: text;
+  }
+}
+
+// --- Scroll progress bar ---
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 101;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(to right, $motion-accent, #4ade80);
+  box-shadow: 0 0 8px rgba(180, 140, 222, 0.6);
+}
+
+// --- Post cards: tilt + cursor spotlight ---
+.motion .blog-post {
+  position: relative;
+  // Keep the scroll-reveal slide (from _bio.scss) alongside the tilt.
+  transform: perspective(900px) translateY(var(--ty, 24px))
+             rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.6s $ease-out-expo, opacity 0.6s ease;
+
+  &.is-visible { --ty: 0px; }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1rem;
+    z-index: -1;
+    border-radius: 0.75rem;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(180, 140, 222, 0.14), transparent 70%);
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before { opacity: 1; }
+}
+
+// Image zoom + RGB split on hover
+.motion .blog-post__image {
+  transition: clip-path 1.1s $ease-out-expo, transform 0.6s $ease-out-expo, filter 0.3s ease;
+
+  &:hover {
+    transform: scale(1.015);
+    filter: drop-shadow(-3px 0 0 rgba(255, 0, 80, 0.35)) drop-shadow(3px 0 0 rgba(0, 220, 255, 0.35));
+  }
+}
+
+// --- Image mask reveals (iris + diagonal wipe) ---
+.motion .single img {
+  transition: clip-path 1.1s $ease-out-expo;
+}
+
+.mask-iris   { clip-path: circle(0% at 50% 50%); }
+.mask-diagonal { clip-path: polygon(0 0, 0 0, 0 0, 0 0); }
+
+.mask-iris.is-unmasked     { clip-path: circle(75% at 50% 50%); }
+.mask-diagonal.is-unmasked { clip-path: polygon(0 0, 200% 0, 0 200%, 0 0); }
+
+// --- Inline text links ---
+// Same selector as the base link style in _bio.scss. The border underline is
+// swapped for two background layers: [underline, ink fill].
+$text-link: ".single a:not(.button):not(.tag-link):not(.blog-post__image):not(.post-card__link)";
+
+.motion #{$text-link} {
+  border-bottom: 0;
+  background-color: transparent;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(#000, #000);
+  background-repeat: no-repeat;
+  background-position: 0 100%, 0 100%;
+  background-size: 100% 0.1em, 100% 0%;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  transition: background-size 0.45s $ease-out-expo, color 0.3s ease;
+
+  // Ink rises from the underline.
+  &:hover, &:focus-visible {
+    background-color: transparent;
+    background-size: 100% 0.1em, 100% 100%;
+    color: #fff;
+  }
+
+  // Off-site links: a small arrow fades in at the corner.
+  &[href^="http"]::after {
+    content: "↗";
+    position: absolute;
+    top: -0.55em;
+    right: -0.6em;
+    font-size: 0.65em;
+    font-weight: 600;
+    color: $motion-accent;
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: opacity 0.25s ease, transform 0.35s $ease-out-expo;
+    pointer-events: none;
+  }
+
+  &[href^="http"]:hover::after,
+  &[href^="http"]:focus-visible::after {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// Underlines draw left-to-right once their section scrolls into view.
+// Fill-mode `backwards` only holds the start frame during the delay, so
+// hover transitions work normally once the draw finishes.
+.motion [data-animate].is-visible #{$text-link} {
+  animation: link-draw 0.8s $ease-out-expo backwards;
+  animation-delay: calc(0.3s + var(--link-i, 0) * 0.06s);
+}
+
+@keyframes link-draw {
+  from { background-size: 0% 0.1em, 100% 0%; }
+  to   { background-size: 100% 0.1em, 100% 0%; }
+}
+
+// --- Sidebar photo as halftone (canvas draws it; hide the CSS image) ---
+.has-halftone .header-image--on { opacity: 0; }
+
+// --- Social buttons ---
+// Brand-colored ink rises from the bottom (like the text links), the button
+// leans toward the cursor, a label pops up, and siblings step back.
+.motion .header .socials__item {
+  position: relative;
+  // Staggered pop-in on load.
+  animation: social-in 0.6s $ease-out-expo backwards;
+  animation-delay: calc(0.5s + var(--i, 0) * 0.06s);
+
+  @for $n from 1 through 9 {
+    &:nth-child(#{$n}) { --i: #{$n - 1}; }
+  }
+}
+
+@keyframes social-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.6); }
+}
+
+.motion .header .socials__item__link {
+  --tx: 0px;
+  --ty: 0px;
+  overflow: hidden;
+  isolation: isolate;
+  transform: translate(var(--tx), var(--ty));
+  transition: transform 0.35s $ease-out-expo, color 0.3s ease, opacity 0.3s ease,
+              box-shadow 0.3s ease;
+
+  // The ink layer.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--brand);
+    transform: translateY(101%);
+    transition: transform 0.45s $ease-out-expo;
+  }
+
+  svg {
+    transition: transform 0.45s $ease-out-expo;
+  }
+
+  &:hover, &:focus-visible {
+    color: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12), 0 8px 20px -6px var(--brand);
+
+    &::before { transform: none; }
+    svg { transform: translate(-50%, -52%) scale(1.12) rotate(-8deg); }
+  }
+}
+
+// Popup label sits on the list item so the button's overflow doesn't clip it.
+.motion .header .socials__item::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.3rem;
+  background: #fff;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 6px);
+  transition: opacity 0.2s ease, transform 0.3s $ease-out-expo;
+}
+
+.motion .header .socials__item:hover::after,
+.motion .header .socials__item:focus-within::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+// Siblings step back while one is hovered.
+.motion .header .socials:hover .socials__item__link:not(:hover) {
+  opacity: 0.45;
+}
