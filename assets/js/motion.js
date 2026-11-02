@@ -182,6 +182,10 @@
     function run() {
       if (running) return;
       running = true;
+      // Glyphs are narrower/wider than the letters; lock the box so the link's
+      // hit area doesn't shrink mid-click (mousedown/up on different boxes).
+      el.style.width = el.getBoundingClientRect().width + "px";
+      el.style.whiteSpace = "nowrap";
       var start = performance.now(), dur = 700;
       (function tick(now) {
         var p = Math.min(1, (now - start) / dur);
@@ -192,7 +196,11 @@
         }
         el.textContent = out;
         if (p < 1) requestAnimationFrame(tick);
-        else { el.textContent = text; running = false; }
+        else {
+          el.textContent = text;
+          el.style.width = el.style.whiteSpace = "";
+          running = false;
+        }
       })(start);
     }
     run();
