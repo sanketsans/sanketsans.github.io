@@ -51,6 +51,7 @@ sass:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 paginate: 2
 paginate_path: "/project/page:num/"
