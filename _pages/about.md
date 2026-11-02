@@ -7,18 +7,18 @@ featured_image: /img/sanket.jpg
 
 <div class="bio-status" data-animate>
   <span class="bio-status__dot"></span>
-  <span class="bio-status__text">Currently: Post-training RL</span>
+  <span class="bio-status__text">Currently: RL post-training at scale</span>
 </div>
 
-I'm Sanket, an **LLM Research Engineer at [Multiverse Computing](https://www.multiversecomputing.com)**. I work on **post-training RL** — aligning foundation models with human preferences and task objectives through reinforcement learning.
+I'm Sanket, an **LLM Research Engineer at [Multiverse Computing](https://www.multiversecomputing.com)**. These days most of my time goes into **post-training LLMs with reinforcement learning** — shaping training data mixes and reward environments, running multi-node GPU training runs, and building evaluation pipelines to figure out what actually improved (and what the model quietly learned to game). I also work close to real-world use cases, adapting efficient models to domain-specific tasks.
 <br><br>
-Earlier, I finished my PhD at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primiarily focused on social interaction analysis for first person videos. 
+Earlier, I finished my PhD at PAVIS, Italian Institute of Technology under the supervision of Dr. Alessio Del Bue. During my research, I primarily focused on social interaction analysis for first person videos. 
 
 Previously, I have worked with <a href="https://www.bell-labs.com/our-research/future-x-vision/"><b>Nokia Bell Labs</b></a> ,  <a href="https://trezi.com"><b>SmartVizx</b></a> , <a href="https://www.ey.com/en_gl/wavespace/trivandrum"><b>Ernst and Young</b></a>  with their research teams. Besides, I had two startups during my college and filed two provisional patents. I have also been an active participant in technical communities and presented multiple technical talks and workshops at various level(s).
 
-Areas of interest: ***post-training RL***, ***alignment***.
+Areas of interest: ***RL for LLMs*** (RLVR, GRPO), ***reward modelling***, ***preference tuning*** (RLHF, DPO), ***evaluation*** and ***efficient models***.
 <br>
-PS: Also exploring ***mechinterptability***.
+PS: Also exploring ***mechanistic interpretability*** — and writing up what I learn along the way on Medium.
 
 {% include post-carousel.html %}
 
